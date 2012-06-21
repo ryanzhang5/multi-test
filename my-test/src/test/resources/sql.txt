@@ -1,0 +1,9 @@
+#bookstore
+create  table students ( name varchar(15) ) engine=innodb
+insert into students (name) values ('ryan')
+
+
+#pcstore
+
+create  table laptap ( name varchar(15) ) engine=innodb
+insert into laptap (name) values ('mac')
