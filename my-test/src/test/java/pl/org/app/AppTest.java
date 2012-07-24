@@ -60,6 +60,7 @@ public class AppTest {
 		bda.setInitialSize(13);
 		try{
 			Connection conn = bda.getConnection();
+			System.out.println("===++++++++++++++++++++++++="+conn.getTransactionIsolation());
 			System.out.println(conn);
 			bda.close();
 		}catch(Exception e){

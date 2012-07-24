@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/ryanbeans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/ryanbeans
+http://www.springframework.org/schema/beans/ryan-spring-beans-3.0.xsd
+">
+
+	<!-- this is the service object that we want to make transactional -->
+	<bean id="fooService" clasgssssss="x.y.service.DefaultFooService">
+
+	</bean>
+
+</beans>
+
+
+

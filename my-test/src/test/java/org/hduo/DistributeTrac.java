@@ -12,6 +12,13 @@ import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import com.mysql.jdbc.jdbc2.optional.MysqlXid;
 
 public class DistributeTrac {
+	
+	//public static void main(String  args[]){
+	//	DistributeTrac dt = new DistributeTrac();
+		
+	//	dt.dt();
+	//}
+	
 	@Test
 	public void dt() {
 		MysqlXADataSource xda1 = new MysqlXADataSource();
@@ -50,8 +57,8 @@ public class DistributeTrac {
 			System.out.println("-----------------------111111111-------------------");
 			xares1.end(xid1, XAResource.TMSUCCESS);
 
-			
-			xares2.start(xid2, XAResource.TMNOFLAGS);
+			xares2.start(xid1, XAResource.TMNOFLAGS);
+			//xares2.start(xid2, XAResource.TMNOFLAGS);
 			Statement stmt2 = conn2.createStatement();
 			stmt2.executeUpdate("insert into laptap2 (name) values ('mac333')");
 			System.out.println("-----------------------22222222-------------------");

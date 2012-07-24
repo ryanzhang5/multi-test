@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Artist BirthYear="1958" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.webucator.com/Artist" xsi:schemaLocation="http://www.webucator.com/Artist Artist.xsd">
+	<Name>
+		<Title>Mr.</Title>
+		<FirstName>Michael</FirstName>
+		<LastNames>Jackson</LastNames>
+	</Name>
+</Artist> 

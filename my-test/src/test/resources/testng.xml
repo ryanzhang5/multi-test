@@ -3,9 +3,9 @@
 	<parameter name="value" value="1.2" />
 	<test name="functionalTests">
 	   <classes>
-			<class name="org.spring.aop.ProxyTest" >
+			<class name="org.hduo.DistributeTrac" >
 				<methods>
-					<include name="introductionTest" />
+					<include name="dt" />
 				</methods>
 			</class>
 		</classes>

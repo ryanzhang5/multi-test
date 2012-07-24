@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="src/main/java/org/spring/xmlvalidation/order_schema.xsd">
+	<shipTo>
+		<name>Tove Svendson</name>
+		<street>Ragnhildvei 2</street>
+		<address>4000 Stavanger</address>
+		<country>Norway</country>
+	</shipTo>
+	<items>
+		<item>
+			<title>Empire Burlesque</title>
+			<quantity>1</quantity>
+			<price>10.90</price>
+		</item>
+
+	</items>
+</shipOrder>
