@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests">
+	<parameter name="value" value="1.2" />
+	<test name="functionalTests">
+	   <classes>
+			<class name="org.hduo.DistributeTrac" >
+				<methods>
+					<include name="dt" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

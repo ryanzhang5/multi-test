@@ -1,0 +1,1046 @@
+Apache Maven 3.0.3 (r1075438; 2011-03-01 01:31:09+0800)
+Maven home: /home/ryan/springsource/apache-maven-3.0.3
+Java version: 1.7.0_04, vendor: Oracle Corporation
+Java home: /home/ryan/jdk1.7.0_04/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.0.0-22-generic", arch: "i386", family: "unix"
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /home/ryan/springsource/apache-maven-3.0.3/conf/settings.xml
+[DEBUG] Reading user settings from /home/ryan/.m2/settings.xml
+[DEBUG] Using local repository at /home/ryan/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /home/ryan/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.hibernate.tutorial:hibernate-hbm:jar:0.0.1-SNAPSHOT: (none)
+[DEBUG] Looking up lifecyle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.hibernate.tutorial:hibernate-hbm:jar:0.0.1-SNAPSHOT
+[DEBUG] Tasks:   [test]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building hibernate-hbm 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.hibernate.tutorial:hibernate-hbm:0.0.1-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile, test]
+[DEBUG] Repositories (dependencies): [central (http://repo1.maven.org/maven2, releases)]
+[DEBUG] Repositories (plugins)     : [central (http://repo1.maven.org/maven2, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.4.3:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString default-value="${maven.resources.escapeString}"/>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <classpathElements default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.compileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedSourcesDirectory default-value="${project.build.directory}/generated-sources/annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <outputFileName>${project.build.finalName}</outputFileName>
+  <projectArtifact default-value="${project.artifact}"/>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <source default-value="1.5">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.5">${maven.compiler.target}</target>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.4.3:testResources (default-testResources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString default-value="${maven.resources.escapeString}"/>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources>${project.testResources}</resources>
+  <session default-value="${session}"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <classpathElements default-value="${project.testClasspathElements}"/>
+  <compileSourceRoots default-value="${project.testCompileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedTestSourcesDirectory default-value="${project.build.directory}/generated-sources/test-annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <outputFileName>${project.build.finalName}</outputFileName>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skip>${maven.test.skip}</skip>
+  <source default-value="1.5">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.5">${maven.compiler.target}</target>
+  <testSource>${maven.compiler.testSource}</testSource>
+  <testTarget>${maven.compiler.testTarget}</testTarget>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-surefire-plugin:2.7.2:test (default-test)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <argLine>${argLine}</argLine>
+  <basedir default-value="${basedir}"/>
+  <childDelegation default-value="false">${childDelegation}</childDelegation>
+  <classesDirectory default-value="${project.build.outputDirectory}"/>
+  <debugForkedProcess>${maven.surefire.debug}</debugForkedProcess>
+  <disableXmlReport default-value="false">${disableXmlReport}</disableXmlReport>
+  <enableAssertions default-value="true">${enableAssertions}</enableAssertions>
+  <excludedGroups>${excludedGroups}</excludedGroups>
+  <failIfNoTests>${failIfNoTests}</failIfNoTests>
+  <forkMode default-value="once">${forkMode}</forkMode>
+  <forkedProcessTimeoutInSeconds>${surefire.timeout}</forkedProcessTimeoutInSeconds>
+  <groups>${groups}</groups>
+  <junitArtifactName default-value="junit:junit">${junitArtifactName}</junitArtifactName>
+  <jvm>${jvm}</jvm>
+  <localRepository>${localRepository}</localRepository>
+  <objectFactory>${objectFactory}</objectFactory>
+  <parallel>${parallel}</parallel>
+  <parallelMavenExecution default-value="${session.parallel}"/>
+  <perCoreThreadCount default-value="true">${perCoreThreadCount}</perCoreThreadCount>
+  <pluginArtifactMap>${plugin.artifactMap}</pluginArtifactMap>
+  <printSummary default-value="true">${surefire.printSummary}</printSummary>
+  <project default-value="${project}"/>
+  <projectArtifactMap>${project.artifactMap}</projectArtifactMap>
+  <redirectTestOutputToFile default-value="false">${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
+  <remoteRepositories>${project.pluginArtifactRepositories}</remoteRepositories>
+  <reportFormat default-value="brief">${surefire.reportFormat}</reportFormat>
+  <reportsDirectory default-value="${project.build.directory}/surefire-reports"/>
+  <runOrder default-value="filesystem"/>
+  <session>${session}</session>
+  <skip default-value="false">${maven.test.skip}</skip>
+  <skipExec>${maven.test.skip.exec}</skipExec>
+  <skipTests default-value="false">${skipTests}</skipTests>
+  <test>${test}</test>
+  <testClassesDirectory default-value="${project.build.testOutputDirectory}"/>
+  <testFailureIgnore default-value="false">${maven.test.failure.ignore}</testFailureIgnore>
+  <testNGArtifactName default-value="org.testng:testng">${testNGArtifactName}</testNGArtifactName>
+  <testSourceDirectory default-value="${project.build.testSourceDirectory}"/>
+  <threadCount>${threadCount}</threadCount>
+  <trimStackTrace default-value="true">${trimStackTrace}</trimStackTrace>
+  <useFile default-value="true">${surefire.useFile}</useFile>
+  <useManifestOnlyJar default-value="true">${surefire.useManifestOnlyJar}</useManifestOnlyJar>
+  <useSystemClassLoader default-value="true">${surefire.useSystemClassLoader}</useSystemClassLoader>
+  <useUnlimitedThreads default-value="false">${useUnlimitedThreads}</useUnlimitedThreads>
+  <workingDirectory>${basedir}</workingDirectory>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] org.hibernate.tutorial:hibernate-hbm:jar:0.0.1-SNAPSHOT
+[DEBUG]    org.hibernate:hibernate-core:jar:4.1.5.Final:compile
+[DEBUG]       antlr:antlr:jar:2.7.7:compile
+[DEBUG]       org.jboss.logging:jboss-logging:jar:3.1.0.GA:compile
+[DEBUG]       org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:jar:1.0.0.Final:compile
+[DEBUG]       dom4j:dom4j:jar:1.6.1:compile
+[DEBUG]       org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final:compile
+[DEBUG]       org.javassist:javassist:jar:3.15.0-GA:compile
+[DEBUG]       org.hibernate.common:hibernate-commons-annotations:jar:4.0.1.Final:compile
+[DEBUG]    junit:junit:jar:3.8.1:test
+[DEBUG]    log4j:log4j:jar:1.2.17:compile
+[DEBUG]    mysql:mysql-connector-java:jar:5.1.20:compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ hibernate-hbm ---
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.transfer < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.metadata < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.collection < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.version < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.artifact < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.spi < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.graph < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.impl < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.deployment < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.installation < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.resolution < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:2.4.3:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]       junit:junit:jar:3.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:1.0-beta-4:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.13:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.3
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.3
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.3
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:2.4.3
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:1.0-beta-4
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.13
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.4.3:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.3, parent: sun.misc.Launcher$AppClassLoader@d420eb]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.4.3:resources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: org.hibernate.tutorial:hibernate-hbm:0.0.1-SNAPSHOT @ /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a238d1
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {java.vendor=Oracle Corporation, env.SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1549,unix/ubuntu:/tmp/.ICE-unix/1549, env.LESSOPEN=| /usr/bin/lesspipe %s, sun.java.launcher=SUN_STANDARD, sun.management.compiler=HotSpot Tiered Compilers, os.name=Linux, sun.boot.class.path=/home/ryan/jdk1.7.0_04/jre/lib/resources.jar:/home/ryan/jdk1.7.0_04/jre/lib/rt.jar:/home/ryan/jdk1.7.0_04/jre/lib/sunrsasign.jar:/home/ryan/jdk1.7.0_04/jre/lib/jsse.jar:/home/ryan/jdk1.7.0_04/jre/lib/jce.jar:/home/ryan/jdk1.7.0_04/jre/lib/charsets.jar:/home/ryan/jdk1.7.0_04/jre/lib/jfr.jar:/home/ryan/jdk1.7.0_04/jre/classes, env.PWD=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, env.XDG_SESSION_COOKIE=5cd34e57df448159437c79480000000b-1344482750.397338-600495239, sun.desktop=gnome, env.LANG=en_US.UTF-8, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.7.0_04-b20, env.DEFAULTS_PATH=/usr/share/gconf/gnome-classic.default.path, project.build.sourceEncoding=UTF-8, env.DISPLAY=:0.0, user.name=ryan, env._=/home/ryan/springsource/apache-maven-3.0.3/bin/mvn, env.USER=ryan, env.SHELL=/bin/bash, env.DESKTOP_SESSION=gnome-classic, env.XDG_DATA_DIRS=/usr/share/gnome-classic:/usr/share/gnome:/usr/local/share/:/usr/share/, env.NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, env.PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/ryan/jdk1.7.0_04/bin:/home/ryan/springsource/apache-maven-3.0.3/bin:/home/ryan/apache-ant-1.8.4/bin, env.XDG_CURRENT_DESKTOP=GNOME, user.language=en, sun.boot.library.path=/home/ryan/jdk1.7.0_04/jre/lib/i386, classworlds.conf=/home/ryan/springsource/apache-maven-3.0.3/bin/m2.conf, java.version=1.7.0_04, user.timezone=Asia/Shanghai, env.DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dsCF4fsNFY,guid=487567cb39cdf452c1961c9800000065, sun.arch.data.model=32, env.SSH_AGENT_PID=1583, java.endorsed.dirs=/home/ryan/jdk1.7.0_04/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, env.SHLVL=1, file.separator=/, java.specification.name=Java Platform API Specification, env.GNOME_DESKTOP_SESSION_ID=this-is-deprecated, java.class.version=51.0, env.GDMSESSION=gnome-classic, user.country=US, env.GNOME_KEYRING_PID=1540, java.home=/home/ryan/jdk1.7.0_04/jre, java.vm.info=mixed mode, env.LOGNAME=ryan, os.version=3.0.0-22-generic, path.separator=:, java.vm.version=23.0-b21, env.XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0, env.JAVA_HOME=/home/ryan/jdk1.7.0_04, java.awt.printerjob=sun.print.PSPrinterJob, env.TERM=xterm, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.X11.XToolkit, user.home=/home/ryan, env.OLDPWD=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, java.specification.vendor=Oracle Corporation, env.WINDOWID=60817412, java.library.path=/usr/java/packages/lib/i386:/lib:/usr/lib, java.vendor.url=http://java.oracle.com/, java.vm.vendor=Oracle Corporation, maven.home=/home/ryan/springsource/apache-maven-3.0.3, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -debug test, java.class.path=/home/ryan/springsource/apache-maven-3.0.3/boot/plexus-classworlds-2.4.jar, env.JBOSS_HOME=/home/ryan/jboss-5.1.0.GA, env.UBUNTU_MENUPROXY=libappmenu.so, env.XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.7, sun.cpu.endian=little, sun.os.patch.level=unknown, env.HOME=/home/ryan, env.ANT_HOME=/home/ryan/apache-ant-1.8.4, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:, env.XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0, java.io.tmpdir=/tmp, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, env.SSH_AUTH_SOCK=/tmp/keyring-K23p2A/ssh, os.arch=i386, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.ext.dirs=/home/ryan/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext, env.MAVEN_HOME=/home/ryan/springsource/apache-maven-3.0.3, env.XAUTHORITY=/home/ryan/.Xauthority, user.dir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, env.MANDATORY_PATH=/usr/share/gconf/gnome-classic.mandatory.path, env.GTK_MODULES=canberra-gtk-module:canberra-gtk-module, line.separator=
+, java.vm.name=Java HotSpot(TM) Server VM, env.COLORTERM=gnome-terminal, env.USERNAME=ryan, file.encoding=UTF-8, env.GPG_AGENT_INFO=/tmp/keyring-K23p2A/gpg:0:1, java.specification.version=1.7, env.GNOME_KEYRING_CONTROL=/tmp/keyring-K23p2A, env.XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome-classic:/etc/xdg, env.LESSCLOSE=/usr/bin/lesspipe %s %s}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
+[INFO] Copying 2 resources
+[DEBUG] file Event.hbm.xml has a filtered file extension
+[DEBUG] copy /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/resources/Event.hbm.xml to /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes/Event.hbm.xml
+[DEBUG] file log4j.xml has a filtered file extension
+[DEBUG] copy /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/resources/log4j.xml to /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes/log4j.xml
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ hibernate-hbm ---
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:2.3.2:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-toolchain:jar:1.0:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:1.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:1.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:1.8.1:runtime
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:2.3.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:1.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:1.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:1.8.1
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-toolchain:jar:1.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2, parent: sun.misc.Launcher$AppClassLoader@d420eb]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile' with basic configurator -->
+[DEBUG]   (f) basedir = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm
+[DEBUG]   (f) buildDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target
+[DEBUG]   (f) classpathElements = [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes, /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar, /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar, /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar, /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar, /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar, /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar, /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedSourcesDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/generated-sources/annotations
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]   (f) outputFileName = hibernate-hbm-0.0.1-SNAPSHOT
+[DEBUG]   (f) projectArtifact = org.hibernate.tutorial:hibernate-hbm:jar:0.0.1-SNAPSHOT
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a238d1
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) source = 1.5
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.5
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java]
+[DEBUG] Classpath: [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+ /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar
+ /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+ /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+ /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+ /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+ /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+ /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+ /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+ /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+ /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar]
+[DEBUG] Output directory: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG] Classpath:
+[DEBUG]  /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+[DEBUG]  /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+[DEBUG]  /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+[DEBUG]  /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar
+[DEBUG] Source roots:
+[DEBUG]  /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java
+[DEBUG] Command line options:
+[DEBUG] -d /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes -classpath /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar: -sourcepath /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java/org/hibernate/tutorial/hbm/App.java /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java/org/hibernate/tutorial/hbm/Event.java /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/main/java/org/hibernate/hbm/App.java -g -nowarn -target 1.5 -source 1.5 -encoding UTF-8
+[INFO] Compiling 3 source files to /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ hibernate-hbm ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.4.3:testResources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.3, parent: sun.misc.Launcher$AppClassLoader@d420eb]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.4.3:testResources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: org.hibernate.tutorial:hibernate-hbm:0.0.1-SNAPSHOT @ /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a238d1
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {java.vendor=Oracle Corporation, env.SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1549,unix/ubuntu:/tmp/.ICE-unix/1549, env.LESSOPEN=| /usr/bin/lesspipe %s, sun.java.launcher=SUN_STANDARD, sun.management.compiler=HotSpot Tiered Compilers, os.name=Linux, sun.boot.class.path=/home/ryan/jdk1.7.0_04/jre/lib/resources.jar:/home/ryan/jdk1.7.0_04/jre/lib/rt.jar:/home/ryan/jdk1.7.0_04/jre/lib/sunrsasign.jar:/home/ryan/jdk1.7.0_04/jre/lib/jsse.jar:/home/ryan/jdk1.7.0_04/jre/lib/jce.jar:/home/ryan/jdk1.7.0_04/jre/lib/charsets.jar:/home/ryan/jdk1.7.0_04/jre/lib/jfr.jar:/home/ryan/jdk1.7.0_04/jre/classes, env.PWD=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, env.XDG_SESSION_COOKIE=5cd34e57df448159437c79480000000b-1344482750.397338-600495239, sun.desktop=gnome, env.LANG=en_US.UTF-8, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.7.0_04-b20, env.DEFAULTS_PATH=/usr/share/gconf/gnome-classic.default.path, project.build.sourceEncoding=UTF-8, env.DISPLAY=:0.0, user.name=ryan, env._=/home/ryan/springsource/apache-maven-3.0.3/bin/mvn, env.USER=ryan, env.SHELL=/bin/bash, env.DESKTOP_SESSION=gnome-classic, env.XDG_DATA_DIRS=/usr/share/gnome-classic:/usr/share/gnome:/usr/local/share/:/usr/share/, env.NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, env.PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/ryan/jdk1.7.0_04/bin:/home/ryan/springsource/apache-maven-3.0.3/bin:/home/ryan/apache-ant-1.8.4/bin, env.XDG_CURRENT_DESKTOP=GNOME, user.language=en, sun.boot.library.path=/home/ryan/jdk1.7.0_04/jre/lib/i386, classworlds.conf=/home/ryan/springsource/apache-maven-3.0.3/bin/m2.conf, java.version=1.7.0_04, user.timezone=Asia/Shanghai, env.DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dsCF4fsNFY,guid=487567cb39cdf452c1961c9800000065, sun.arch.data.model=32, env.SSH_AGENT_PID=1583, java.endorsed.dirs=/home/ryan/jdk1.7.0_04/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, env.SHLVL=1, file.separator=/, java.specification.name=Java Platform API Specification, env.GNOME_DESKTOP_SESSION_ID=this-is-deprecated, java.class.version=51.0, env.GDMSESSION=gnome-classic, user.country=US, env.GNOME_KEYRING_PID=1540, java.home=/home/ryan/jdk1.7.0_04/jre, java.vm.info=mixed mode, env.LOGNAME=ryan, os.version=3.0.0-22-generic, path.separator=:, java.vm.version=23.0-b21, env.XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0, env.JAVA_HOME=/home/ryan/jdk1.7.0_04, java.awt.printerjob=sun.print.PSPrinterJob, env.TERM=xterm, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.X11.XToolkit, user.home=/home/ryan, env.OLDPWD=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, java.specification.vendor=Oracle Corporation, env.WINDOWID=60817412, java.library.path=/usr/java/packages/lib/i386:/lib:/usr/lib, java.vendor.url=http://java.oracle.com/, java.vm.vendor=Oracle Corporation, maven.home=/home/ryan/springsource/apache-maven-3.0.3, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -debug test, java.class.path=/home/ryan/springsource/apache-maven-3.0.3/boot/plexus-classworlds-2.4.jar, env.JBOSS_HOME=/home/ryan/jboss-5.1.0.GA, env.UBUNTU_MENUPROXY=libappmenu.so, env.XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.7, sun.cpu.endian=little, sun.os.patch.level=unknown, env.HOME=/home/ryan, env.ANT_HOME=/home/ryan/apache-ant-1.8.4, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:, env.XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0, java.io.tmpdir=/tmp, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, env.SSH_AUTH_SOCK=/tmp/keyring-K23p2A/ssh, os.arch=i386, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.ext.dirs=/home/ryan/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext, env.MAVEN_HOME=/home/ryan/springsource/apache-maven-3.0.3, env.XAUTHORITY=/home/ryan/.Xauthority, user.dir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, env.MANDATORY_PATH=/usr/share/gconf/gnome-classic.mandatory.path, env.GTK_MODULES=canberra-gtk-module:canberra-gtk-module, line.separator=
+, java.vm.name=Java HotSpot(TM) Server VM, env.COLORTERM=gnome-terminal, env.USERNAME=ryan, file.encoding=UTF-8, env.GPG_AGENT_INFO=/tmp/keyring-K23p2A/gpg:0:1, java.specification.version=1.7, env.GNOME_KEYRING_CONTROL=/tmp/keyring-K23p2A, env.XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome-classic:/etc/xdg, env.LESSCLOSE=/usr/bin/lesspipe %s %s}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
+[INFO] Copying 1 resource
+[DEBUG] file hibernate.cfg.xml has a filtered file extension
+[DEBUG] copy /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/resources/hibernate.cfg.xml to /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes/hibernate.cfg.xml
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ hibernate-hbm ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2, parent: sun.misc.Launcher$AppClassLoader@d420eb]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile' with basic configurator -->
+[DEBUG]   (f) basedir = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm
+[DEBUG]   (f) buildDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target
+[DEBUG]   (f) classpathElements = [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes, /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes, /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar, /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar, /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar, /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar, /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar, /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar, /home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar, /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedTestSourcesDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/generated-sources/test-annotations
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG]   (f) outputFileName = hibernate-hbm-0.0.1-SNAPSHOT
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a238d1
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) source = 1.5
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.5
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java]
+[DEBUG] Classpath: [/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+ /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+ /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar
+ /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+ /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+ /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+ /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+ /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+ /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+ /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+ /home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+ /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+ /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar]
+[DEBUG] Output directory: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG] Classpath:
+[DEBUG]  /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG]  /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+[DEBUG]  /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+[DEBUG]  /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+[DEBUG]  /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+[DEBUG]  /home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[DEBUG]  /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+[DEBUG]  /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar
+[DEBUG] Source roots:
+[DEBUG]  /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java
+[DEBUG] Command line options:
+[DEBUG] -d /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes -classpath /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes:/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar: -sourcepath /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java/org/hibernate/hbm/AppTest.java /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java/org/hibernate/tutorial/hbm/NativeApiIllustrationTest.java -g -nowarn -target 1.5 -source 1.5 -encoding UTF-8
+[INFO] Compiling 2 source files to /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ hibernate-hbm ---
+[DEBUG] org.apache.maven.plugins:maven-surefire-plugin:jar:2.7.2:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.9:compile
+[DEBUG]    org.apache.maven.surefire:surefire-booter:jar:2.7.2:compile
+[DEBUG]       org.apache.maven.surefire:surefire-api:jar:2.7.2:compile
+[DEBUG]    org.apache.maven.surefire:maven-surefire-common:jar:2.7.2:compile
+[DEBUG]       org.apache.maven.shared:maven-common-artifact-filters:jar:1.3:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.9:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:test (scope managed from compile)
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.9:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-toolchain:jar:2.0.9:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.7.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.7.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.7.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-surefire-plugin:jar:2.7.2
+[DEBUG]   Included: org.apache.maven.surefire:surefire-booter:jar:2.7.2
+[DEBUG]   Included: org.apache.maven.surefire:surefire-api:jar:2.7.2
+[DEBUG]   Included: org.apache.maven.surefire:maven-surefire-common:jar:2.7.2
+[DEBUG]   Included: org.apache.maven.shared:maven-common-artifact-filters:jar:1.3
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.9
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: junit:junit:jar:3.8.1
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.9
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-toolchain:jar:2.0.9
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-surefire-plugin:2.7.2:test from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-surefire-plugin:2.7.2, parent: sun.misc.Launcher$AppClassLoader@d420eb]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-surefire-plugin:2.7.2:test' with basic configurator -->
+[DEBUG]   (s) basedir = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm
+[DEBUG]   (s) childDelegation = false
+[DEBUG]   (s) classesDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]   (s) disableXmlReport = false
+[DEBUG]   (s) enableAssertions = true
+[DEBUG]   (s) forkMode = once
+[DEBUG]   (s) junitArtifactName = junit:junit
+[DEBUG]   (s) localRepository =        id: local
+      url: file:///home/ryan/.m2/repository/
+   layout: none
+
+[DEBUG]   (f) parallelMavenExecution = false
+[DEBUG]   (s) perCoreThreadCount = true
+[DEBUG]   (s) pluginArtifactMap = {org.apache.maven.plugins:maven-surefire-plugin=org.apache.maven.plugins:maven-surefire-plugin:maven-plugin:2.7.2:, org.apache.maven.surefire:surefire-booter=org.apache.maven.surefire:surefire-booter:jar:2.7.2:compile, org.apache.maven.surefire:surefire-api=org.apache.maven.surefire:surefire-api:jar:2.7.2:compile, org.apache.maven.surefire:maven-surefire-common=org.apache.maven.surefire:maven-surefire-common:jar:2.7.2:compile, org.apache.maven.shared:maven-common-artifact-filters=org.apache.maven.shared:maven-common-artifact-filters:jar:1.3:compile, org.codehaus.plexus:plexus-utils=org.codehaus.plexus:plexus-utils:jar:2.0.5:compile, org.apache.maven.reporting:maven-reporting-api=org.apache.maven.reporting:maven-reporting-api:jar:2.0.9:compile}
+[DEBUG]   (s) printSummary = true
+[DEBUG]   (s) project = MavenProject: org.hibernate.tutorial:hibernate-hbm:0.0.1-SNAPSHOT @ /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/pom.xml
+[DEBUG]   (s) projectArtifactMap = {org.hibernate:hibernate-core=org.hibernate:hibernate-core:jar:4.1.5.Final:compile, antlr:antlr=antlr:antlr:jar:2.7.7:compile, org.jboss.logging:jboss-logging=org.jboss.logging:jboss-logging:jar:3.1.0.GA:compile, org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec=org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:jar:1.0.0.Final:compile, dom4j:dom4j=dom4j:dom4j:jar:1.6.1:compile, org.hibernate.javax.persistence:hibernate-jpa-2.0-api=org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final:compile, org.javassist:javassist=org.javassist:javassist:jar:3.15.0-GA:compile, org.hibernate.common:hibernate-commons-annotations=org.hibernate.common:hibernate-commons-annotations:jar:4.0.1.Final:compile, junit:junit=junit:junit:jar:3.8.1:test, log4j:log4j=log4j:log4j:jar:1.2.17:compile, mysql:mysql-connector-java=mysql:mysql-connector-java:jar:5.1.20:compile}
+[DEBUG]   (s) redirectTestOutputToFile = false
+[DEBUG]   (s) remoteRepositories = [       id: central
+      url: http://repo1.maven.org/maven2
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => never]
+]
+[DEBUG]   (s) reportFormat = brief
+[DEBUG]   (s) reportsDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire-reports
+[DEBUG]   (s) runOrder = filesystem
+[DEBUG]   (s) session = org.apache.maven.execution.MavenSession@a238d1
+[DEBUG]   (s) skip = false
+[DEBUG]   (s) skipTests = false
+[DEBUG]   (s) testClassesDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG]   (s) testFailureIgnore = false
+[DEBUG]   (s) testNGArtifactName = org.testng:testng
+[DEBUG]   (s) testSourceDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/src/test/java
+[DEBUG]   (s) trimStackTrace = true
+[DEBUG]   (s) useFile = true
+[DEBUG]   (s) useManifestOnlyJar = true
+[DEBUG]   (s) useSystemClassLoader = true
+[DEBUG]   (s) useUnlimitedThreads = false
+[DEBUG]   (s) workingDirectory = /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm
+[DEBUG] -- end configuration --
+[INFO] Surefire report directory: /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire-reports
+[DEBUG] Setting system property [user.dir]=[/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm]
+[DEBUG] Setting system property [localRepository]=[/home/ryan/.m2/repository]
+[DEBUG] Setting system property [basedir]=[/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm]
+[DEBUG] Using JVM: /home/ryan/jdk1.7.0_04/jre/bin/java
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-booter:jar:2.7.2:compile (selected for compile)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.2:compile (selected for compile)
+[DEBUG] Adding to surefire booter test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-booter/2.7.2/surefire-booter-2.7.2.jar Scope: compile
+[DEBUG] Adding to surefire booter test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.2/surefire-api-2.7.2.jar Scope: compile
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-junit3:jar:2.7.2:test (selected for test)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.2:test (selected for test)
+[DEBUG] Adding to surefire test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.7.2/surefire-junit3-2.7.2.jar Scope: test
+[DEBUG] Adding to surefire test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.2/surefire-api-2.7.2.jar Scope: test
+[DEBUG] Test Classpath :
+[DEBUG]   /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes
+[DEBUG]   /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes
+[DEBUG]   /home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar
+[DEBUG]   /home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+[DEBUG]   /home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+[DEBUG]   /home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+[DEBUG]   /home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+[DEBUG]   /home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+[DEBUG]   /home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+[DEBUG]   /home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+[DEBUG]   /home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[DEBUG]   /home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+[DEBUG]   /home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-booter:jar:2.7.2:compile (selected for compile)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.2:compile (selected for compile)
+[DEBUG] Adding to surefire booter test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-booter/2.7.2/surefire-booter-2.7.2.jar Scope: compile
+[DEBUG] Adding to surefire booter test classpath: /home/ryan/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.2/surefire-api-2.7.2.jar Scope: compile
+Forking command line: /bin/sh -c cd /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm && /home/ryan/jdk1.7.0_04/jre/bin/java -jar /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefirebooter940723686339259545.jar /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire8194680175006065048tmp /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire1107672964110183131tmp
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.hibernate.tutorial.hbm.NativeApiIllustrationTest
+DEBUG: org.jboss.logging - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@19c8466
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@19c8466
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@19c8466
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@9f45f4
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@5ca9fd
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@9f4bec
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@132f43d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@132f43d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@132f43d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@13e5013
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@13e5013
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@13e5013
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@159c7f2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@159c7f2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@159c7f2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@16a1a66
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@16a1a66
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@16a1a66
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@d31619
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@d31619
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@d31619
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@13382af
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@13382af
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@13382af
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@12cdb01
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@12cdb01
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@12cdb01
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@30b652
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@30b652
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@e819b3
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@e819b3
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@101614a
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@101614a
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@1ad1d2c
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@1ad1d2c
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@a92a58
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@a92a58
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@84c71b
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@84c71b
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@c7cee9
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@c7cee9
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@c7cee9
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@1da5d7
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@26a0ba
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@26a0ba
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@26a0ba
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@5231c4
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@1411c67
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@1411c67
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@199f7c6
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@199f7c6
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@3c78e1
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@3c78e1
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@6b282d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@6b282d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@1160d8e
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@1160d8e
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@18cc276
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@8ebcab
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@9794d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@9794d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@9794d
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@812862
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@812862
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@812862
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@14ce181
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@a23ce2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@a23ce2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@a23ce2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@12bd56c
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@12bd56c
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@12bd56c
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@1882554
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@8afd65
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@8afd65
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@134c210
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@109cdd5
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@109cdd5
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@13d740f
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@1769b56
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@1a3c06e
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@1a3c06e
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@2ae278
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@17a5010
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@11e67eb
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@1387c07
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@156d418
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@17e9b52
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@10765e2
+DEBUG: org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@b201fd
+INFO : org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO : org.hibernate.Version - HHH000412: Hibernate Core {4.1.5.Final}
+INFO : org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+INFO : org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [hilo] -> [org.hibernate.id.TableHiLoGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+INFO : org.hibernate.cfg.Configuration - HHH000043: Configuring from resource: /hibernate.cfg.xml
+INFO : org.hibernate.cfg.Configuration - HHH000040: Configuration resource: /hibernate.cfg.xml
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Trying to resolve system-id [http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd]
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Recognized hibernate namespace; attempting to resolve on classpath under org/hibernate/
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Located [http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd] in classpath
+DEBUG: org.hibernate.cfg.Configuration - connection.driver_class=com.mysql.jdbc.Driver
+DEBUG: org.hibernate.cfg.Configuration - connection.url=jdbc:mysql://localhost:3306/hibernate
+DEBUG: org.hibernate.cfg.Configuration - connection.username=root
+DEBUG: org.hibernate.cfg.Configuration - connection.password=123456
+DEBUG: org.hibernate.cfg.Configuration - connection.pool_size=3
+DEBUG: org.hibernate.cfg.Configuration - dialect=org.hibernate.dialect.MySQLDialect
+DEBUG: org.hibernate.cfg.Configuration - cache.provider_class=org.hibernate.cache.internal.NoCacheProvider
+DEBUG: org.hibernate.cfg.Configuration - show_sql=true
+DEBUG: org.hibernate.cfg.Configuration - hbm2ddl.auto=create
+DEBUG: org.hibernate.cfg.Configuration - Session-factory config [null] named resource [Event.hbm.xml] for mapping
+INFO : org.hibernate.cfg.Configuration - HHH000221: Reading mappings from resource: Event.hbm.xml
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Trying to resolve system-id [http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd]
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Recognized hibernate namespace; attempting to resolve on classpath under org/hibernate/
+DEBUG: org.hibernate.internal.util.xml.DTDEntityResolver - Located [http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd] in classpath
+INFO : org.hibernate.cfg.Configuration - HHH000041: Configured SessionFactory: null
+DEBUG: org.hibernate.cfg.Configuration - Properties: {show_sql=true, java.vendor=Oracle Corporation, localRepository=/home/ryan/.m2/repository, sun.java.launcher=SUN_STANDARD, hibernate.connection.url=jdbc:mysql://localhost:3306/hibernate, sun.management.compiler=HotSpot Tiered Compilers, hbm2ddl.auto=create, os.name=Linux, sun.boot.class.path=/home/ryan/jdk1.7.0_04/jre/lib/resources.jar:/home/ryan/jdk1.7.0_04/jre/lib/rt.jar:/home/ryan/jdk1.7.0_04/jre/lib/sunrsasign.jar:/home/ryan/jdk1.7.0_04/jre/lib/jsse.jar:/home/ryan/jdk1.7.0_04/jre/lib/jce.jar:/home/ryan/jdk1.7.0_04/jre/lib/charsets.jar:/home/ryan/jdk1.7.0_04/jre/lib/jfr.jar:/home/ryan/jdk1.7.0_04/jre/classes, sun.desktop=gnome, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.7.0_04-b20, hibernate.cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, user.name=ryan, connection.driver_class=com.mysql.jdbc.Driver, user.language=en, sun.boot.library.path=/home/ryan/jdk1.7.0_04/jre/lib/i386, dialect=org.hibernate.dialect.MySQLDialect, java.version=1.7.0_04, user.timezone=, sun.arch.data.model=32, java.endorsed.dirs=/home/ryan/jdk1.7.0_04/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, file.separator=/, java.specification.name=Java Platform API Specification, java.class.version=51.0, user.country=US, connection.url=jdbc:mysql://localhost:3306/hibernate, java.home=/home/ryan/jdk1.7.0_04/jre, java.vm.info=mixed mode, os.version=3.0.0-22-generic, surefire.real.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefirebooter940723686339259545.jar, path.separator=:, connection.password=123456, java.vm.version=23.0-b21, hibernate.connection.password=123456, java.awt.printerjob=sun.print.PSPrinterJob, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.X11.XToolkit, hibernate.connection.username=root, user.home=/home/ryan, java.specification.vendor=Oracle Corporation, hibernate.hbm2ddl.auto=create, java.library.path=/usr/java/packages/lib/i386:/lib:/usr/lib, java.vendor.url=http://java.oracle.com/, hibernate.connection.driver_class=com.mysql.jdbc.Driver, connection.username=root, java.vm.vendor=Oracle Corporation, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefirebooter940723686339259545.jar /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire8194680175006065048tmp /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire1107672964110183131tmp, java.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes:/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar:, hibernate.bytecode.use_reflection_optimizer=false, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.7, sun.cpu.endian=little, sun.os.patch.level=unknown, surefire.test.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes:/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar:, connection.pool_size=3, java.io.tmpdir=/tmp, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, os.arch=i386, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.ext.dirs=/home/ryan/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext, user.dir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, line.separator=
+, java.vm.name=Java HotSpot(TM) Server VM, basedir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, file.encoding=UTF-8, java.specification.version=1.7, hibernate.show_sql=true, hibernate.connection.pool_size=3}
+DEBUG: org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+DEBUG: org.hibernate.cfg.Configuration - Preparing to build session factory with filters : {}
+DEBUG: org.hibernate.cfg.Configuration - Processing hbm.xml files
+DEBUG: org.hibernate.cfg.HbmBinder - Mapping class: org.hibernate.tutorial.hbm.Event -> EVENTS
+DEBUG: org.hibernate.cfg.HbmBinder - Mapped property: id -> EVENT_ID
+DEBUG: org.hibernate.cfg.HbmBinder - Mapped property: date -> EVENT_DATE
+DEBUG: org.hibernate.cfg.HbmBinder - Mapped property: title -> title
+DEBUG: org.hibernate.cfg.Configuration - Process annotated classes
+DEBUG: org.hibernate.cfg.Configuration - Processing fk mappings (*ToOne and JoinedSubclass)
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing collection mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing native query and ResultSetMapping mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing association property references
+DEBUG: org.hibernate.cfg.Configuration - Processing foreign key constraints
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 3
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000006: Autocommit mode: false
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/hibernate]
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000046: Connection properties: {user=root, password=123456}
+DEBUG: org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - Opening new JDBC connection
+DEBUG: org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - Created connection to: jdbc:mysql://localhost:3306/hibernate, Isolation Level: 4
+DEBUG: org.hibernate.engine.jdbc.internal.JdbcServicesImpl - Database ->
+       name : MySQL
+    version : 5.1.63-0ubuntu0.11.10.1
+      major : 5
+      minor : 1
+DEBUG: org.hibernate.engine.jdbc.internal.JdbcServicesImpl - Driver ->
+       name : MySQL-AB JDBC Driver
+    version : mysql-connector-java-5.1.20 ( Revision: tonci.grgin@oracle.com-20111003110438-qfydx066wsbydkbw )
+      major : 5
+      minor : 1
+DEBUG: org.hibernate.engine.jdbc.internal.JdbcServicesImpl - JDBC version : 4.0
+INFO : org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+DEBUG: org.hibernate.cfg.SettingsFactory - Automatic flush during beforeCompletion(): disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Automatic session close at end of transaction: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - JDBC batch size: 15
+DEBUG: org.hibernate.cfg.SettingsFactory - JDBC batch updates for versioned data: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Scrollable result sets: enabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Wrap result sets: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - JDBC3 getGeneratedKeys(): enabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Connection release mode: auto
+INFO : org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+DEBUG: org.hibernate.cfg.SettingsFactory - Maximum outer join fetch depth: 2
+DEBUG: org.hibernate.cfg.SettingsFactory - Default batch fetch size: 1
+DEBUG: org.hibernate.cfg.SettingsFactory - Generate SQL with comments: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Order SQL updates by primary key: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Order SQL inserts for batching: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Query translator: org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory
+INFO : org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+DEBUG: org.hibernate.cfg.SettingsFactory - Query language substitutions: {}
+DEBUG: org.hibernate.cfg.SettingsFactory - JPA-QL strict compliance: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Second-level cache: enabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Query cache: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+DEBUG: org.hibernate.cfg.SettingsFactory - org.hibernate.cache.internal.NoCachingRegionFactory did not provide constructor accepting java.util.Properties; attempting no-arg constructor.
+DEBUG: org.hibernate.cfg.SettingsFactory - Optimize cache for minimal puts: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Structured second-level cache entries: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Statistics: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Deleted entity synthetic identifier rollback: disabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Default entity-mode: pojo
+DEBUG: org.hibernate.cfg.SettingsFactory - Named query checking : enabled
+DEBUG: org.hibernate.cfg.SettingsFactory - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+DEBUG: org.hibernate.cfg.SettingsFactory - multi-tenancy strategy : NONE
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Building session factory
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Instantiating session factory with properties: {java.vendor=Oracle Corporation, show_sql=true, localRepository=/home/ryan/.m2/repository, sun.java.launcher=SUN_STANDARD, hibernate.connection.url=jdbc:mysql://localhost:3306/hibernate, sun.management.compiler=HotSpot Tiered Compilers, os.name=Linux, hbm2ddl.auto=create, sun.boot.class.path=/home/ryan/jdk1.7.0_04/jre/lib/resources.jar:/home/ryan/jdk1.7.0_04/jre/lib/rt.jar:/home/ryan/jdk1.7.0_04/jre/lib/sunrsasign.jar:/home/ryan/jdk1.7.0_04/jre/lib/jsse.jar:/home/ryan/jdk1.7.0_04/jre/lib/jce.jar:/home/ryan/jdk1.7.0_04/jre/lib/charsets.jar:/home/ryan/jdk1.7.0_04/jre/lib/jfr.jar:/home/ryan/jdk1.7.0_04/jre/classes, sun.desktop=gnome, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.7.0_04-b20, hibernate.cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, user.name=ryan, connection.driver_class=com.mysql.jdbc.Driver, user.language=en, sun.boot.library.path=/home/ryan/jdk1.7.0_04/jre/lib/i386, dialect=org.hibernate.dialect.MySQLDialect, java.version=1.7.0_04, user.timezone=, sun.arch.data.model=32, java.endorsed.dirs=/home/ryan/jdk1.7.0_04/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, file.separator=/, java.specification.name=Java Platform API Specification, java.class.version=51.0, user.country=US, connection.url=jdbc:mysql://localhost:3306/hibernate, java.home=/home/ryan/jdk1.7.0_04/jre, java.vm.info=mixed mode, os.version=3.0.0-22-generic, surefire.real.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefirebooter940723686339259545.jar, path.separator=:, connection.password=123456, java.vm.version=23.0-b21, hibernate.connection.password=123456, java.awt.printerjob=sun.print.PSPrinterJob, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.X11.XToolkit, hibernate.connection.username=root, user.home=/home/ryan, java.specification.vendor=Oracle Corporation, hibernate.hbm2ddl.auto=create, java.library.path=/usr/java/packages/lib/i386:/lib:/usr/lib, java.vendor.url=http://java.oracle.com/, hibernate.connection.driver_class=com.mysql.jdbc.Driver, connection.username=root, java.vm.vendor=Oracle Corporation, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefirebooter940723686339259545.jar /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire8194680175006065048tmp /home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/surefire/surefire1107672964110183131tmp, java.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes:/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar:, hibernate.bytecode.use_reflection_optimizer=false, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.7, sun.cpu.endian=little, sun.os.patch.level=unknown, surefire.test.class.path=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/test-classes:/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm/target/classes:/home/ryan/.m2/repository/org/hibernate/hibernate-core/4.1.5.Final/hibernate-core-4.1.5.Final.jar:/home/ryan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ryan/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar:/home/ryan/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar:/home/ryan/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ryan/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/ryan/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar:/home/ryan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar:/home/ryan/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ryan/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/ryan/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar:, connection.pool_size=3, java.io.tmpdir=/tmp, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, os.arch=i386, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.ext.dirs=/home/ryan/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext, user.dir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, line.separator=
+, java.vm.name=Java HotSpot(TM) Server VM, basedir=/home/ryan/multi-test/hibernate-tutorial/hibernate-hbm, cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, file.encoding=UTF-8, java.specification.version=1.7, hibernate.connection.pool_size=3, hibernate.show_sql=true}
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Setting dialect [org.hibernate.dialect.MySQLDialect]
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: org.hibernate.tutorial.hbm.Event
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select EVENT_ID from EVENTS where EVENT_ID =?
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select event_.EVENT_ID, event_.EVENT_DATE as EVENT2_0_, event_.title as title0_ from EVENTS event_ where event_.EVENT_ID=?
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into EVENTS (EVENT_DATE, title, EVENT_ID) values (?, ?, ?)
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update EVENTS set EVENT_DATE=?, title=? where EVENT_ID=?
+DEBUG: org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from EVENTS where EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [NONE]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [READ]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [UPGRADE]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? for update
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [UPGRADE_NOWAIT]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? for update
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [FORCE]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? for update
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [PESSIMISTIC_READ]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? lock in share mode
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [PESSIMISTIC_WRITE]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? for update
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [PESSIMISTIC_FORCE_INCREMENT]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=? for update
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [OPTIMISTIC]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for entity org.hibernate.tutorial.hbm.Event [OPTIMISTIC_FORCE_INCREMENT]: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity org.hibernate.tutorial.hbm.Event: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity org.hibernate.tutorial.hbm.Event: select event0_.EVENT_ID as EVENT1_0_0_, event0_.EVENT_DATE as EVENT2_0_0_, event0_.title as title0_0_ from EVENTS event0_ where event0_.EVENT_ID=?
+DEBUG: org.hibernate.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@637448
+DEBUG: org.hibernate.internal.SessionFactoryRegistry - Registering SessionFactory: 8dc4db32-5fad-49cd-8654-c3cb83183e4a (<unnamed>)
+DEBUG: org.hibernate.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Instantiated session factory
+DEBUG: org.hibernate.cfg.Configuration - Processing hbm.xml files
+DEBUG: org.hibernate.cfg.Configuration - Process annotated classes
+DEBUG: org.hibernate.cfg.Configuration - Processing fk mappings (*ToOne and JoinedSubclass)
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing collection mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing native query and ResultSetMapping mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing association property references
+DEBUG: org.hibernate.cfg.Configuration - Processing foreign key constraints
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Setting dialect [org.hibernate.dialect.MySQLDialect]
+DEBUG: org.hibernate.cfg.Configuration - Processing hbm.xml files
+DEBUG: org.hibernate.cfg.Configuration - Process annotated classes
+DEBUG: org.hibernate.cfg.Configuration - Processing fk mappings (*ToOne and JoinedSubclass)
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing extends queue
+DEBUG: org.hibernate.cfg.Configuration - Processing collection mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing native query and ResultSetMapping mappings
+DEBUG: org.hibernate.cfg.Configuration - Processing association property references
+DEBUG: org.hibernate.cfg.Configuration - Processing foreign key constraints
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Setting dialect [org.hibernate.dialect.MySQLDialect]
+DEBUG: org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Setting dialect [org.hibernate.dialect.MySQLDialect]
+INFO : org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+DEBUG: org.hibernate.tool.hbm2ddl.SchemaExport - Import file not found: /import.sql
+DEBUG: org.hibernate.SQL - drop table if exists EVENTS
+Hibernate: drop table if exists EVENTS
+DEBUG: org.hibernate.SQL - create table EVENTS (EVENT_ID bigint not null, EVENT_DATE datetime, title varchar(255), primary key (EVENT_ID))
+Hibernate: create table EVENTS (EVENT_ID bigint not null, EVENT_DATE datetime, title varchar(255), primary key (EVENT_ID))
+INFO : org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Checking 0 named HQL queries
+DEBUG: org.hibernate.internal.SessionFactoryImpl - Checking 0 named SQL queries
+DEBUG: org.hibernate.stat.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+DEBUG: org.hibernate.internal.SessionImpl - Opened session at timestamp: 13445808633
+DEBUG: org.hibernate.engine.transaction.spi.AbstractTransactionImpl - begin
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtaining JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtained JDBC connection
+DEBUG: org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - initial autocommit status: false
+DEBUG: org.hibernate.id.IncrementGenerator - Fetching initial value: select max(EVENT_ID) from EVENTS
+DEBUG: org.hibernate.SQL - select max(EVENT_ID) from EVENTS
+Hibernate: select max(EVENT_ID) from EVENTS
+DEBUG: org.hibernate.id.IncrementGenerator - First free id: 1
+DEBUG: org.hibernate.event.internal.AbstractSaveEventListener - Generated identifier: 1, using strategy: org.hibernate.id.IncrementGenerator
+DEBUG: org.hibernate.event.internal.AbstractSaveEventListener - Generated identifier: 2, using strategy: org.hibernate.id.IncrementGenerator
+DEBUG: org.hibernate.engine.transaction.spi.AbstractTransactionImpl - committing
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 2 insertions, 0 updates, 0 deletions to 2 objects
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG: org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG: org.hibernate.internal.util.EntityPrinter - org.hibernate.tutorial.hbm.Event{id=2, title=A follow up event, date=Fri Aug 10 14:41:03 CST 2012}
+DEBUG: org.hibernate.internal.util.EntityPrinter - org.hibernate.tutorial.hbm.Event{id=1, title=Our very first event!, date=Fri Aug 10 14:41:03 CST 2012}
+DEBUG: org.hibernate.SQL - insert into EVENTS (EVENT_DATE, title, EVENT_ID) values (?, ?, ?)
+Hibernate: insert into EVENTS (EVENT_DATE, title, EVENT_ID) values (?, ?, ?)
+DEBUG: org.hibernate.SQL - insert into EVENTS (EVENT_DATE, title, EVENT_ID) values (?, ?, ?)
+Hibernate: insert into EVENTS (EVENT_DATE, title, EVENT_ID) values (?, ?, ?)
+DEBUG: org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - committed JDBC Connection
+DEBUG: org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Releasing JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Released JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG: org.hibernate.internal.SessionImpl - Opened session at timestamp: 13445808637
+DEBUG: org.hibernate.engine.transaction.spi.AbstractTransactionImpl - begin
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtaining JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtained JDBC connection
+DEBUG: org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - initial autocommit status: false
+DEBUG: org.hibernate.hql.internal.ast.QueryTranslatorImpl - parse() - HQL: from org.hibernate.tutorial.hbm.Event
+DEBUG: org.hibernate.hql.internal.ast.QueryTranslatorImpl - --- HQL AST ---
+ \-[QUERY] Node: 'query'
+    \-[SELECT_FROM] Node: 'SELECT_FROM'
+       \-[FROM] Node: 'from'
+          \-[RANGE] Node: 'RANGE'
+             \-[DOT] Node: '.'
+                +-[DOT] Node: '.'
+                |  +-[DOT] Node: '.'
+                |  |  +-[DOT] Node: '.'
+                |  |  |  +-[IDENT] Node: 'org'
+                |  |  |  \-[IDENT] Node: 'hibernate'
+                |  |  \-[IDENT] Node: 'tutorial'
+                |  \-[IDENT] Node: 'hbm'
+                \-[IDENT] Node: 'Event'
+
+DEBUG: org.hibernate.hql.internal.ast.ErrorCounter - throwQueryException() : no errors
+DEBUG: org.hibernate.hql.internal.antlr.HqlSqlBaseWalker - select << begin [level=1, statement=select]
+DEBUG: org.hibernate.hql.internal.ast.tree.FromElement - FromClause{level=1} : org.hibernate.tutorial.hbm.Event (<no alias>) -> event0_
+DEBUG: org.hibernate.hql.internal.antlr.HqlSqlBaseWalker - select : finishing up [level=1, statement=select]
+DEBUG: org.hibernate.hql.internal.ast.HqlSqlWalker - processQuery() :  ( SELECT ( FromClause{level=1} EVENTS event0_ ) )
+DEBUG: org.hibernate.hql.internal.ast.HqlSqlWalker - Derived SELECT clause created.
+DEBUG: org.hibernate.hql.internal.ast.util.JoinProcessor - Using FROM fragment [EVENTS event0_]
+DEBUG: org.hibernate.hql.internal.antlr.HqlSqlBaseWalker - select >> end [level=1, statement=select]
+DEBUG: org.hibernate.hql.internal.ast.QueryTranslatorImpl - --- SQL AST ---
+ \-[SELECT] QueryNode: 'SELECT'  querySpaces (EVENTS)
+    +-[SELECT_CLAUSE] SelectClause: '{derived select clause}'
+    |  +-[SELECT_EXPR] SelectExpressionImpl: 'event0_.EVENT_ID as EVENT1_0_' {FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=null,role=null,tableName=EVENTS,tableAlias=event0_,origin=null,columns={,className=org.hibernate.tutorial.hbm.Event}}}
+    |  \-[SQL_TOKEN] SqlFragment: 'event0_.EVENT_DATE as EVENT2_0_, event0_.title as title0_'
+    \-[FROM] FromClause: 'from' FromClause{level=1, fromElementCounter=1, fromElements=1, fromElementByClassAlias=[], fromElementByTableAlias=[event0_], fromElementsByPath=[], collectionJoinFromElementsByPath=[], impliedElements=[]}
+       \-[FROM_FRAGMENT] FromElement: 'EVENTS event0_' FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=null,role=null,tableName=EVENTS,tableAlias=event0_,origin=null,columns={,className=org.hibernate.tutorial.hbm.Event}}
+
+DEBUG: org.hibernate.hql.internal.ast.ErrorCounter - throwQueryException() : no errors
+DEBUG: org.hibernate.hql.internal.ast.QueryTranslatorImpl - HQL: from org.hibernate.tutorial.hbm.Event
+DEBUG: org.hibernate.hql.internal.ast.QueryTranslatorImpl - SQL: select event0_.EVENT_ID as EVENT1_0_, event0_.EVENT_DATE as EVENT2_0_, event0_.title as title0_ from EVENTS event0_
+DEBUG: org.hibernate.hql.internal.ast.ErrorCounter - throwQueryException() : no errors
+DEBUG: org.hibernate.SQL - select event0_.EVENT_ID as EVENT1_0_, event0_.EVENT_DATE as EVENT2_0_, event0_.title as title0_ from EVENTS event0_
+Hibernate: select event0_.EVENT_ID as EVENT1_0_, event0_.EVENT_DATE as EVENT2_0_, event0_.title as title0_ from EVENTS event0_
+DEBUG: org.hibernate.loader.Loader - Result set row: 0
+DEBUG: org.hibernate.loader.Loader - Result row: EntityKey[org.hibernate.tutorial.hbm.Event#1]
+DEBUG: org.hibernate.loader.Loader - Result set row: 1
+DEBUG: org.hibernate.loader.Loader - Result row: EntityKey[org.hibernate.tutorial.hbm.Event#2]
+DEBUG: org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [org.hibernate.tutorial.hbm.Event#1]
+DEBUG: org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [org.hibernate.tutorial.hbm.Event#1]
+DEBUG: org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [org.hibernate.tutorial.hbm.Event#2]
+DEBUG: org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [org.hibernate.tutorial.hbm.Event#2]
+DEBUG: org.hibernate.engine.internal.StatefulPersistenceContext - Initializing non-lazy collections
+Event (2012-08-10 14:41:03.0) : Our very first event!
+Event (2012-08-10 14:41:03.0) : A follow up event
+DEBUG: org.hibernate.engine.transaction.spi.AbstractTransactionImpl - committing
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 2 objects
+DEBUG: org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG: org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG: org.hibernate.internal.util.EntityPrinter - org.hibernate.tutorial.hbm.Event{id=2, title=A follow up event, date=2012-08-10 14:41:03.0}
+DEBUG: org.hibernate.internal.util.EntityPrinter - org.hibernate.tutorial.hbm.Event{id=1, title=Our very first event!, date=2012-08-10 14:41:03.0}
+DEBUG: org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - committed JDBC Connection
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Releasing JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Released JDBC connection
+DEBUG: org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG: org.hibernate.internal.SessionFactoryImpl - HHH000031: Closing
+INFO : org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000030: Cleaning up connection pool [jdbc:mysql://localhost:3306/hibernate]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.132 sec
+Running org.hibernate.hbm.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.819s
+[INFO] Finished at: Fri Aug 10 14:41:04 CST 2012
+[INFO] Final Memory: 17M/108M
+[INFO] ------------------------------------------------------------------------
