@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>hibernate-tutorial</artifactId>
+		<groupId>org.hibernate.tutorial</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>maven-web</artifactId>
+	<packaging>war</packaging>
+	<name>maven-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<build>
+		<finalName>maven-web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0.6</version>
+				<executions>
+					<execution>
+						<id>start-container</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>stop-container</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<wait>true</wait>
+					<container>
+						<containerId>tomcat7x</containerId>
+						<home>/home/ryan/apache-tomcat-7.0.29</home>
+						<type>installed</type>
+					</container>
+					<configuration>
+					<!--	<type>standalone/existing</type>-->
+					
+						<type>existing</type>   
+						<!-- <home>${project.build.directory}/tomcat7x</home> -->
+						<home>${project.basedir}/tomcat7x</home>
+						<properties>
+							<cargo.servlet.users>admin:admin:manager-gui,admin:admin:manager-script</cargo.servlet.users>
+						</properties>
+					</configuration>
+
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
