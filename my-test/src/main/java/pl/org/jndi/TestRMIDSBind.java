@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
-import oracle.jdbc.pool.OracleDataSource;
+//import oracle.jdbc.pool.OracleDataSource;
 
 public class TestRMIDSBind{
 	public static void main(String[] args) {
@@ -22,9 +22,9 @@ public class TestRMIDSBind{
 			// Create the initial context
 			Context ctx = new InitialContext(env);
 
-			OracleDataSource ds = new OracleDataSource();
-
-			ctx.bind("joe3", ds);
+		//	OracleDataSource ds = new OracleDataSource();
+//
+			//ctx.bind("joe3", ds);
 		} catch (Exception e) {
 		}
 	}

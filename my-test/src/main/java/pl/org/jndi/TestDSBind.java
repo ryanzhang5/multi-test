@@ -8,8 +8,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import oracle.jdbc.pool.OracleDataSource;
-
 public class TestDSBind {
 	public static void main(String args[]) throws SQLException, NamingException {
 		// For this to work you need to create the
@@ -26,8 +24,8 @@ public class TestDSBind {
 		}
 		Button b = new Button("Push me");
 
-		OracleDataSource ds = new OracleDataSource();
+	//	OracleDataSource ds = new OracleDataSource();
 
-		ctx.bind("joe", ds);
+	//	ctx.bind("joe", ds);
 	}
 }
