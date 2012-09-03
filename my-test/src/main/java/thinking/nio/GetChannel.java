@@ -12,8 +12,13 @@ public class GetChannel {
 	public static void main(String[] args) throws Exception {
 
 		FileChannel fc = new FileOutputStream("data.txt").getChannel();
-
-		fc.write(ByteBuffer.wrap("some text111".getBytes()));
+		
+		ByteBuffer buffer = ByteBuffer.wrap("some text111".getBytes());
+		
+		System.out.println(buffer.limit());
+		
+		fc.write(buffer);
+		System.out.println(buffer.limit());
 		fc.write(ByteBuffer.wrap("some text222".getBytes()));
 
 		fc.close();
