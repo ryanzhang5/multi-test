@@ -1,6 +1,5 @@
 package thinking.io;
 
-import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -17,3 +16,4 @@ public class FormattedMemoryInput {
 		}
 	}
 }
+
