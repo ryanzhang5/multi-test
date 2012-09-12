@@ -14,8 +14,10 @@ import java.util.concurrent.Executors;
 
 import org.apache.log4j.Logger;
 
-public class WMQLBCQuery implements Runnable {
-	static Logger logger = Logger.getLogger(WMQLBCQuery.class);
+import com.wm.gc.l1.CacheEntry;
+
+public class WMQLBCQuery2 implements Runnable {
+	static Logger logger = Logger.getLogger(WMQLBCQuery2.class);
 
 	public void run() {
 		try {
@@ -29,8 +31,8 @@ public class WMQLBCQuery implements Runnable {
 			ObjectOutputStream oos = new ObjectOutputStream(
 					byteArrayOutputStream);
 			List<CacheEntry> list = new ArrayList<CacheEntry>();
-			list.add(new CacheEntry("1", "myname1"));
-			list.add(new CacheEntry("2", "myname2"));
+		//	list.add(new CacheEntry("1", "myname1"));
+		//	list.add(new CacheEntry("2", "myname2"));
 			oos.writeObject(list);
 
 			DataOutputStream dataOutputStream = new DataOutputStream(
@@ -60,7 +62,7 @@ public class WMQLBCQuery implements Runnable {
 
 		ExecutorService service = Executors.newCachedThreadPool();
 		for (int i = 0; i < 15; i++) {
-			service.execute(new WMQLBCQuery());
+			service.execute(new WMQLBCQuery2());
 		}
 
 	}

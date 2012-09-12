@@ -3,6 +3,7 @@ package com.wm.gc.l2.nio;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -13,18 +14,24 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.wm.gc.l1.CacheEntry;
 import com.wm.gc.l2.Acceptor;
-import com.wm.gc.l2.CacheEntry;
 import com.wm.gc.l2.ChannelIO;
 import com.wm.gc.l2.DispatcherPool;
 import com.wm.gc.l2.L2Worker;
 import com.wm.gc.l2.ThreadPoolManger;
+import com.wm.gc.query.RequestHeader;
+import com.wm.gc.query.WMQLQuery;
+import com.wm.gc.wireprotocol.Request;
 
 public class RequestHandler implements Handler {
 	private long startTime = System.currentTimeMillis();
 	private ChannelIO channelIO;
 	private SelectionKey selectionKey;
 	private boolean requestCompleted = false;
+	private RequestHeader requestHeader = new RequestHeader();
+	private WMQLQuery query = null;
 	private boolean responseReady = false;
 	private ByteBuffer requestByteBuffer;
 	private ByteBuffer responseByteBuffer;
@@ -69,7 +76,19 @@ public class RequestHandler implements Handler {
 			selectionKey.attach(null);
 			selectionKey.cancel();
 
-			byte[] byteabc = new byte[requestByteBuffer.limit()];
+			
+			
+			
+			InputStream is = new ByteArrayInputStream(requestByteBuffer.array());
+			
+			try {
+				query = Request.readRquest(is,requestHeader);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			/*byte[] byteabc = new byte[requestByteBuffer.limit()];
 			requestByteBuffer.get(byteabc);
 
 			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
@@ -92,14 +111,12 @@ public class RequestHandler implements Handler {
 			while (t != -1) {
 				System.out.println((char) t);
 				t = byteArrayInputStream.read();
-			}
+			}*/
 
 			ThreadPoolManger.getThreadPoolExecutor()
 					.execute(new L2Worker(this));
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
