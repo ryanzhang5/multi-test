@@ -12,6 +12,7 @@ import com.wm.gc.wireprotocol.WMQLConnectionDescriptor;
 
 public abstract class WMQLQuery {
 
+	public static final byte WMQL_QUERY_TYPE_DATABASE =1;
 	public static final byte WMQL_QUERY_TYPE_BINARY_CACHE =2;
 	
 	public static WMQLQuery getInstance(byte queryType) {

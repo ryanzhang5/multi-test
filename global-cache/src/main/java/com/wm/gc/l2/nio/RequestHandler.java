@@ -23,6 +23,7 @@ import com.wm.gc.l2.L2Worker;
 import com.wm.gc.l2.ThreadPoolManger;
 import com.wm.gc.query.RequestHeader;
 import com.wm.gc.query.WMQLQuery;
+import com.wm.gc.util.GCUtil;
 import com.wm.gc.wireprotocol.Request;
 
 public class RequestHandler implements Handler {
@@ -75,47 +76,24 @@ public class RequestHandler implements Handler {
 
 			selectionKey.attach(null);
 			selectionKey.cancel();
-
-			
-			
-			
-			InputStream is = new ByteArrayInputStream(requestByteBuffer.array());
+			byte[] bytes = requestByteBuffer.array();
+			InputStream is = new ByteArrayInputStream(bytes);
 			
 			try {
 				query = Request.readRquest(is,requestHeader);
+				
+				if(requestHeader.getQueryType() == WMQLQuery.WMQL_QUERY_TYPE_DATABASE && requestHeader.getMode() == GCUtil.WMQL_REQUEST_TYPE_GET){
+					//TODO get cache item from db
+				}
+				
+				TimeUnit.MICROSECONDS.sleep(1000);
+				
+				ThreadPoolManger.getThreadPoolExecutor()
+				.execute(new L2Worker(this));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
-			
-			/*byte[] byteabc = new byte[requestByteBuffer.limit()];
-			requestByteBuffer.get(byteabc);
-
-			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
-					byteabc);
-
-			DataInputStream dataInputStream = new DataInputStream(
-					byteArrayInputStream);
-			System.out.println();
-			logger.debug(dataInputStream.readInt());
-			ObjectInputStream objectInputStream = new ObjectInputStream(
-					byteArrayInputStream);
-			List<CacheEntry> list = (List<CacheEntry>) objectInputStream
-					.readObject();
-
-			for (CacheEntry cacheEntry : list) {
-				logger.debug(cacheEntry);
-			}
-
-			int t = byteArrayInputStream.read();
-			while (t != -1) {
-				System.out.println((char) t);
-				t = byteArrayInputStream.read();
-			}*/
-
-			ThreadPoolManger.getThreadPoolExecutor()
-					.execute(new L2Worker(this));
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -145,7 +123,7 @@ public class RequestHandler implements Handler {
 	}
 
 	private void printBench(){
-	logger.debug("------------------------------------------millis - "+ (System.currentTimeMillis() - startTime));
+	logger.info("------------------------------------------millis - "+ (System.currentTimeMillis() - startTime));
 	}
 	private void send() {
 		channelIO.write(responseByteBuffer);
@@ -154,4 +132,14 @@ public class RequestHandler implements Handler {
 	public static int getActiveRequestCount() {
 		return runningProcessMap.size();
 	}
+
+	public RequestHeader getRequestHeader() {
+		return requestHeader;
+	}
+
+	public WMQLQuery getQuery() {
+		return query;
+	}
+	
+	
 }

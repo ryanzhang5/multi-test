@@ -25,7 +25,7 @@ public class Acceptor implements Runnable {
 		try {
 			while (true) {
 				if (RequestHandler.getActiveRequestCount() >= 10) {
-						logger.debug("Max Allowed Request " + 10
+						logger.info("Max Allowed Request " + 10
 								+ ", requets under processing "
 								+ RequestHandler.getActiveRequestCount());
 						try {
@@ -56,7 +56,7 @@ public class Acceptor implements Runnable {
 	public static void decrementRequestCount(){
 		if(requestCountQueue.size() == 0){
 			requestCountQueue.offer(new Object());
-			logger.debug(Thread.currentThread().getName() + " ---decrementRequestCount to trigger acceptor");
+			logger.info(Thread.currentThread().getName() + " ---decrementRequestCount to trigger acceptor");
 		}
 	}
 }

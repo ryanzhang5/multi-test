@@ -20,8 +20,17 @@ public class GCUtil {
 
 	public static final byte WMQL_REQUEST_TYPE_GET = 0;
 
+	private static final long POLYNOMIAL = 0x04C11DB7L;
+
+	private static long[] _crcTable = new long[256];
+	private static boolean _tableIsGenerated = false;
+
 	public static void writeBytes(byte[] data, DataOutputStream dataOutputStream)
 			throws IOException {
+		if(data == null){
+			dataOutputStream.writeInt(-1);
+			return ;
+		}
 		dataOutputStream.writeInt(data.length);
 		dataOutputStream.write(data);
 	}
@@ -42,8 +51,10 @@ public class GCUtil {
 	}
 
 	public static byte[] readBytes(DataInputStream dis) throws IOException {
-		byte bytes[] = new byte[dis.readInt()];
-		dis.read(bytes, 0, bytes.length);
+		int length = dis.readInt();
+		if(length == -1){return null;}
+		byte bytes[] = new byte[length];
+		dis.read(bytes);
 		return bytes;
 	}
 
@@ -59,4 +70,47 @@ public class GCUtil {
 		objectOutputStream.close();
 
 	}
+
+	private static void genCRCTable() {
+		int i, j;
+		long crc_accum;
+
+		for (i = 0; i < 256; i++) {
+			crc_accum = ((long) i << 24);
+			for (j = 0; j < 8; j++) {
+				if ((crc_accum & 0x80000000L) > 0) {
+					crc_accum = (crc_accum << 1) ^ POLYNOMIAL;
+				} else {
+					crc_accum = crc_accum << 1;
+				}
+			} // for
+			_crcTable[i] = crc_accum;
+		}
+		_tableIsGenerated = true;
+
+		return;
+	}
+
+	// Calculates the checksum using a CRC algorithm.
+	// Returns the checksum, or -1 if an error occurs.
+	public static long calcChecksum(byte[] blob) {
+		int i, j;
+		long crc_accum = 0;
+
+		if (!_tableIsGenerated)
+			genCRCTable();
+
+		if (blob == null) {
+			return -1;
+		} // if ( blob == null )
+		long len = blob.length;
+		for (j = 0; j < len; j++) {
+			i = ((int) (crc_accum >> 24) ^ ((int) blob[j])) & 0xff;
+			crc_accum = (crc_accum << 8) ^ _crcTable[i];
+
+		} // for
+
+		return crc_accum;
+	} // calcChocksum()
+
 }

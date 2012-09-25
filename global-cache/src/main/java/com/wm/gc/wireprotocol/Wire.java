@@ -11,7 +11,6 @@ public class Wire {
 	public static byte[] pack(byte[] data ) throws IOException{
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		DataOutputStream dos = new DataOutputStream(bos);
-		
 		dos.writeInt(data.length);
 		dos.write(data,0,data.length);
 		return bos.toByteArray();
@@ -19,7 +18,8 @@ public class Wire {
 
 	public static byte[] unpack(InputStream is) throws IOException {
 		DataInputStream dis = new DataInputStream(is);
-		byte bytes [] = new byte[dis.readInt()];
+		int lenth = dis.readInt();
+		byte bytes [] = new byte[lenth];
 		dis.read(bytes);
 		return bytes;
 	}

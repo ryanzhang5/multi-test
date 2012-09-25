@@ -1,13 +1,13 @@
 package com.wm.gc.l1;
 
 import java.io.File;
+
 import com.wm.gc.util.GCUtil;
-import com.wm.gc.util.Conf;
 
 
 public class FileKey {
-  private static int maxDepth = Conf.getMaxDepth();                      // maximum number of directories deep
-  private static int chunkSize = Conf.getChunkSize();                     // characters in one "chunk" <--> directory name
+  private static int maxDepth = 4;                      // maximum number of directories deep
+  private static int chunkSize = 2;                     // characters in one "chunk" <--> directory name
   //private static String dirDelim = File.separator;      // directory delimiter
     
     
@@ -25,9 +25,9 @@ public class FileKey {
     }
     sb.append( hex.substring( start ) );
     
-    if (version != null && !version.isEmpty()) {
+   /* if (version != null && !version.isEmpty()) {
         sb.append(Conf.getVersion(version));
-      }
+      }*/
     
     return sb.toString();
   }

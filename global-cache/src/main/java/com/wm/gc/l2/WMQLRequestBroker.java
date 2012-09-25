@@ -13,7 +13,7 @@ public class WMQLRequestBroker implements Runnable {
 		try {
 			ssc = ServerSocketChannel.open();
 			ssc.socket().setReuseAddress(true);
-			ssc.socket().bind(new InetSocketAddress("localhost", 9765), 100);
+			ssc.socket().bind(new InetSocketAddress("localhost", 9905), 100);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

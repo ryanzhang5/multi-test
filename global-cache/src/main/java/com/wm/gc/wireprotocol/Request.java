@@ -26,8 +26,8 @@ public class Request {
 		byte[] bytes = byteStream.toByteArray();
 		
 		byte msgBytes [] = Wire.pack(bytes);
-
-		outputStream.write(bytes);
+		outputStream.write(msgBytes);
+		outputStream.flush();
 
 	}
 

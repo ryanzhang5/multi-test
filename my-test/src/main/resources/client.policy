@@ -1,0 +1,3 @@
+grant codeBase "file:/home/ryan/jone/src/"{
+		permission  java.security.AllPermission;
+	};

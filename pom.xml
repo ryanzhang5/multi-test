@@ -14,6 +14,7 @@
 		<module>hibernate-tutorial</module>
   		<module>global-cache</module>
                 <module>inte-test</module>
+                <module>servlet-test</module>
                 <module>my-test</module>
         </modules>
 

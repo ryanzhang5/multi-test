@@ -1,9 +1,11 @@
 package com.wm.gc.query.bc;
 
+import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -53,8 +55,7 @@ public class WMQLBCQuery extends WMQLQuery {
 	public CacheEntry impClientExecute(WMQLCachePolicy policy, Namespace ns,
 			String cacheName, InetAddress address, int port) {
 		Socket socket = new Socket();
-		RequestHeader header = new RequestHeader(getMode(),
-				GCUtil.WMQL_REQUEST_TYPE_GET, policy, ns, cacheName, getKey(),
+		RequestHeader header = new RequestHeader(getMode(),getQueryType(), policy, ns, cacheName, getKey(),
 				getVersoin(), null);
 
 		try {
@@ -72,9 +73,11 @@ public class WMQLBCQuery extends WMQLQuery {
 			socket.shutdownOutput();
 
 			CacheEntry rv = Response.readResponse(in);
-
+			
 			socket.shutdownInput();
 			socket.close();
+			
+			return rv;
 
 		} catch (SocketException e) {
 			e.printStackTrace();
@@ -115,7 +118,9 @@ public class WMQLBCQuery extends WMQLQuery {
 	public String getKey() {
 		return key;
 	}
-
+	public byte getQueryType() {
+		return WMQL_QUERY_TYPE_BINARY_CACHE;
+	}
 	public void writeRequest(DataOutputStream dataOutputStream)
 			throws IOException {
 		GCUtil.writeBytes(data, dataOutputStream);
