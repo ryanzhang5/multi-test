@@ -8,4 +8,8 @@ public interface IStore {
 	public void removeAll();
 
 	public CacheEntry remove(CacheKey key, String version);
+	
+	public boolean expireEntries(long timestamp);
+	
+	public CacheKey[] getAllKeys();
 }

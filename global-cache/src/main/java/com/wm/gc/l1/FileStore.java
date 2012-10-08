@@ -23,11 +23,12 @@ public class FileStore implements IStore {
 	private String expiredFileName = null;
 
 	public FileStore(Namespace namespace, String cacheName) {
-		baseDir = baseDir + namespace.getName() + File.separator + cacheName+ File.separator;
-		expiredFileName = baseDir+"expire_timestamp.exp";
-		
-		File  expireFile = new File(expiredFileName);
-		if(expireFile.exists()){
+		baseDir = baseDir + namespace.getName() + File.separator + cacheName
+				+ File.separator;
+		expiredFileName = baseDir + "expire_timestamp.exp";
+
+		File expireFile = new File(expiredFileName);
+		if (expireFile.exists()) {
 			DataInputStream dis;
 			try {
 				dis = new DataInputStream(new FileInputStream(expireFile));
@@ -37,14 +38,16 @@ public class FileStore implements IStore {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	public FileStore(Namespace namespace, String cacheName,String _baseDir) {
-		baseDir = _baseDir + namespace.getName() + File.separator + cacheName+ File.separator;
-		expiredFileName = baseDir+"expire_timestamp.exp";
-		
-		File  expireFile = new File(expiredFileName);
-		if(expireFile.exists()){
+
+	public FileStore(Namespace namespace, String cacheName, String _baseDir) {
+		baseDir = _baseDir + namespace.getName() + File.separator + cacheName
+				+ File.separator;
+		expiredFileName = baseDir + "expire_timestamp.exp";
+
+		File expireFile = new File(expiredFileName);
+		if (expireFile.exists()) {
 			DataInputStream dis;
 			try {
 				dis = new DataInputStream(new FileInputStream(expireFile));
@@ -54,12 +57,12 @@ public class FileStore implements IStore {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
+
 	public boolean put(CacheKey cacheKey, CacheEntry cacheEntry, String version) {
 
-		String fileName = FileKey.getFileName(baseDir,
-				cacheKey, null);
+		String fileName = FileKey.getFileName(baseDir, cacheKey, null);
 		logger.debug("fileKey " + cacheKey.getKey() + " generated filename "
 				+ fileName);
 		File file = new File(fileName);
@@ -84,24 +87,23 @@ public class FileStore implements IStore {
 
 	public CacheEntry get(CacheKey cacheKey, String version) {
 		CacheEntry entry = null;
-		String fileName = FileKey.getFileName(baseDir,
-				cacheKey, null);
+		String fileName = FileKey.getFileName(baseDir, cacheKey, null);
 		File file = new File(fileName);
 		DataInputStream dis = null;
 
 		try {
-			
+
 			dis = new DataInputStream(new BufferedInputStream(
 					new FileInputStream(file)));
 			entry = CacheEntry.readCacheEntry(dis);
 
-		long createTime = entry.getCreateTime();
-		
-		if(createTime<expireTimestamp){
-			file.delete();
-		}
-		
-		//return entry;
+			long createTime = entry.getCreateTime();
+
+			if (createTime < expireTimestamp) {
+				file.delete();
+			}
+
+			// return entry;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -111,72 +113,81 @@ public class FileStore implements IStore {
 				logger.error("-------------------we got error herer");
 				e.printStackTrace();
 			}
-			
+
 		}
 		return entry;
 	}
 
 	public void removeAll() {
 		expireTimestamp = System.currentTimeMillis();
+		expireEntries(expireTimestamp);
+	}
+
+	public boolean expireEntries(long timestamp) {
 		File expFile = new File(expiredFileName);
-		
+
 		File dir = expFile.getParentFile();
-		if(!dir.exists()){
+		if (!dir.exists()) {
 			dir.mkdirs();
 		}
-		
+
 		DataOutputStream dis;
 		try {
 			dis = new DataOutputStream(new FileOutputStream(expFile));
-			dis.writeLong(expireTimestamp);
+			dis.writeLong(timestamp);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-		
+		return true;
 	}
+
 
 	public CacheEntry remove(CacheKey key, String version) {
 		CacheEntry entry = get(key, version);
 
-		String fileName = FileKey.getFileName(baseDir,
-				key, null);
-	
+		String fileName = FileKey.getFileName(baseDir, key, null);
+
 		File file = new File(fileName);
-	
+
 		if (file.exists()) {
 			file.delete();
 		}
-		
-		
+
 		return entry;
 	}
 
 	public static void main(String[] args) {
-		Namespace namespace = new Namespace("catalog", "jdbcpool_catalog", true, true, 0);
-		FileStore store = new FileStore(namespace, "mycachename","/home/ryan/l2cache/");
-	for (int i = 0; i < 50; i++) {
-			CacheKey key = CacheKey.getInstance(""+i);
-			logger.debug(i+" try to write file "+ key.getKey());
-			String data = ("mydata"+i);
-			store.put(key, CacheEntry.getInstance(i,data.getBytes() ), null);
+		Namespace namespace = new Namespace("catalog", "jdbcpool_catalog",
+				true, true, 0);
+		FileStore store = new FileStore(namespace, "mycachename",
+				"/home/ryan/l2cache/");
+		for (int i = 0; i < 50; i++) {
+			CacheKey key = CacheKey.getInstance("" + i);
+			logger.debug(i + " try to write file " + key.getKey());
+			String data = ("mydata" + i);
+			store.put(key, CacheEntry.getInstance(i, data.getBytes()), null);
 
 		}
-			CacheKey key = CacheKey.getInstance("5");
-			
-			CacheEntry entry = store.get(key, "");
-			byte[] bytes = (byte[])entry.getData();
-			
-		     /* ObjectInputStream objis;
-				try {
-					objis = new ObjectInputStream(new ByteArrayInputStream(bytes));
-					  byte[] bytes2 = (byte[])objis.readObject();
-				        String s = new String(bytes2);
-				        logger.debug("data from cache=============="+s);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			*/
-			logger.debug("====================="+new String(bytes));
+		CacheKey key = CacheKey.getInstance("5");
+
+		CacheEntry entry = store.get(key, "");
+		byte[] bytes = (byte[]) entry.getData();
+
+		/*
+		 * ObjectInputStream objis; try { objis = new ObjectInputStream(new
+		 * ByteArrayInputStream(bytes)); byte[] bytes2 =
+		 * (byte[])objis.readObject(); String s = new String(bytes2);
+		 * logger.debug("data from cache=============="+s); } catch (Exception
+		 * e1) { e1.printStackTrace(); }
+		 */
+		logger.debug("=====================" + new String(bytes));
 
 	}
+
+	public CacheKey[] getAllKeys() {
+		return null;
+	}
+
+	
 }

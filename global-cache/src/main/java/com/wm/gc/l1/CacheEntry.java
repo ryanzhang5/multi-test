@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import com.wm.gc.util.GCUtil;
 
-public class CacheEntry implements Serializable {
+public class CacheEntry implements CacheEntryStat {
 public static Logger logger = Logger.getLogger(CacheEntry.class);
 	public long getCreateTime() {
 		return createTime;
@@ -109,6 +109,29 @@ public static Logger logger = Logger.getLogger(CacheEntry.class);
 	public byte[] readStrand(DataInputStream in) throws IOException{
 		return  GCUtil.readBytes(in);
 	}
+	
+	protected void setTTL(long ttl){
+		expireTime = createTime + ttl;
+	}
+	
+	
+	
+	public void eventGet(){
+		synchronized(this){
+			accessCount++;
+			accessTime = System.currentTimeMillis();
+		}
+	}
+	
+	
+	public void eventPut(){
+		
+	}
+	
+	public void eventRemove(){
+		
+	}
+	
 	public void setData(Object data) {
 		this.data = new SoftReference(data);
 	}
@@ -124,6 +147,30 @@ public static Logger logger = Logger.getLogger(CacheEntry.class);
 	public long getExpireTime() {
 		return expireTime;
 	}
+
+	public long getAccessCount() {
+		return accessCount;
+	}
+
+	public long getSize() {
+		return size;
+	}
+
+	public long getAccessTime() {
+		return accessTime;
+	}
+
+	public long getTTLMillis() {
+		return expireTime-createTime;
+	}
+
+	public boolean isExpired() {
+		return isExpired(System.currentTimeMillis());
+	}
+	public boolean isExpired(long now) {
+		return now > expireTime;
+	}
+	
 	
 	
 }

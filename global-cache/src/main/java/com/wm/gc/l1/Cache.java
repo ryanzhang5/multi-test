@@ -5,12 +5,14 @@ public class Cache {
 	private String name;
 	private Namespace namespace;
 	private Janitor jaintor;
+	private final CacheStat stat;
 
 	public Cache(Namespace namespace, String name, IStore store, Janitor jaintor) {
 		this.namespace = namespace;
 		this.name = name;
 		this.store = store;
 		this.jaintor = jaintor;
+		stat = new CacheStat(this);
 		CacheManager.add(namespace, this);
 	}
 
@@ -19,13 +21,16 @@ public class Cache {
 	}
 
 	public void putCacheEntry(CacheKey key, CacheEntry entry, String version) {
-		store.put(key, entry, version);
+		boolean isNew = store.put(key, entry, version);
 
-		// TODO
-		// getCacheStat().eventPut()
-		// getJanitor().eventPut()
+		getCacheStat().eventPut(key,entry,isNew);
+		getJaintor().eventPut(key,entry);
 	}
 
+	public CacheEntry removeCacheEntry(CacheKey key){
+		return store.remove(key, null);
+	}
+	
 	public void setStore(IStore store) {
 		this.store = store;
 	}
@@ -37,4 +42,18 @@ public class Cache {
 	public Namespace getNamespace() {
 		return namespace;
 	}
+
+	public CacheStat getCacheStat() {
+		return stat;
+	}
+
+	public Janitor getJaintor() {
+		return jaintor;
+	}
+
+	public IStore getStore() {
+		return store;
+	}
+	
+	
 }
