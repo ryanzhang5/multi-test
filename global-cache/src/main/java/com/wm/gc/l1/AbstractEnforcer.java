@@ -9,8 +9,6 @@ public abstract class AbstractEnforcer extends Janitor{
 		this.minAccessCount = minAccessCount;
 		this.maxIdleMillis = maxIdleMillis;
 	}
-	
-	
 	public double getUtilization() {
 		return utilization;
 	}
