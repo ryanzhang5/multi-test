@@ -170,6 +170,10 @@ public static Logger logger = Logger.getLogger(CacheEntry.class);
 	public boolean isExpired(long now) {
 		return now > expireTime;
 	}
+
+	public CacheEntryStat getCacheEntryStat() {
+		return this;
+	}
 	
 	
 	

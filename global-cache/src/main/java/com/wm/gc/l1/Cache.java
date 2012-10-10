@@ -54,6 +54,10 @@ public class Cache {
 	public IStore getStore() {
 		return store;
 	}
+
+	public CacheKey[] getAllKeys() {
+		return store.getAllKeys();
+	}
 	
 	
 }
