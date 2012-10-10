@@ -12,12 +12,13 @@ public class RamStrandCache extends StrandCache {
 	
 	
 	public static void main(String[] args) {
-		RamStrandCache rsc = null;
+		Namespace namespace = new Namespace("catalog", "jdbcpool_catalog",true, true, 0);
+		RamStrandCache rsc = new RamStrandCache(namespace, "catalog", 10*1024, new MaxSizeEnforcer(0.75, 10, 10*1000));
 		
 		String v ;
 		for(int i =0;i<70000000;i=i+3){
 			
-			byte[] bytes = new byte[555555];
+			byte[] bytes = new byte[5];
 			v = String.valueOf(i);
 			rsc.putStrandTTL(CacheKey.getInstance(v), 333333, bytes);
 			
@@ -29,7 +30,7 @@ public class RamStrandCache extends StrandCache {
 			CacheKey key = CacheKey.getInstance(String.valueOf(i));
 			
 			byte[] data = rsc.getStrand(key);
-			rsc.removeStrand(key);
+			//rsc.removeStrand(key);
 		}
 	}
 }

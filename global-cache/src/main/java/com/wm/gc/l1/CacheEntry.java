@@ -134,6 +134,11 @@ public static Logger logger = Logger.getLogger(CacheEntry.class);
 	
 	public void setData(Object data) {
 		this.data = new SoftReference(data);
+		if(data instanceof byte[]){
+			this.size = ((byte[]) data).length;
+		}else if (data instanceof Object) {
+			//TODO
+		}	
 	}
 
 	public Object getData(){

@@ -15,6 +15,6 @@ public class MaxSizeEnforcer extends AbstractEnforcer {
 		if(size > maxSize){
 			super.clean((long)(maxSize*utilization));
 		}
-		logger.info("MaxSizeEnforcer.impEventPut after clean --------current size "+ size + "  maxSize = " + maxSize);
+		logger.debug("MaxSizeEnforcer.impEventPut after clean --------current size "+ size + "  maxSize = " + maxSize);
 	}
 }

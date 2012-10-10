@@ -1,19 +1,22 @@
 package com.wm.gc.l1;
 
+import org.apache.log4j.Logger;
+
 public class Cache {
 	private IStore store;
 	private String name;
 	private Namespace namespace;
 	private Janitor jaintor;
 	private final CacheStat stat;
-
+	static Logger logger = Logger.getLogger(Cache.class);
 	public Cache(Namespace namespace, String name, IStore store, Janitor jaintor) {
 		this.namespace = namespace;
 		this.name = name;
 		this.store = store;
 		this.jaintor = jaintor;
+		jaintor.setCache(this);
 		stat = new CacheStat(this);
-		CacheManager.add(namespace, this);
+		//CacheManager.add(namespace, this);
 	}
 
 	public CacheEntry getCacheEntry(CacheKey key, String version) {
@@ -21,6 +24,7 @@ public class Cache {
 	}
 
 	public void putCacheEntry(CacheKey key, CacheEntry entry, String version) {
+		logger.info("------------------------------------------------------input " + key);
 		boolean isNew = store.put(key, entry, version);
 
 		getCacheStat().eventPut(key,entry,isNew);
@@ -28,7 +32,11 @@ public class Cache {
 	}
 
 	public CacheEntry removeCacheEntry(CacheKey key){
-		return store.remove(key, null);
+		logger.info("------------------------------------------------------remove " + key);
+		CacheEntry entry = store.remove(key, null);
+		getCacheStat().eventRemoveCacheEntry(key,entry);
+		getJaintor().eventRemove(key, entry);
+		return entry;
 	}
 	
 	public void setStore(IStore store) {

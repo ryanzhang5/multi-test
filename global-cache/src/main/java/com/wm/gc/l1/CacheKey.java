@@ -46,6 +46,9 @@ public class CacheKey implements Serializable {
 		return true;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return " key = " + key;
+	}
 
 }
