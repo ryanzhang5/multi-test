@@ -16,6 +16,7 @@
                 <module>inte-test</module>
                 <module>servlet-test</module>
                 <module>my-test</module>
+		<module>hduo-erp</module>
         </modules>
 
 	<properties>

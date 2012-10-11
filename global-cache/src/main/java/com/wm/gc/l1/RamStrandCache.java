@@ -21,7 +21,6 @@ public class RamStrandCache extends StrandCache {
 			byte[] bytes = new byte[5];
 			v = String.valueOf(i);
 			rsc.putStrandTTL(CacheKey.getInstance(v), 333333, bytes);
-			
 			v = String.valueOf(i+1);
 			rsc.putStrandTTL(CacheKey.getInstance(v), 333333, bytes);
 			

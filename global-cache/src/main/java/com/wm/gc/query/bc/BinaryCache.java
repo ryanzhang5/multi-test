@@ -1,5 +1,6 @@
 package com.wm.gc.query.bc;
 
+import java.io.File;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -75,7 +76,8 @@ public static void main(String[] args) {
 				Cache cache = null;
 				cache = CacheManager.find(namespace2, "mycachename");
 				if(cache ==null){
-					cache = new FileStrandCache(namespace2,"mycachename","/home/ryan/itemcache/");
+					//cache = new FileStrandCache(namespace2,"mycachename","/home/ryan/itemcache/");
+					cache = new FileStrandCache(namespace2,"mycachename","c:"+File.separator+"itemcache"+File.separator);
 				}
 			 try {
 				Random random = new Random();
