@@ -1,0 +1,13 @@
+.dynatable {
+	border: solid 1px #000;
+	border-collapse: collapse;
+}
+.dynatable th, .dynatable td {
+	border: solid 1px #000;
+	padding: 2px 10px;
+	width: 170px;
+	text-align: center;
+}
+.dynatable .prototype {
+	display:none;
+}

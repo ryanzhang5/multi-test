@@ -1,0 +1,21 @@
+CREATE TABLE `hduo`.`client` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `client_name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `store_name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `address` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `mobile_phone` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_bin,
+  `desk_phone` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_bin,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理1','华联超市1','食品城1','13815300121','3278711','抓紧要账1');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理2','华联超市2','食品城2','13815300122','3278712','抓紧要账2');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理3','华联超市3','食品城3','13815300123','3278713','抓紧要账3');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理4','华联超市4','食品城4','13815300124','3278714','抓紧要账4');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理5','华联超市5','食品城5','13815300125','3278715','抓紧要账5');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理6','华联超市6','食品城6','13815300126','3278716','抓紧要账6');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理7','华联超市7','食品城7','13815300127','3278717','抓紧要账7');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理8','华联超市8','食品城8','13815300128','3278718','抓紧要账8');
