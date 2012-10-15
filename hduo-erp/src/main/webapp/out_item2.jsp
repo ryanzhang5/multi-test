@@ -31,9 +31,9 @@
   <tbody id="realBody">
     
  
-    <s:iterator>
+    <s:iterator value="clients" status="listStatus">
     <tr id="3">
-    <td style="width:80px">3</td>
+    <td style="width:80px"><s:property value="#listStatus.index+1"/></td>
     <td><input type="text" name="name[]" value='<s:property value="clientName"/>' /></td>
     <td><input type="text" name="name[]" value='<s:property value="storeName"/>' /></td>
 	<td><input type="text" name="name[]" value='<s:property value="address"/>' /></td>

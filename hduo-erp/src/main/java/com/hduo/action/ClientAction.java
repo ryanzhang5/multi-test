@@ -15,13 +15,13 @@ public class ClientAction extends ActionSupport {
 	private List<Client> clients;
 
 	public String getAllClients() {
-		logger.info("---------------------" + (clientManager==null));
+	
 		clients = clientManager.getAllClients();
+		logger.info("---------------------" + clients.size());
 		return SUCCESS;
 	}
 
 	public void setClientManager(ClientManager clientManager) {
-		logger.info("++++++++++++++++++++++++++++++++++++  client got set " + clientManager );
 		this.clientManager = clientManager;
 	}
 

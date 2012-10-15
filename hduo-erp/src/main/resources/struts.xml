@@ -5,8 +5,7 @@
 
 <struts>
 
-
-<!-- 	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default">
 
 
 		<global-results>
@@ -17,12 +16,8 @@
 			<exception-mapping exception="java.lang.Exception"
 				result="error" />
 		</global-exception-mappings>
-
-	</package> -->
-
-	<package name="default"   extends="struts-default">
 		<action name="getAllClients" class="clientAction" method="getAllClients">
-			<result name="SUCCESS">out_item2.jsp</result>
+			<result name="success">out_item2.jsp</result>
 		</action>
 	</package>
 </struts>

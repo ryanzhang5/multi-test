@@ -10,6 +10,6 @@
 
 </head>
 <body>
-<a href='<s:url value="/web/getAllClients"/>' >sssssssssssss</a>
+<a href='<s:url value="/getAllClients"/>' >sssssssssssss</a>
 </body>
 </html>
