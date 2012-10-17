@@ -1,0 +1,22 @@
+CREATE TABLE `hduo`.`users` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user__name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `mobile` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+insert into `hduo`.`users`  (user_name,mobile) 
+values
+('paul','1234567897'), 
+('tony','42336456343');
+
+
+
+CREATE  PROCEDURE `GetUserByName3`(In user_name VARCHAR(20),OUT mobile_num VARCHAR(20),OUT row_counts INTEGER)
+BEGIN
+   select myusers.mobile into mobile_num from users myusers  where myusers.user_name = user_name;
+    set row_counts = (select count(*) from users);
+    select * from users myusers;
+END 
