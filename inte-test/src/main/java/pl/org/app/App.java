@@ -9,6 +9,8 @@ public class App {
 		return result;
 	}
 
+	
+	
 	public double getSomeNumber() {
 		double result = someNumber;
 		someNumber = 0.0;
