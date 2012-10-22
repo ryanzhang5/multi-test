@@ -1,5 +1,7 @@
 package org.hibernate.hduo;
 
+import java.util.List;
+
 import junit.framework.TestCase;
 
 import org.hibernate.Session;
@@ -25,22 +27,59 @@ public class HibernateTest extends TestCase {
 		}
 	}
 
-	public void testInsert() {
+	public void insert() {
 
 		// create a couple of events...
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		Person person = new Person();
+		Team team = new Team("team111");
+		Player p1 = new Player("p11");
+		Player p2 = new Player("p12");
+		/*
+		 * 
+		 * team.getPlayers().add(p1); team.getPlayers().add(p2);
+		 * team.getPlayers().add(p3);
+		 * 
+		 * session.save(team);
+		 */p1.setTeam(team);
+		p1.setTeam(team);
+		p2.setTeam(team);
+		session.save(p1);
+		session.save(p2);
 
-		person.setName("ttttttttt");
+		Team team2 = new Team("team222");
+		Player p21 = new Player("p21");
+		Player p22 = new Player("p22");
 
-		session.save(person);
+		p21.setTeam(team2);
+		p22.setTeam(team2);
+
+		session.save(p21);
+		session.save(p22);
 
 		session.getTransaction().commit();
 		session.close();
 
 	}
 
+	public void testGet() {
 
+		// create a couple of events...
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		List<Team> teams = (List<Team>) session.createQuery("from Team")
+				.list();
+
+		for (Team team : teams) {
+			for (Player player : team.getPlayers()) {
+				System.out.println(player.getName());
+			}
+		}
+
+		session.getTransaction().commit();
+		session.close();
+
+	}
 }

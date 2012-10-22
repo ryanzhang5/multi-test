@@ -15,6 +15,13 @@ public class Player {
 	private String name;
 	private Team team;
 
+	public Player() {
+	}
+
+	public Player(String name) {
+		this.name = name;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
@@ -33,8 +40,8 @@ public class Player {
 		this.name = name;
 	}
 
-	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="team_id")
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "team_id")
 	public Team getTeam() {
 		return team;
 	}

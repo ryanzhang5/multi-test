@@ -27,7 +27,7 @@
 		<property name="show_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		<!-- <property name="hibernate.default_batch_fetch_size">5</property> <property 
 			name="hibernate.jdbc.batch_size">3</property> -->
 		<property name="hibernate.max_fetch_depth">3</property>

@@ -17,10 +17,8 @@ import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-
-
 @Entity
-@NamedQuery(name="team.selectAll", query="select n from Team n ")
+@NamedQuery(name = "team.selectAll", query = "select n from Team n ")
 public class Team {
 	private Long id;
 
@@ -31,11 +29,14 @@ public class Team {
 	public Team() {
 		// this form used by Hibernate
 	}
+	public Team(String name) {
+		this.name = name;
+	}
 
-	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinColumn(name="team_id")
-	@Fetch(FetchMode.SUBSELECT)
-	@BatchSize(size = 3)
+//	
+//	@Fetch(FetchMode.SUBSELECT)
+//	@BatchSize(size = 3)
+   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="team")
 	public Set<Player> getPlayers() {
 		return players;
 	}
