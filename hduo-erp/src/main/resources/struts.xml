@@ -7,17 +7,35 @@
 
 	<package name="default" namespace="/" extends="struts-default">
 
+	<!-- <global-results> <result name="error">/error.jsp</result> </global-results> -->
 
-		<global-results>
-			<result name="error">/error.jsp</result>
-		</global-results>
-
-		<global-exception-mappings>
+<!-- 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="error" />
-		</global-exception-mappings>
+		</global-exception-mappings> -->
 		<action name="getAllClients" class="clientAction" method="getAllClients">
-			<result name="success">out_item2.jsp</result>
+			<result name="success">clients.jsp</result>
 		</action>
+
+
+		<action name="saveClients" class="clientAction" method="saveClients">
+			<result name="success" type="redirectAction">getAllClients</result>
+		</action>
+
+		<action name="getAllProducts" class="productAction" method="getAllProducts">
+			<result name="success">products.jsp</result>
+		</action>
+
+
+		<action name="saveProducts" class="productAction" method="saveProducts">
+			<result name="success" type="redirectAction">getAllProducts</result>
+		</action>
+		
+		<action name="toAddIncomeItem" class="productAction" method="toAddIncomeItem">
+			<result name="success">incomeItem.jsp</result>
+		</action>
+		
+		
+
 	</package>
 </struts>
