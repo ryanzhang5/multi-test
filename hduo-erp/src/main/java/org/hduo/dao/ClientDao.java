@@ -19,4 +19,12 @@ public class ClientDao extends Dao {
 				.getNamedQuery("client.selectAll").list();
 		return clients;
 	}
+
+	public void deleteClient(Client client) {
+		getSession().delete(client);
+	}
+
+	public void updateClient(Client client) {
+		getSession().update(client);
+	}
 }

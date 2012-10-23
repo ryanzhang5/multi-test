@@ -1,9 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-
-
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet"  href="./css/styles.css"  type="text/css"/>
 <script src="js/jquery-1.5.1.min.js"></script>
 <script>
   $(document).ready(function() {
@@ -70,23 +71,8 @@
   
   
 </script>
-<style>
-.dynatable {
-	border: solid 1px #000;
-	border-collapse: collapse;
-}
-.dynatable th, .dynatable td {
-	border: solid 1px #000;
-	padding: 2px 10px;
-	width: 170px;
-	text-align: center;
-}
-.dynatable .prototype {
-	display:none;
-}
-</style>
-</head>
 
+</head>
 <body>
 <table>
   <tr>
@@ -97,11 +83,11 @@
   <thead>
     <tr>
       <th style="width:80px">行号</th>
-      <th>品名规格</th>
-      <th>单位</th>
-      <th>数量</th>
-      <th>单价</th>
-      <th>金额</th>
+      <th>名称</th>
+      <th>联系人</th>
+      <th>地址</th>
+      <th>手机</th>
+      <th>固定电话</th>
       <th>备注</th>
       <th style="width:80px"><button class="add">添加</button></th>
     </tr>
@@ -148,6 +134,6 @@
    <tr><td style="width:80px">合计</td><td colspan="2"></td><td><input type="text" name="total_num" id="total_num" value="0" /></td><td></td><td><input type="text" name="total_price" id="total_price" value="0.0" /></td><td></td><td></td></tr>
    <tr><td style="width:80px">说明</td><td colspan="7">ssssssssssss</td></tr>
 </table>
-<a href="getAllClients.actio" >efwffsdfsdfsd</a>
+
 </body>
 </html>

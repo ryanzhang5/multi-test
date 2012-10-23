@@ -20,6 +20,15 @@ public class Client {
 	private String deskPhone;
 	private String comments;
 
+	public Client(){}
+	public Client(String cliengName,String storeName,String address,String mobilePhone,String deskPhone,String comments){
+		this.clientName = cliengName;
+		this.storeName=storeName;
+		this.address =address;
+		this.mobilePhone = mobilePhone;
+		this.deskPhone = deskPhone;
+		this.comments = comments;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {

@@ -6,20 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet"  href="css/styles.css"  type="text/css"/>
-<script src="js/jquery-1.8.2.js"></script>
+<script src="js/jquery-1.5.1.min.js"></script>
 <script>
   $(document).ready(function() {
-				  var id = '<s:property value="clientNum"/>';
+				  var id = '<s:property value="productNum"/>';
 				  $("table.dynatable button.add").click(function() {
 								  id++;
 									prot = '<tr>'
-									    +'<td style="width:80px">'+id+'<input type="hidden" name="client_id" value="" /><input type="hidden" id="new_status_'+id+'" name="status" value="new" /> '
+									    +'<td style="width:80px">'+id+'<input type="hidden" name="product_id" value="" /><input type="hidden" id="new_status_'+id+'" name="status" value="new" /> '
 									    +'</td>'
-									    +'<td><input type="text" name="clientName"  onchange=updateItem("new_status_'+id+'","new_updated")  id="clientName_'+id+'" /></td>'
-									    +'<td><input type="text" name="storeName"   onchange=updateItem("new_status_'+id+'","new_updated")  id="storeName_'+id+'" /></td>'
-									    +'<td><input type="text" name="address"     onchange=updateItem("new_status_'+id+'","new_updated")  id="address_'+id+'" /></td>'
-									    +'<td><input type="text" name="mobilePhone" onchange=updateItem("new_status_'+id+'","new_updated")  id="mobilePhone_'+id+'" /></td>'
-									    +'<td><input type="text" name="deskPhone"   onchange=updateItem("new_status_'+id+'","new_updated")  id="deskPhone_'+id+'" /></td>'
+									    +'<td><input type="text" name="productName" onchange=updateItem("new_status_'+id+'","new_updated")  id="productName_'+id+'" /></td>'
+									    +'<td><input type="text" name="unit"        onchange=updateItem("new_status_'+id+'","new_updated")  id="unit_'+id+'" /></td>'
 									    +'<td><input type="text" name="comments"    onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
 									    +'<td style="width:80px" >'
 									    +'<button type="button" onclick=deleteItem("new_status_'+id+'","new_deleted")>删除</button></td>'
@@ -36,7 +33,7 @@
 					  clicked_row = this;
 	              }); 
 				  
-				  $("#clientsForm").submit(function() {
+				  $("#myform").submit(function() {
 					  $.ajax({
 						  data:$(this).serialize(),
 						  type:$(this).attr('method'),
@@ -47,11 +44,10 @@
 					  });
 					  return false;
 			    }); 
-				  
   });
   
   function toSave(){
-	  $("#clientsForm").submit();
+	 $("#myform").submit();
   }
   
   function deleteItem(item_id,newStatus){
@@ -74,16 +70,13 @@
     <td align="right"><input id="save_button" type="button" onclick="toSave()" value="保存"/></td>
   </tr>
 </table>
-<form name="clientsForm" id="clientsForm"  action="saveClients" method="post">
+<form name="myform" id="myform"  action="saveProducts" method="post">
 <table class="dynatable">
   <thead>
     <tr>
       <th style="width:80px">行号</th>
-      <th>客户名称</th>
-      <th>店名</th>
-      <th>地址</th>
-      <th>手机</th>
-      <th>固定电话</th>
+      <th>商品名称</th>
+      <th>单位</th>
       <th>备注</th>
       <th style="width:80px"><button class="add" type="button">添加</button></th>
     </tr>
@@ -91,19 +84,16 @@
   <tbody id="realBody">
     
  
-    <s:iterator value="clients" status="listStatus">
+    <s:iterator value="products" status="listStatus">
     <tr>
     <td style="width:80px">
             <s:property value="#listStatus.index+1"/>
-            <input type="hidden" name="client_id"  value='<s:property value="id"/>' />
+            <input type="hidden" name="product_id"  value='<s:property value="id"/>' />
             <input type="hidden" name="status" id="status_<s:property value="id"/>"  value='normal' />
     </td>
-    <td><input type="text" name="clientName"  onchange="updateItem('status_<s:property value="id"/>','updated')" id='clientName_<s:property value="id"/>' value='<s:property value="clientName"/>' /></td>
-    <td><input type="text" name="storeName"   onchange="updateItem('status_<s:property value="id"/>','updated')" id='storeName_<s:property value="id"/>' value='<s:property value="storeName"/>' /></td>
-	<td><input type="text" name="address"     onchange="updateItem('status_<s:property value="id"/>','updated')" id='address_<s:property value="id"/>' value='<s:property value="address"/>' /></td>
-    <td><input type="text" name="mobilePhone" onchange="updateItem('status_<s:property value="id"/>','updated')" id='mobilePhone_<s:property value="id"/>'  value='<s:property value="mobilePhone"/>' /></td>
-    <td><input type="text" name="deskPhone"   onchange="updateItem('status_<s:property value="id"/>','updated')" id='deskPhone_<s:property value="id"/>' value='<s:property value="deskPhone"/>' /></td>
-    <td><input type="text" name="comments"    onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
+    <td><input type="text" name="productName"  onchange="updateItem('status_<s:property value="id"/>','updated')" id='productName_<s:property value="id"/>' value='<s:property value="productName"/>' /></td>
+    <td><input type="text" name="unit"         onchange="updateItem('status_<s:property value="id"/>','updated')" id='unit_<s:property value="id"/>' value='<s:property value="unit"/>' /></td>
+    <td><input type="text" name="comments"     onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
     <td style="width:80px" ><button type="button" onclick="deleteItem('status_<s:property value="id"/>','deleted')">删除</button></td>
    </tr>
     

@@ -27,6 +27,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="annotatedClasses">
 			<list>
 				<value>com.hduo.pojo.Client</value>
+				<value>com.hduo.pojo.Product</value>
+				<value>com.hduo.pojo.IncomeItem</value>
 			</list>
 		</property>
 
@@ -57,15 +59,31 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	</bean>
 
 	<bean id="clientDao" class="org.hduo.dao.ClientDao" parent="dao" />
+	<bean id="productDao" class="org.hduo.dao.ProductDao" parent="dao" />
+	<bean id="incomeItemDao" class="org.hduo.dao.IncomeItemDao" parent="dao" />
 
 	<!-- manager -->
 	<bean id="clientManager" class="com.hduo.manager.ClientManagerImpl">
 		<property name="clientDao" ref="clientDao" />
 	</bean>
-
-	<bean id="clientAction" class="com.hduo.action.ClientAction" scope="prototype">
+	<bean id="productManager" class="com.hduo.manager.ProductManagerImpl">
+		<property name="productDao" ref="productDao" />
+	</bean>
+	<bean id="incomeItemManager" class="com.hduo.manager.IncomeItemManagerImpl">
+		<property name="incomeItemDao" ref="incomeItemDao" />
+	</bean>
+	<!-- action -->
+	<bean id="clientAction" class="com.hduo.action.ClientAction"
+		scope="prototype">
 		<property name="clientManager" ref="clientManager" />
 	</bean>
-
+	<bean id="productAction" class="com.hduo.action.ProductAction"
+		scope="prototype">
+		<property name="productManager" ref="productManager" />
+	</bean>
+	<bean id="incomeItemAction" class="com.hduo.action.IncomeItemAction"
+		scope="prototype">
+		<property name="incomeItemManager" ref="incomeItemManager" />
+	</bean>
 </beans>
 

@@ -5,34 +5,43 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>hduo-erp</title>
-<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="js/jquery-1.5.1.min.js"></script>
+<link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="js/jquery-1.8.2.js"></script>
 <script>
+
+$(document).ready(function() {
+	 $("#content").load('toAddIncomeItem.action');
+});
+
+
   function loadPage(url){
-	  alert(url);
 	  $("#content").load(url);
   }
   
+ /*  function submitForm(form_id){
+	alert(from_id);
+	  $("#"+form_id).submit();
+	  return ;
+  } */
   
 </script>
 
 </head>
 <body>
-<div id="wrapper">
+<div id="wrapper" >
 	
 	<div id="menu">
 		<ul>
-			<li><a onclick="loadPage()">入库</a></li>
+			<li><a href="#" onclick="loadPage('toAddIncomeItem.action')">入库</a></li>
 			<li><a href="#">入库统计</a></li>
 			<li><a href="#">出库</a></li>
 			<li><a href="#">出库统计</a></li>
 			<li><a href="#">库存盘点</a></li>
-			<li><a href="#">商品管理</a></li>
-			<li><a onclick="loadPage('getAllClients.action')">客户管理</a></li>
+			<li><a href="#" onclick="loadPage('getAllProducts.action')">商品管理</a></li>
+			<li><a href="#" onclick="loadPage('getAllClients.action')">客户管理</a></li>
 		</ul>
 	</div>
-	<div id="content">
-	</div>
+	<div id="content"></div>
 </div>
 
 </body>
