@@ -34,7 +34,13 @@
 		<action name="toAddIncomeItem" class="productAction" method="toAddIncomeItem">
 			<result name="success">incomeItem.jsp</result>
 		</action>
+		<action name="saveIncomeItems" class="incomeItemAction" method="saveIncomeItems">
+			<result name="success" type="redirectAction">incomeItemsStatistic</result>
+		</action>
 		
+		<action name="incomeItemsStatistic" class="incomeItemAction" method="incomeItemsStatistic">
+			<result name="success">incomeItemStatistic.jsp</result>
+		</action>
 		
 
 	</package>

@@ -71,6 +71,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	</bean>
 	<bean id="incomeItemManager" class="com.hduo.manager.IncomeItemManagerImpl">
 		<property name="incomeItemDao" ref="incomeItemDao" />
+		<property name="productDao" ref="productDao" />
 	</bean>
 	<!-- action -->
 	<bean id="clientAction" class="com.hduo.action.ClientAction"
@@ -84,6 +85,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="incomeItemAction" class="com.hduo.action.IncomeItemAction"
 		scope="prototype">
 		<property name="incomeItemManager" ref="incomeItemManager" />
+		<property name="productManager" ref="productManager" />
 	</bean>
 </beans>
 

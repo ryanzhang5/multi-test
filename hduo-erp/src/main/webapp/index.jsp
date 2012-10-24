@@ -33,7 +33,7 @@ $(document).ready(function() {
 	<div id="menu">
 		<ul>
 			<li><a href="#" onclick="loadPage('toAddIncomeItem.action')">入库</a></li>
-			<li><a href="#">入库统计</a></li>
+			<li><a href="#" onclick="loadPage('incomeItemsStatistic.action')">入库统计</a></li>
 			<li><a href="#">出库</a></li>
 			<li><a href="#">出库统计</a></li>
 			<li><a href="#">库存盘点</a></li>

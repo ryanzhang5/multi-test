@@ -20,17 +20,20 @@ public class IncomeItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
+	@Column(name = "sum")
+	private int sum;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "product_id")
 	private Product product;
-	
+
 	@Column(name = "price")
 	private float price;
-	
+
 	@Column(name = "income_date")
 	private Date date;
-	
+
 	@Column(name = "comments")
 	private String comments;
 
@@ -82,6 +85,14 @@ public class IncomeItem {
 
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
 
 	@Override

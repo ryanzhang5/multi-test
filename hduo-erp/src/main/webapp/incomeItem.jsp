@@ -13,14 +13,13 @@
   $(document).ready(function() {
 				  var id = 3;
 				  $("table.dynatable button.add").click(function() {
-					  alert("first here " + id);
 								  id++;
 									prot = '<tr>'
 									    +'<td style="width:80px">'+id+'<input type="hidden" name="incomeItem_id" value="" /><input type="hidden" id="new_status_'+id+'" name="status" value="new" /> '
 									    +'</td>'
 									    +'<td>'+<s:select name="productName" list="products" listKey="id" listValue="productName" theme="simple"></s:select>+'</td>'
-									    +'<td><input type="text" name="num"      onchange=updateItem("new_status_'+id+'","new_updated")  id="num_'+id+'" /></td>'
-									    +'<td><input type="text" name="price"    onchange=updateItem("new_status_'+id+'","new_updated") id="price_'+id+'" /></td>'
+									    +'<td><input type="text" name="num"      onchange=updateItem("new_status_'+id+'","new_updated")  id="num_'+id+'"  value="0" /></td>'
+									    +'<td><input type="text" name="price"    onchange=updateItem("new_status_'+id+'","new_updated") id="price_'+id+'" value="0.0" /></td>'
 									    +'<td><input type="text" name="comments" onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
 									    +'<td style="width:80px" >'
 									    +'<button type="button" onclick=deleteItem("new_status_'+id+'","new_deleted")>删除</button></td>'
@@ -45,6 +44,21 @@
 					 
 				});
 				$( "#datepicker" ).datepicker('setDate',new Date());
+				
+				
+				
+				
+				 $("#incomeItemForm").submit(function() {
+					  $.ajax({
+						  data:$(this).serialize()+"&incomeDate="+$( "#datepicker" ).attr("value"),
+						  type:$(this).attr('method'),
+						  url:$(this).attr('action'),
+						  success:function(response){
+							  $('#content').html(response);
+						  }
+					  });
+					  return false;
+			    });
 				  
   });
   
@@ -55,12 +69,35 @@
   function deleteItem(item_id,newStatus){
 	  $("#"+item_id).parents("tr").css("display","none");		
 	  $("#"+item_id).attr("value",newStatus);
+	  calcula();
 	  }  
   
   function updateItem(item_id,newStatus){
 	  $("#"+item_id).attr("value",newStatus);
 	  $("#save_button").css("background-color","#ff0000");
+	  calcula();
   }
+  
+  
+  
+  function calcula(){
+		var total_num  =0;
+		var total_price = 0;
+		$.each($('input[name="num"]'),function(index){
+			var row_status = $($('input[name="status"]')[index]).attr("value"); 
+			if(row_status != "new_deleted" && row_status != "deleted"){
+				var mynum = $($('input[name="num"]')[index]).attr("value");
+				var myprice=$($('input[name="price"]')[index]).attr("value");
+				total_num   = total_num + parseInt(mynum);
+				total_price = total_price +  parseInt(mynum)*parseFloat(myprice);
+			}
+		}); 
+		 $("#total_price").attr("value",total_price); 
+		 $("#total_num").attr("value",total_num); 
+  
+  }
+  
+  
   
   
 </script>
@@ -97,19 +134,22 @@
             <input type="hidden" name="status" id="status_<s:property value="#listStatus.index"/>"  value='new' />
     </td>
     <td><s:select name="productName" list="products" listKey="id" listValue="productName" theme="simple"></s:select></td>
-    <td><input type="text" name="num"           onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='' /></td>
-    <td><input type="text" name="price"         onchange="updateItem('status_<s:property value="#listStatus.index"/>,'new_updated')"   value='' /></td>
-    <td><input type="text" name="comments"      onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='' /></td>
-    <td style="width:80px" ><button type="button" onclick="deleteItem('status_<s:property value="#listStatus.index"/>','new_deleted')">删除</button></td>
+    <td><input type="text" name="num"             onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='0' /></td>
+    <td><input type="text" name="price"           onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"   value='0.0' /></td>
+    <td><input type="text" name="comments"        onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='' /></td>
+    <td style="width:80px" ><button type="button"  onclick="deleteItem('status_<s:property value="#listStatus.index"/>','new_deleted')">删除</button></td>
   </tr>
     
     </s:iterator>
-    
-    
-  
-    
-    
    <tbody>
+   <tr>
+   <td>合计</td>
+   <td></td>
+   <td>总数量:<input style="width:80px" type="text" name="" id="total_num"  value='0' /></td>
+   <td>总金额:<input style="width:80px" type="text" name="" id="total_price"  value='0.0' /></td>
+   <td></td><td></td>
+   </tr>
+   
 </table>
 </form>
 </body>
