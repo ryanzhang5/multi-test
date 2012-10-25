@@ -35,13 +35,25 @@
 			<result name="success">incomeItem.jsp</result>
 		</action>
 		<action name="saveIncomeItems" class="incomeItemAction" method="saveIncomeItems">
-			<result name="success" type="redirectAction">incomeItemsStatistic</result>
+			<result name="success" type="redirectAction">getAllInventoryItems</result>
 		</action>
 		
 		<action name="incomeItemsStatistic" class="incomeItemAction" method="incomeItemsStatistic">
 			<result name="success">incomeItemStatistic.jsp</result>
 		</action>
+		<action name="getAllInventoryItems" class="inventoryItemAction" method="getAllInventoryItems">
+			<result name="success">inventoryItemStatistic.jsp</result>
+		</action>
+		<action name="saveInventoryItemsStatistic" class="inventoryItemAction" method="saveInventoryItemsStatistic">
+			<result name="success" type="redirectAction">getAllInventoryItems</result>
+		</action>
 		
-
+	    <action name="outgoing" class="outgoingAction" method="outgoing">
+			<result name="success">outgoing.jsp</result>
+		</action>
+		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
+			<result name="success">outgoing.jsp</result>
+		</action>
+		
 	</package>
 </struts>

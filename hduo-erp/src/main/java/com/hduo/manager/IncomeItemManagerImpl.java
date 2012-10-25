@@ -1,5 +1,6 @@
 package com.hduo.manager;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -8,6 +9,7 @@ import org.hduo.dao.ProductDao;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hduo.pojo.IncomeItem;
+import com.hduo.pojo.InventoryItem;
 import com.hduo.pojo.Product;
 import com.hduo.util.Utils;
 
@@ -16,6 +18,7 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 			.getLogger(IncomeItemManagerImpl.class);
 	private IncomeItemDao incomeItemDao;
 	private ProductDao productDao;
+	private InventoryItemManager inventoryItemManager;
 
 	@Transactional
 	public List<IncomeItem> getAllIncomeItems() {
@@ -42,7 +45,7 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 		this.incomeItemDao.updateIncomeItem(incomeItem);
 	}
 
-      @Transactional
+	@Transactional
 	public void saveUpdateDeleteIncomeItems(String[] ids, String[] status,
 			String[] allProductName, String[] allNum, String[] allPrice,
 			String[] allComments, String incomeDate) {
@@ -62,7 +65,8 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 				}
 			} else if (incomeItem_id.equals("")
 					&& state.equals(Utils.NEW_UPDATED)) {
-				Product product= productDao.getProduct(Long.parseLong(productId));
+				Product product = productDao.getProduct(Long
+						.parseLong(productId));
 				incomeItem = new IncomeItem();
 				incomeItem.setSum(Integer.valueOf(num));
 				incomeItem.setPrice(Float.valueOf(price));
@@ -72,16 +76,33 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 				logger.info("-----------------tying to add incomeItem "
 						+ incomeItem);
 				addIncomeItem(incomeItem);
+
+				InventoryItem item = inventoryItemManager
+						.getInventoryItemByProduct(product);
+				if (item == null) {
+					item = new InventoryItem();
+					item.setSum(Integer.valueOf(num));
+					item.setComments(comments);
+					item.setProduct(product);
+					item.setDate(Utils.stringToDate(Utils
+							.dateToString(new Date())));
+				} else {
+					item.setSum(item.getSum() + Integer.valueOf(num));
+				}
+				inventoryItemManager.saveOrUpdateInventoryItem(item);
 			}
 		}
 
 	}
-      @Transactional
-      public List<IncomeItem> incomeItemsStatistic(String from, String to) {
-  		List<IncomeItem> items = incomeItemDao.getIncomeItems(from, to);
-  		logger.info("---------incomeitem from "+from +" to "+to+" size is " + items.size() );
-    	  return items;
-  	}
+
+	@Transactional
+	public List<IncomeItem> incomeItemsStatistic(String from, String to) {
+		List<IncomeItem> items = incomeItemDao.getIncomeItems(from, to);
+		logger.info("---------incomeitem from " + from + " to " + to
+				+ " size is " + items.size());
+		return items;
+	}
+
 	public void setIncomeItemDao(IncomeItemDao incomeItemDao) {
 		this.incomeItemDao = incomeItemDao;
 	}
@@ -90,5 +111,8 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 		this.productDao = productDao;
 	}
 
-	
+	public void setInventoryItemManager(
+			InventoryItemManager inventoryItemManager) {
+		this.inventoryItemManager = inventoryItemManager;
+	}
 }

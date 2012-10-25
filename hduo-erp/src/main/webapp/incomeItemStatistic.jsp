@@ -19,25 +19,7 @@
 					  clicked_row = this;
 	              }); 
 				  
-				  $(function() {
-						$( "#from" ).datepicker({
-							defaultDate: "+1w",
-							changeMonth: true,
-							numberOfMonths: 3,
-							onSelect: function( selectedDate ) {
-								$( "#to" ).datepicker( "option", "minDate", selectedDate );
-							}
-						});
-						$( "#to" ).datepicker({
-							defaultDate: "+1w",
-							changeMonth: true,
-							numberOfMonths: 3,
-							onSelect: function( selectedDate ) {
-								$( "#from" ).datepicker( "option", "maxDate", selectedDate );
-							}
-						});
-					});
-				  
+				 
 				  
 
 					 $("#incomeItemStasticForm").submit(function() {
@@ -53,6 +35,32 @@
 				    });
 
   });
+  
+  $(function() {
+		$( "#from" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 2,
+			 dateFormat:"yy-mm-dd",
+			onSelect: function( selectedDate ) {
+				$( "#to" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 2,
+			dateFormat:"yy-mm-dd",
+			onSelect: function( selectedDate ) {
+				$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+		$( "#from" ).datepicker('setDate','<s:property value="from"/>');
+		$( "#to" ).datepicker('setDate','<s:property value="to"/>');
+		calcula();
+		
+	});
+
   
   
   function calcula(){
@@ -98,13 +106,13 @@
   </thead>
   <tbody id="realBody">
     <s:iterator value="incomeItems" status="listStatus">
-    <tr>
+    <tr>   
     <td style="width:80px"><s:property value="#listStatus.index+1"/></td>
     <td><s:select name="productName" list="products" listKey="id" listValue="productName" theme="simple"></s:select></td>
-    <td><input type="text" name="num"      value='<s:property value="num"/>' /></td>
-	<td><input type="text" name="price"    value='<s:property value="price"/>' /></td>
-    <td><input type="text" name="date"     value='<s:property value="date"/>' /></td>
-    <td><input type="text" name="comments" value='<s:property value="comments"/>' /></td>
+    <td><input type="text" name="num"       readonly="readonly"    value='<s:property value="sum"/>' /></td>
+	<td><input type="text" name="price"     readonly="readonly"    value='<s:property value="price"/>' /></td>
+    <td><input type="text" name="date"      readonly="readonly"    value='<s:date name="date" format="yyyy-MM-dd"/>'     /></td>
+    <td><input type="text" name="comments"  readonly="readonly"    value='<s:property value="comments"/>' /></td>
    </tr>
     </s:iterator>
    <tbody>

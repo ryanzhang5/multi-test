@@ -29,6 +29,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 				<value>com.hduo.pojo.Client</value>
 				<value>com.hduo.pojo.Product</value>
 				<value>com.hduo.pojo.IncomeItem</value>
+				<value>com.hduo.pojo.InventoryItem</value>
+				<value>com.hduo.pojo.OutgoingItem</value>
 			</list>
 		</property>
 
@@ -60,7 +62,12 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="clientDao" class="org.hduo.dao.ClientDao" parent="dao" />
 	<bean id="productDao" class="org.hduo.dao.ProductDao" parent="dao" />
-	<bean id="incomeItemDao" class="org.hduo.dao.IncomeItemDao" parent="dao" />
+	<bean id="incomeItemDao" class="org.hduo.dao.IncomeItemDao"
+		parent="dao" />
+	<bean id="inventoryItemDao" class="org.hduo.dao.InventoryItemDao"
+		parent="dao" />
+	<bean id="outgoingItemDao" class="org.hduo.dao.OutgoingItemDao"
+		parent="dao" />
 
 	<!-- manager -->
 	<bean id="clientManager" class="com.hduo.manager.ClientManagerImpl">
@@ -72,7 +79,18 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="incomeItemManager" class="com.hduo.manager.IncomeItemManagerImpl">
 		<property name="incomeItemDao" ref="incomeItemDao" />
 		<property name="productDao" ref="productDao" />
+		<property name="inventoryItemManager" ref="inventoryItemManager" />
 	</bean>
+	<bean id="inventoryItemManager" class="com.hduo.manager.InventoryItemManagerImpl">
+		<property name="inventoryItemDao" ref="inventoryItemDao" />
+	</bean>
+	<bean id="outgoingItemManager" class="com.hduo.manager.OutgoingItemManagerImpl">
+		<property name="outgoingItemDao" ref="outgoingItemDao" />
+		<property name="clientDao" ref="clientDao" />
+		<property name="productDao" ref="productDao" />
+		<property name="inventoryItemDao" ref="inventoryItemDao" />
+	</bean>
+
 	<!-- action -->
 	<bean id="clientAction" class="com.hduo.action.ClientAction"
 		scope="prototype">
@@ -87,5 +105,18 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="incomeItemManager" ref="incomeItemManager" />
 		<property name="productManager" ref="productManager" />
 	</bean>
+	<bean id="inventoryItemAction" class="com.hduo.action.InventoryItemAction"
+		scope="prototype">
+		<property name="inventoryItemManager" ref="inventoryItemManager" />
+	</bean>
+	<bean id="outgoingAction" class="com.hduo.action.OutgoingAction"
+		scope="prototype">
+		<property name="clientManager" ref="clientManager" />
+		<property name="productManager" ref="productManager" />
+		<property name="outgoingItemManager" ref="outgoingItemManager" />
+
+	</bean>
+
+
 </beans>
 

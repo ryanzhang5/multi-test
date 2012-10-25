@@ -37,11 +37,7 @@
 	              }); 
 				  
 				  $( "#datepicker" ).datepicker({  
-					 showOn: "button",           
-					 buttonImage: "images/calendar.gif",  
-					 buttonImageOnly: true,
 					 dateFormat:"yy-mm-dd"
-					 
 				});
 				$( "#datepicker" ).datepicker('setDate',new Date());
 				
@@ -126,14 +122,14 @@
   </thead>
   <tbody id="realBody">
     
-        <s:iterator value="{1,2,3}" status="listStatus">
+      <s:iterator  value="products" status="listStatus">
     <tr>
     <td style="width:80px">
             <s:property value="#listStatus.index+1"/>
             <input type="hidden" name="incomeItem_id"  value='' />
             <input type="hidden" name="status" id="status_<s:property value="#listStatus.index"/>"  value='new' />
     </td>
-    <td><s:select name="productName" list="products" listKey="id" listValue="productName" theme="simple"></s:select></td>
+    <td><s:select name="productName" value="id"  list="products" listKey="id" listValue="productName" theme="simple"></s:select></td>
     <td><input type="text" name="num"             onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='0' /></td>
     <td><input type="text" name="price"           onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"   value='0.0' /></td>
     <td><input type="text" name="comments"        onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='' /></td>

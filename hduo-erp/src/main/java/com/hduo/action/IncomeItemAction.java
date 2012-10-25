@@ -52,8 +52,8 @@ public class IncomeItemAction extends ActionSupport {
 
 	public String incomeItemsStatistic() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String from = request.getParameter("from");
-		String to = request.getParameter("to");
+		 from = request.getParameter("from");
+		 to = request.getParameter("to");
 		Date toDate = null;
 		logger.info("from is " + from+ " to is " + to);
 		if(to == null || to.equals("")){
