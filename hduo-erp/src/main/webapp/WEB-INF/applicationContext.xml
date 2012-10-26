@@ -89,6 +89,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="clientDao" ref="clientDao" />
 		<property name="productDao" ref="productDao" />
 		<property name="inventoryItemDao" ref="inventoryItemDao" />
+		<property name="incomeItemDao" ref="incomeItemDao" />
 	</bean>
 
 	<!-- action -->

@@ -27,13 +27,16 @@ public class OutgoingItem {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "product_id")
 	private Product product;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client_id")
 	private Client client;
 
 	@Column(name = "price")
 	private float price;
+
+	@Column(name = "sum_price")
+	private float itemPrice;
 
 	@Column(name = "outgoing_date")
 	private Date date;
@@ -90,6 +93,22 @@ public class OutgoingItem {
 
 	public void setSum(int sum) {
 		this.sum = sum;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public float getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(float itemPrice) {
+		this.itemPrice = itemPrice;
 	}
 
 	@Override

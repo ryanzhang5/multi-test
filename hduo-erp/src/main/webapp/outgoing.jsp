@@ -29,9 +29,9 @@
 				
 				
 				
-				 $("#incomeItemForm").submit(function() {
+				 $("#outgoingItemForm").submit(function() {
 					  $.ajax({
-						  data:$(this).serialize()+"&incomeDate="+$( "#datepicker" ).attr("value"),
+						  data:$(this).serialize()+"&outgoingDate="+$( "#datepicker" ).attr("value"),
 						  type:$(this).attr('method'),
 						  url:$(this).attr('action'),
 						  success:function(response){
@@ -39,6 +39,9 @@
 						  }
 					  });
 					  return false;
+			    });
+				$("#print_button").click(function() {
+					$("#printUrl").attr('href','outgoingPrint.action?'+$("#outgoingItemForm").serialize()+"&outgoingDate="+$( "#datepicker" ).attr("value"));
 			    });
 				 
 				 $("#myclients").change(function() {
@@ -103,23 +106,24 @@
 <form name="outgoingItemForm" id="outgoingItemForm"  action="saveoutgoingItem" method="post">
 <table style="width:100%">
   <tr align="right" >
-  <td><s:select name="clientName" id="myclients" list="clients" listKey="id" listValue="clientName" theme="simple" headerKey="-1" headerValue="------"  value="%{clientId}"></s:select></td>
-  <td>outgoing日期: <input type="text" id="datepicker" /></td>
+  <td>客户名称：<s:select name="clientName" id="myclients" list="clients" listKey="id" listValue="clientName" theme="simple" headerKey="-1" headerValue="------"  value="%{clientId}"></s:select></td>
+  <td>出库日期: <input type="text" id="datepicker" /></td>
   <td align="right"><input id="save_button" type="submit" value="保存"/></td>
-  <td align="right"><input id="print_button" type="button" value="print"/></td>
+  <td align="right" ><a href="outgoingPrint.action" target="_blank" id="printUrl"><input id="print_button" type="button"  value="打印"/></a></td>
   </tr>
 </table>
 <table class="dynatable">
   <thead>
     <tr>
       <th style="width:80px">行号</th>
-      <th>productName</th>
-      <th>inventory</th>
-      <th>price</th>
-      <th>out-num</th>
-      <th>item-price</th>
+      <th>商品名称</th>
+      <th>最新入库价格</th>
+      <th>出库价格</th>
+      <th>库存</th>
+      <th>数量</th>
+      <th>金额</th>
       <th>备注</th>
-      <th style="width:80px"><button class="add" type="button">添加</button></th>
+      <th style="width:80px"></th>
     </tr>
   </thead>
   <tbody id="realBody">
@@ -127,16 +131,17 @@
     <tr>
     <td style="width:80px">
             <s:property value="#listStatus.index+1"/>
-            <input type="hidden" name="outgoingItem_id"  value='' />
+            <input type="hidden" name="product_id"  value='<s:property value="id"/>' />
             <input type="hidden" name="status" id="status_<s:property value="#listStatus.index"/>"  value='new' />
     </td>
-    <td><input type="text" name="productName"     readonly="readonly"   value='<s:property value="productName"/>' /></td>
+    <td><input type="text" name="productName"            readonly="readonly"   value='<s:property value="productName"/>' /></td>
+    <td><input type="text" name="latestIncomePrice"     readonly="readonly"   value='<s:property value="latestIncomePrice"/>' /></td>
+    <td><input type="text" name="price"                                 onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"   value='<s:property value="price"/>' /></td>
     <td><input type="text" name="inventoryNum"    readonly="readonly"   value='<s:property value="inventoryNum"/>' /></td>
-    <td><input type="text" name="price"                                 onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"   value='<s:property value="price"/>' /></td>
-    <td><input type="text" name="sum"                                   onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"   value='<s:property value="sum"/>' /></td>
+    <td><input type="text" name="sum"                                   onchange="updateItem('status_<s:property value="#listStatus.index"/>','nupdated')"   value='<s:property value="sum"/>' /></td>
     <td><input type="text" name="item_price"      readonly="readonly"                                                                                           value='' /></td>
-    <td><input type="text" name="comments"                              onchange="updateItem('status_<s:property value="#listStatus.index"/>','new_updated')"  value='' /></td>
-    <td style="width:80px" ><button type="button"                       onclick="deleteItem('status_<s:property value="#listStatus.index"/>','new_deleted')">删除</button></td>
+    <td><input type="text" name="comments"                              onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"  value='' /></td>
+    <td style="width:80px" ><button type="button"                       onclick="deleteItem('status_<s:property value="#listStatus.index"/>','deleted')">删除</button></td>
   </tr>
     
     </s:iterator>
@@ -145,12 +150,16 @@
    <tr>
    <td>合计</td>
    <td colspan="3"></td>
-   <td>总数量:<input style="width:80px" type="text" name="" id="total_num"  value='0' /></td>
-   <td>总金额:<input style="width:80px" type="text" name="" id="total_price"  value='0.0' /></td>
+   <td>总数量:<input style="width:80px" type="text" name="total_num" id="total_num"  value='0' /></td>
+   <td>总金额:<input style="width:80px" type="text" name="total_price" id="total_price"  value='0.0' /></td>
    <td colspan="2"></td>
    </tr>
-   
+   <tr>
+   <td>打印说明:</td>
+   <td colspan="8"><input style="width:100%" type="text" name="print_comment"value='' /></td>
+   </tr>
 </table>
 </form>
+<form action="outgoingPrint.action" target="_blank" id="printForm" ></form>
 </body>
 </html>

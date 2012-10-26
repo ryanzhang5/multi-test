@@ -53,7 +53,7 @@
       <th style="width:80px">行号</th>
       <th>商品名称</th>
       <th>数量</th>
-      <th>real_num</th>
+      <th>实际数量</th>
       <th>日期</th>
       <th>备注</th>
     </tr>

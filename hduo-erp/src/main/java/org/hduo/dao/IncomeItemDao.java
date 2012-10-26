@@ -35,6 +35,10 @@ public class IncomeItemDao extends Dao {
 				.createQuery(query).list();
 		return incomeItems;
 	}
+	
+	public Object executeSQL(String sql) {
+		return (Object) getSession().createSQLQuery(sql).uniqueResult();
+	}
 
 	public void deleteIncomeItem(IncomeItem incomeItem) {
 		getSession().delete(incomeItem);

@@ -28,7 +28,7 @@ CHARACTER SET utf8 COLLATE utf8_bin;
 
 CREATE TABLE `hduo`.`income_item` (
   `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `num` integer ,
+  `sum` integer ,
   `price` float ,
   `income_date` datetime ,
   `product_id` integer ,
@@ -40,6 +40,53 @@ CHARACTER SET utf8 COLLATE utf8_bin;
 
 
 
+
+CREATE TABLE `hduo`.`outgoing_item` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sum` integer ,
+  `price` float ,
+  `sum_price` float ,
+  `outgoing_date` datetime ,
+  `product_id` integer ,
+  `client_id` integer ,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+
+CREATE TABLE `hduo`.`inventory` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sum` integer ,
+  `statistic_date` datetime ,
+  `product_id` integer ,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+
+
+
+
+
+
+
+insert into `hduo`.`outgoing_item` (sum,outgoing_date,product_id) 
+values 
+(1,'2012-02-01',1),
+(1,'2012-03-01',1),
+(1,'2012-10-01',1);
+
+SELECT myproduct.id as myid ,myoutgoing.price as price FROM product myproduct  left join  outgoing_item myoutgoing on myproduct.id = myoutgoing.product_id where product_id =1 and client_id =1 order by outgoing_date desc limit 2
 
 
 insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理1','华联超市1','食品城1','13815300121','3278711','抓紧要账1');

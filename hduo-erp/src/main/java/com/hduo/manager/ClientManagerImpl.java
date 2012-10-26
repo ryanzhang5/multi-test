@@ -20,6 +20,7 @@ public class ClientManagerImpl implements ClientManager {
 		return clientDao.getAllClients();
 	}
 
+	@Transactional
 	public Client getClient(long id) {
 		return clientDao.getClient(id);
 	}

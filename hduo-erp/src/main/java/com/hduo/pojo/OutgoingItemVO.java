@@ -11,6 +11,8 @@ public class OutgoingItemVO {
 
 	private float price;
 
+	private float latestIncomePrice;
+
 	private Date date;
 
 	private String comments;
@@ -26,6 +28,14 @@ public class OutgoingItemVO {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public float getLatestIncomePrice() {
+		return latestIncomePrice;
+	}
+
+	public void setLatestIncomePrice(float latestIncomePrice) {
+		this.latestIncomePrice = latestIncomePrice;
 	}
 
 	public float getPrice() {

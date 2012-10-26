@@ -54,6 +54,8 @@
 		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
 			<result name="success">outgoing.jsp</result>
 		</action>
-		
+		<action name="outgoingPrint" class="outgoingAction" method="outgoingPrint">
+			<result name="success">outPrint3.jsp</result>
+		</action>
 	</package>
 </struts>

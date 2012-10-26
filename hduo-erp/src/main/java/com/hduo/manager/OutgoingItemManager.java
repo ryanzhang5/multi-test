@@ -8,4 +8,8 @@ public interface OutgoingItemManager {
 
 	List<OutgoingItemVO> getOutgoingTemplate(String clientId);
 
+	void saveUpdateDeleteOutgoingItems(String clientId, String outgoingDate,
+			String[] ids, String[] status, String[] allPrice, String[] allSum,
+			String[] allItemPrice, String[] allComments);
+
 }

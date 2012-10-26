@@ -122,7 +122,7 @@
   </thead>
   <tbody id="realBody">
     
-      <s:iterator  value="products" status="listStatus">
+    <s:iterator  value="products" status="listStatus">
     <tr>
     <td style="width:80px">
             <s:property value="#listStatus.index+1"/>
