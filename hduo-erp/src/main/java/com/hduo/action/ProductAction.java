@@ -1,5 +1,8 @@
 package com.hduo.action;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +24,7 @@ public class ProductAction extends ActionSupport {
 	private String productId;
 	private List<Product> products;
 	private int productNum;
+	private InputStream inputStream;
 
 	public String getAllProducts() {
 
@@ -45,14 +49,37 @@ public class ProductAction extends ActionSupport {
 
 		return SUCCESS;
 	}
-	
+
+	public String checkProduct() {
+		boolean exist = false;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String productName = request.getParameter("productName");
+		products = productManager.getAllProducts();
+		for (Product product : products) {
+			if (product.getProductName().equals(productName)) {
+				exist = true;
+				break;
+			}
+		}
+		logger.info("-----------++++++++++++++++++++++++++++++++----------"
+				+ productName);
+		if (exist) {
+			inputStream = new BufferedInputStream(new ByteArrayInputStream(
+					"1".getBytes()));
+		} else {
+			inputStream = new BufferedInputStream(new ByteArrayInputStream(
+					"0".getBytes()));
+		}
+		return SUCCESS;
+	}
+
 	public String toAddIncomeItem() {
 		logger.info("-----------------------------befor here ");
 		products = productManager.getAllProducts();
 		logger.info("-----------------------------lenght is " + products.size());
 		for (Product product : products) {
 			logger.info("---------------" + product.getProductName());
-			
+
 		}
 		return SUCCESS;
 	}
@@ -72,5 +99,8 @@ public class ProductAction extends ActionSupport {
 	public void setProductManager(ProductManager productManager) {
 		this.productManager = productManager;
 	}
-	
+
+	public InputStream getInputStream() {
+		return inputStream;
+	}
 }

@@ -15,9 +15,9 @@
 									prot = '<tr>'
 									    +'<td style="width:80px">'+id+'<input type="hidden" name="product_id" value="" /><input type="hidden" id="new_status_'+id+'" name="status" value="new" /> '
 									    +'</td>'
-									    +'<td><input type="text" name="productName" onchange=updateItem("new_status_'+id+'","new_updated")  id="productName_'+id+'" /></td>'
-									    +'<td><input type="text" name="unit"        onchange=updateItem("new_status_'+id+'","new_updated")  id="unit_'+id+'" /></td>'
-									    +'<td><input type="text" name="comments"    onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
+									    +'<td><input type="text" name="productName" class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="productName_'+id+'" /></td>'
+									    +'<td><input type="text" name="unit"        class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="unit_'+id+'" /></td>'
+									    +'<td><input type="text" name="comments"    class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
 									    +'<td style="width:80px" >'
 									    +'<button type="button" onclick=deleteItem("new_status_'+id+'","new_deleted")>删除</button></td>'
 									    +'</tr>';
@@ -44,6 +44,24 @@
 					  });
 					  return false;
 			    }); 
+				  
+				  
+				  $('input[name="productName"]').live("change",function() {
+					  $.ajax({
+						  data:"productName="+$(this).attr("value"),
+						  type:"post",
+						  url:"checkProduct.action",
+						  success:function(response){
+							 if(response==1){
+								 alert("商品已存在");
+							 }
+						  }
+					  });
+					  return false;
+					 });
+				  
+				  
+				  
   });
   
   function toSave(){
@@ -67,6 +85,7 @@
 <body>
 <table style="width:100%">
   <tr align="right" >
+  <td align="left">当前位置 &gt;&gt;&gt; 商品管理</td>
     <td align="right"><input id="save_button" type="button" onclick="toSave()" value="保存"/></td>
   </tr>
 </table>
@@ -91,9 +110,9 @@
             <input type="hidden" name="product_id"  value='<s:property value="id"/>' />
             <input type="hidden" name="status" id="status_<s:property value="id"/>"  value='normal' />
     </td>
-    <td><input type="text" name="productName"  onchange="updateItem('status_<s:property value="id"/>','updated')" id='productName_<s:property value="id"/>' value='<s:property value="productName"/>' /></td>
-    <td><input type="text" name="unit"         onchange="updateItem('status_<s:property value="id"/>','updated')" id='unit_<s:property value="id"/>' value='<s:property value="unit"/>' /></td>
-    <td><input type="text" name="comments"     onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
+    <td><input type="text" name="productName"  class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='productName_<s:property value="id"/>' value='<s:property value="productName"/>' /></td>
+    <td><input type="text" name="unit"         class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='unit_<s:property value="id"/>' value='<s:property value="unit"/>' /></td>
+    <td><input type="text" name="comments"     class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
     <td style="width:80px" ><button type="button" onclick="deleteItem('status_<s:property value="id"/>','deleted')">删除</button></td>
    </tr>
     

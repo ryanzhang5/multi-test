@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -8,7 +9,7 @@
 <link href="css/ui-lightness/jquery-ui-1.9.0.custom.css" rel="stylesheet">
 <script src="js/jquery-1.8.2.js"></script>
 <script src="js/jquery-ui-1.9.0.custom.js"></script>
-
+<script src="js/jquery.ui.datepicker-zh-CN.js"></script>
 <script>
   $(document).ready(function() {
 				
@@ -43,6 +44,47 @@
 				$("#print_button").click(function() {
 					$("#printUrl").attr('href','outgoingPrint.action?'+$("#outgoingItemForm").serialize()+"&outgoingDate="+$( "#datepicker" ).attr("value"));
 			    });
+				
+				
+				 $('input[name="sum"]').change(function() {
+					 var num =$(this).attr("value");
+					 if(isNaN(num) || parseInt(num) < 0){
+						 alert("出库数量必须是非零整数");
+						 $(this).attr("value",0);
+						 calcula();
+						 return;
+					 }else{
+						 var inv = parseInt($(this).parents("tr").find("input[name='inventoryNum']").attr("value"));
+						 if(parseInt(num) > inv){
+					    alert("出库数量必须不大于库存数");
+					    $(this).attr("value",0);
+						 calcula();
+						 return;
+						 }
+					 }	 
+				 });
+				 
+				 $('input[name="price"]').change(function() {
+					 var price =$(this).attr("value");
+					 if(isNaN(price) || parseFloat(price) < 0){
+						 alert("出库数量必须是非零数");
+						 $(this).attr("value",0);
+						 calcula();
+						 return;
+					 }else{
+						 var incomePrice = parseFloat($(this).parents("tr").find("input[name='latestIncomePrice']").attr("value"));
+						 if(incomePrice > parseFloat(price)){
+					    var r = confirm("出库价格不低于最新入库价格,继续出库吗?")
+							if(r==false){
+								 $(this).attr("value",incomePrice);
+								 calcula();
+							}
+						 }
+					 }
+				 });
+				
+				
+				
 				 
 				 $("#myclients").change(function() {
 					  $.ajax({
@@ -106,6 +148,7 @@
 <form name="outgoingItemForm" id="outgoingItemForm"  action="saveoutgoingItem" method="post">
 <table style="width:100%">
   <tr align="right" >
+  <td align="left">当前位置 &gt;&gt;&gt; 出库</td>
   <td>客户名称：<s:select name="clientName" id="myclients" list="clients" listKey="id" listValue="clientName" theme="simple" headerKey="-1" headerValue="------"  value="%{clientId}"></s:select></td>
   <td>出库日期: <input type="text" id="datepicker" /></td>
   <td align="right"><input id="save_button" type="submit" value="保存"/></td>
@@ -134,13 +177,13 @@
             <input type="hidden" name="product_id"  value='<s:property value="id"/>' />
             <input type="hidden" name="status" id="status_<s:property value="#listStatus.index"/>"  value='new' />
     </td>
-    <td><input type="text" name="productName"            readonly="readonly"   value='<s:property value="productName"/>' /></td>
+    <td><input type="text" name="productName"           readonly="readonly"   value='<s:property value="productName"/>' /></td>
     <td><input type="text" name="latestIncomePrice"     readonly="readonly"   value='<s:property value="latestIncomePrice"/>' /></td>
-    <td><input type="text" name="price"                                 onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"   value='<s:property value="price"/>' /></td>
+    <td><input type="text" name="price"          class="editable"                      onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"   value='<s:property value="price"/>' /></td>
     <td><input type="text" name="inventoryNum"    readonly="readonly"   value='<s:property value="inventoryNum"/>' /></td>
-    <td><input type="text" name="sum"                                   onchange="updateItem('status_<s:property value="#listStatus.index"/>','nupdated')"   value='<s:property value="sum"/>' /></td>
+    <td><input type="text" name="sum"             class="editable"                      onchange="updateItem('status_<s:property value="#listStatus.index"/>','nupdated')"   value='<s:property value="sum"/>' /></td>
     <td><input type="text" name="item_price"      readonly="readonly"                                                                                           value='' /></td>
-    <td><input type="text" name="comments"                              onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"  value='' /></td>
+    <td><input type="text" name="comments"        class="editable"                      onchange="updateItem('status_<s:property value="#listStatus.index"/>','updated')"  value='' /></td>
     <td style="width:80px" ><button type="button"                       onclick="deleteItem('status_<s:property value="#listStatus.index"/>','deleted')">删除</button></td>
   </tr>
     
@@ -149,10 +192,10 @@
      <tbody>
    <tr>
    <td>合计</td>
-   <td colspan="3"></td>
+   <td colspan="4"></td>
    <td>总数量:<input style="width:80px" type="text" name="total_num" id="total_num"  value='0' /></td>
    <td>总金额:<input style="width:80px" type="text" name="total_price" id="total_price"  value='0.0' /></td>
-   <td colspan="2"></td>
+   <td ></td>
    </tr>
    <tr>
    <td>打印说明:</td>

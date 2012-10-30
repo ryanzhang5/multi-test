@@ -15,12 +15,12 @@
 									prot = '<tr>'
 									    +'<td style="width:80px">'+id+'<input type="hidden" name="client_id" value="" /><input type="hidden" id="new_status_'+id+'" name="status" value="new" /> '
 									    +'</td>'
-									    +'<td><input type="text" name="clientName"  onchange=updateItem("new_status_'+id+'","new_updated")  id="clientName_'+id+'" /></td>'
-									    +'<td><input type="text" name="storeName"   onchange=updateItem("new_status_'+id+'","new_updated")  id="storeName_'+id+'" /></td>'
-									    +'<td><input type="text" name="address"     onchange=updateItem("new_status_'+id+'","new_updated")  id="address_'+id+'" /></td>'
-									    +'<td><input type="text" name="mobilePhone" onchange=updateItem("new_status_'+id+'","new_updated")  id="mobilePhone_'+id+'" /></td>'
-									    +'<td><input type="text" name="deskPhone"   onchange=updateItem("new_status_'+id+'","new_updated")  id="deskPhone_'+id+'" /></td>'
-									    +'<td><input type="text" name="comments"    onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
+									    +'<td><input type="text" name="clientName" class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="clientName_'+id+'" /></td>'
+									    +'<td><input type="text" name="storeName"  class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="storeName_'+id+'" /></td>'
+									    +'<td><input type="text" name="address"    class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="address_'+id+'" /></td>'
+									    +'<td><input type="text" name="mobilePhone" class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="mobilePhone_'+id+'" /></td>'
+									    +'<td><input type="text" name="deskPhone"   class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="deskPhone_'+id+'" /></td>'
+									    +'<td><input type="text" name="comments"    class="editable" onchange=updateItem("new_status_'+id+'","new_updated")  id="comments_'+id+'" /></td>'
 									    +'<td style="width:80px" >'
 									    +'<button type="button" onclick=deleteItem("new_status_'+id+'","new_deleted")>删除</button></td>'
 									    +'</tr>';
@@ -48,6 +48,20 @@
 					  return false;
 			    }); 
 				  
+				  $('input[name="clientName"]').live("change",function() {
+					  $.ajax({
+						  data:"clientName="+$(this).attr("value"),
+						  type:"post",
+						  url:"checkClient.action",
+						  success:function(response){
+							 if(response==1){
+								 alert("客户已存在");
+							 }
+						  }
+					  });
+					  return false;
+					 });
+				  
   });
   
   function toSave(){
@@ -71,6 +85,7 @@
 <body>
 <table style="width:100%">
   <tr align="right" >
+  <td align="left">当前位置 &gt;&gt;&gt; 客户管理</td>
     <td align="right"><input id="save_button" type="button" onclick="toSave()" value="保存"/></td>
   </tr>
 </table>
@@ -98,12 +113,12 @@
             <input type="hidden" name="client_id"  value='<s:property value="id"/>' />
             <input type="hidden" name="status" id="status_<s:property value="id"/>"  value='normal' />
     </td>
-    <td><input type="text" name="clientName"  onchange="updateItem('status_<s:property value="id"/>','updated')" id='clientName_<s:property value="id"/>' value='<s:property value="clientName"/>' /></td>
-    <td><input type="text" name="storeName"   onchange="updateItem('status_<s:property value="id"/>','updated')" id='storeName_<s:property value="id"/>' value='<s:property value="storeName"/>' /></td>
-	<td><input type="text" name="address"     onchange="updateItem('status_<s:property value="id"/>','updated')" id='address_<s:property value="id"/>' value='<s:property value="address"/>' /></td>
-    <td><input type="text" name="mobilePhone" onchange="updateItem('status_<s:property value="id"/>','updated')" id='mobilePhone_<s:property value="id"/>'  value='<s:property value="mobilePhone"/>' /></td>
-    <td><input type="text" name="deskPhone"   onchange="updateItem('status_<s:property value="id"/>','updated')" id='deskPhone_<s:property value="id"/>' value='<s:property value="deskPhone"/>' /></td>
-    <td><input type="text" name="comments"    onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
+    <td><input type="text" name="clientName" class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='clientName_<s:property value="id"/>' value='<s:property value="clientName"/>' /></td>
+    <td><input type="text" name="storeName"  class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='storeName_<s:property value="id"/>' value='<s:property value="storeName"/>' /></td>
+	<td><input type="text" name="address"    class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='address_<s:property value="id"/>' value='<s:property value="address"/>' /></td>
+    <td><input type="text" name="mobilePhone" class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='mobilePhone_<s:property value="id"/>'  value='<s:property value="mobilePhone"/>' /></td>
+    <td><input type="text" name="deskPhone"   class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='deskPhone_<s:property value="id"/>' value='<s:property value="deskPhone"/>' /></td>
+    <td><input type="text" name="comments"    class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" id='comments_<s:property value="id"/>'value='<s:property value="comments"/>' /></td>
     <td style="width:80px" ><button type="button" onclick="deleteItem('status_<s:property value="id"/>','deleted')">删除</button></td>
    </tr>
     

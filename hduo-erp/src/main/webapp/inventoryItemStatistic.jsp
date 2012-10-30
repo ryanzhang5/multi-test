@@ -30,6 +30,14 @@
 						  });
 						  return false;
 				    });
+					 
+					 $('input[name="real_num"]').change(function() {
+						 var num =$(this).attr("value");
+						 if(isNaN(num) || parseInt(num) < 0){
+							 alert("实际数量必须是非零整数");
+							 return;
+						 }
+					 });
   });
   
   function updateItem(item_id,newStatus){
@@ -43,6 +51,7 @@
 <form name="inventoryItemStasticForm" id="inventoryItemStasticForm"  action="saveInventoryItemsStatistic" method="post">
 <table style="width:100%">
   <tr align="right" >
+  <td align="left">当前位置 &gt;&gt;&gt; 库存盘点</td>
     <td align="right"><input id="save_button" type="submit" value="保存"/></td>
   </tr>
 </table>
@@ -54,7 +63,7 @@
       <th>商品名称</th>
       <th>数量</th>
       <th>实际数量</th>
-      <th>日期</th>
+      <th>盘点日期</th>
       <th>备注</th>
     </tr>
   </thead>
@@ -67,7 +76,7 @@
  	    </td>
 	    <td><s:property value="product.productName"/></td>
 	    <td><s:property value="sum"/></td>
-		<td><input type="text" name="real_num" onchange="updateItem('status_<s:property value="id"/>','updated')" value='<s:property value="sum"/>' /></td>
+		<td><input type="text" name="real_num" class="editable" onchange="updateItem('status_<s:property value="id"/>','updated')" value='<s:property value="sum"/>' /></td>
 	    <td><s:date name="date" format="yyyy-MM-dd"/></td>
 	    <td><input type="text" name="comments" onchange="updateItem('status_<s:property value="id"/>','updated')"  value='<s:property value="comments"/>' /></td>
    </tr>

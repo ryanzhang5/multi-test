@@ -9,6 +9,7 @@
 <script src="js/jquery-1.8.2.js"></script>
 <script src="js/jquery-ui-1.9.0.custom.js"></script>
 <script src="js/jquery.ui.datepicker-zh-CN.js"></script>
+
 <script>
   $(document).ready(function() {
 				  var clicked_row =null;
@@ -22,7 +23,7 @@
 				 
 				  
 
-					 $("#incomeItemStasticForm").submit(function() {
+					 $("#outgoingItemStasticForm").submit(function() {
 						  $.ajax({
 							  data:$(this).serialize(),
 							  type:$(this).attr('method'),
@@ -41,7 +42,7 @@
 			defaultDate: "+1w",
 			changeMonth: true,
 			numberOfMonths: 2,
-			 dateFormat:"yy-mm-dd",
+			dateFormat:"yy-mm-dd",
 			onSelect: function( selectedDate ) {
 				$( "#to" ).datepicker( "option", "minDate", selectedDate );
 			}
@@ -66,13 +67,15 @@
   function calcula(){
 		var total_num  =0;
 		var total_price = 0;
-		$.each($('input[name="num"]'),function(index){
+		$.each($('input[name="sum"]'),function(index){
 			var row_status = $($('input[name="status"]')[index]).attr("value"); 
 			if(row_status != "new_deleted" && row_status != "deleted"){
-				var mynum = $($('input[name="num"]')[index]).attr("value");
+				var mynum = $($('input[name="sum"]')[index]).attr("value");
 				var myprice=$($('input[name="price"]')[index]).attr("value");
 				total_num   = total_num + parseInt(mynum);
-				total_price = total_price +  parseInt(mynum)*parseFloat(myprice);
+				var item_price = parseInt(mynum)*parseFloat(myprice);
+				total_price = total_price +  item_price;
+				$($('input[name="itemprice"]')[index]).attr("value",item_price);
 			}
 		}); 
 		 $("#total_price").attr("value",total_price); 
@@ -83,11 +86,13 @@
 
 </head>
 <body>
-<form name="incomeItemStasticForm" id="incomeItemStasticForm"  action="incomeItemsStatistic" method="post">
+<form name="outgoingItemStasticForm" id="outgoingItemStasticForm"  action="outgoingItemsStatistic" method="post">
 <table style="width:100%">
   <tr align="right" >
-  <td align="left">当前位置 &gt;&gt;&gt; 入库统计</td>
-  <td>入库日期--从:<input type="text" id="from" name="from"/>到:<input type="text" id="to" name="to"/></td>
+  <td align="left">当前位置 &gt;&gt;&gt; 出库统计</td>
+  <td>客户名称：<s:select name="clientId"  id="myclients" list="clients"   listKey="id" listValue="clientName"  theme="simple" headerKey="-1" headerValue="全部"  value="%{clientId}"></s:select></td>
+  <td>商品名称：<s:select name="productId" id="myProducts" list="products" listKey="id" listValue="productName" theme="simple" headerKey="-1" headerValue="全部"  value="%{productId}"></s:select></td>
+  <td>出库日期--从:<input type="text" id="from" name="from"/>到:<input type="text" id="to" name="to"/></td>
     <td align="right">
     <input id="save_button" type="submit" value="查询"/></td>
   </tr>
@@ -97,30 +102,31 @@
   <thead>
     <tr>
       <th style="width:80px">行号</th>
+      <th>客户名称</th>
       <th>商品名称</th>
-      <th>数量</th>
-      <th>入库价格</th>
-      <th>金额</th>
-      <th>入库日期</th>
-      <th>备注</th>
+	  <th>价格</th>
+	  <th>数量</th>
+	  <th>金额</th>
+	  <th>出库日期</th>
     </tr>
   </thead>
   <tbody id="realBody">
-    <s:iterator value="incomeItems" status="listStatus">
+    <s:iterator value="printItems" status="listStatus">
     <tr>   
     <td style="width:80px"><s:property value="#listStatus.index+1"/></td>
+    <td><s:property value="client.clientName"/></td>
     <td><s:property value="product.productName"/></td>
-    <td><input type="text" name="num"            readonly="readonly"    value='<s:property value="sum"/>' /></td>
-	<td><input type="text" name="price"          readonly="readonly"    value='<s:property value="price"/>' /></td>
-	<td><input type="text" name="item_price"     readonly="readonly"    value='<s:property value="itemPrice"/>' /></td>
+	<td><input type="text" name="price"     readonly="readonly"    value='<s:property value="price"/>' /></td>
+	<td><input type="text" name="sum"        readonly="readonly"    value='<s:property value="sum"/>' /></td>
+	<td><input type="text" name="itemPrice"  readonly="readonly"    value='<s:property value="itemPrice"/>' /></td>
     <td><s:date name="date" format="yyyy-MM-dd"/></td>
-    <td><s:property value="comments"/></td>
+        
    </tr>
     </s:iterator>
    <tbody>
    <tr>
    <td>合计</td>
-   <td colspan="2"></td>
+   <td colspan="3"></td>
    <td>总数量:<input style="width:80px" type="text" name="" id="total_num"  value='0' /></td>
    <td>总金额:<input style="width:80px" type="text" name="" id="total_price"  value='0.0' /></td>
    <td></td>

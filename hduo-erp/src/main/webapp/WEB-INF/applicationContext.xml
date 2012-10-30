@@ -90,6 +90,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="productDao" ref="productDao" />
 		<property name="inventoryItemDao" ref="inventoryItemDao" />
 		<property name="incomeItemDao" ref="incomeItemDao" />
+		<property name="inventoryItemManager" ref="inventoryItemManager" />
 	</bean>
 
 	<!-- action -->

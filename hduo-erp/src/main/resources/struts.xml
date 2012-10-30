@@ -7,16 +7,19 @@
 
 	<package name="default" namespace="/" extends="struts-default">
 
-	<!-- <global-results> <result name="error">/error.jsp</result> </global-results> -->
+		<!-- <global-results> <result name="error">/error.jsp</result> </global-results> -->
 
-<!-- 		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception"
-				result="error" />
-		</global-exception-mappings> -->
+		<!-- <global-exception-mappings> <exception-mapping exception="java.lang.Exception" 
+			result="error" /> </global-exception-mappings> -->
 		<action name="getAllClients" class="clientAction" method="getAllClients">
 			<result name="success">clients.jsp</result>
 		</action>
-
+		<action name="checkClient" class="clientAction" method="checkClient">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 
 		<action name="saveClients" class="clientAction" method="saveClients">
 			<result name="success" type="redirectAction">getAllClients</result>
@@ -25,30 +28,38 @@
 		<action name="getAllProducts" class="productAction" method="getAllProducts">
 			<result name="success">products.jsp</result>
 		</action>
-
+		<action name="checkProduct" class="productAction" method="checkProduct">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 
 		<action name="saveProducts" class="productAction" method="saveProducts">
 			<result name="success" type="redirectAction">getAllProducts</result>
 		</action>
-		
+
 		<action name="toAddIncomeItem" class="productAction" method="toAddIncomeItem">
 			<result name="success">incomeItem.jsp</result>
 		</action>
 		<action name="saveIncomeItems" class="incomeItemAction" method="saveIncomeItems">
 			<result name="success" type="redirectAction">getAllInventoryItems</result>
 		</action>
-		
-		<action name="incomeItemsStatistic" class="incomeItemAction" method="incomeItemsStatistic">
+
+		<action name="incomeItemsStatistic" class="incomeItemAction"
+			method="incomeItemsStatistic">
 			<result name="success">incomeItemStatistic.jsp</result>
 		</action>
-		<action name="getAllInventoryItems" class="inventoryItemAction" method="getAllInventoryItems">
+		<action name="getAllInventoryItems" class="inventoryItemAction"
+			method="getAllInventoryItems">
 			<result name="success">inventoryItemStatistic.jsp</result>
 		</action>
-		<action name="saveInventoryItemsStatistic" class="inventoryItemAction" method="saveInventoryItemsStatistic">
+		<action name="saveInventoryItemsStatistic" class="inventoryItemAction"
+			method="saveInventoryItemsStatistic">
 			<result name="success" type="redirectAction">getAllInventoryItems</result>
 		</action>
-		
-	    <action name="outgoing" class="outgoingAction" method="outgoing">
+
+		<action name="outgoing" class="outgoingAction" method="outgoing">
 			<result name="success">outgoing.jsp</result>
 		</action>
 		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
@@ -57,7 +68,8 @@
 		<action name="outgoingPrint" class="outgoingAction" method="outgoingPrint">
 			<result name="success">outPrint.jsp</result>
 		</action>
-		<action name="outgoingItemsStatistic" class="outgoingAction" method="outgoingItemsStatistic">
+		<action name="outgoingItemsStatistic" class="outgoingAction"
+			method="outgoingItemsStatistic">
 			<result name="success">outgoingStatistic.jsp</result>
 		</action>
 	</package>

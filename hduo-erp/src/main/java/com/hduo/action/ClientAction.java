@@ -1,5 +1,8 @@
 package com.hduo.action;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,12 +22,34 @@ public class ClientAction extends ActionSupport {
 	private String clientId;
 	private List<Client> clients;
 	private int clientNum;
+	private InputStream inputStream;
 
 	public String getAllClients() {
 
 		clients = clientManager.getAllClients();
 		this.clientNum = clients.size();
 		logger.info("---------------------" + clients.size());
+		return SUCCESS;
+	}
+
+	public String checkClient() {
+		boolean exist = false;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String clientName = request.getParameter("clientName");
+		clients = clientManager.getAllClients();
+		for (Client client : clients) {
+			if (client.getClientName().equals(clientName)) {
+				exist = true;
+				break;
+			}
+		}
+		logger.info("-----------++++++++++++++++++++++++++++++++----------"
+				+ clientName);
+		if (exist) {
+			inputStream = new BufferedInputStream(new ByteArrayInputStream("1".getBytes()));
+		}else {
+			inputStream = new BufferedInputStream(new ByteArrayInputStream("0".getBytes()));
+		}
 		return SUCCESS;
 	}
 
@@ -65,5 +90,9 @@ public class ClientAction extends ActionSupport {
 
 	public int getClientNum() {
 		return clientNum;
+	}
+
+	public InputStream getInputStream() {
+		return inputStream;
 	}
 }

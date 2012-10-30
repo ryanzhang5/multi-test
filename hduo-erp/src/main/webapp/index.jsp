@@ -29,7 +29,7 @@ $(document).ready(function() {
 			<li><a href="#" onclick="loadPage('toAddIncomeItem.action')">入库</a></li>
 			<li><a href="#" onclick="loadPage('incomeItemsStatistic.action')">入库统计</a></li>
 			<li><a href="#" onclick="loadPage('outgoing.action')">出库</a></li>
-			<li><a href="#">出库统计</a></li>
+			<li><a href="#" onclick="loadPage('outgoingItemsStatistic.action')">出库统计</a></li>
 			<li><a href="#" onclick="loadPage('getAllInventoryItems.action')">库存盘点</a></li>
 			<li><a href="#" onclick="loadPage('getAllProducts.action')">商品管理</a></li>
 			<li><a href="#" onclick="loadPage('getAllClients.action')">客户管理</a></li>
