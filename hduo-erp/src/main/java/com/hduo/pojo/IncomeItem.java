@@ -33,6 +33,17 @@ public class IncomeItem {
 
 	@Column(name = "income_date")
 	private Date date;
+	
+	@Column(name = "sum_price")
+	private float itemPrice;
+
+	public float getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(float itemPrice) {
+		this.itemPrice = itemPrice;
+	}
 
 	@Column(name = "comments")
 	private String comments;

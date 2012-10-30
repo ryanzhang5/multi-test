@@ -47,7 +47,7 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 
 	@Transactional
 	public void saveUpdateDeleteIncomeItems(String[] ids, String[] status,
-			String[] allProductName, String[] allNum, String[] allPrice,
+			String[] allProductName, String[] allNum, String[] allPrice,String[] allItemPrice,
 			String[] allComments, String incomeDate) {
 		logger.info("---------------------------------tying to add incomeItem ");
 		for (int i = 0; i < ids.length; i++) {
@@ -57,6 +57,7 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 			String productId = allProductName[i];
 			String num = allNum[i];
 			String price = allPrice[i];
+			String itemPrice = allItemPrice[i];
 			String comments = allComments[i];
 
 			if (incomeItem_id != null && !incomeItem_id.equals("")) {
@@ -70,6 +71,7 @@ public class IncomeItemManagerImpl implements IncomeItemManager {
 				incomeItem = new IncomeItem();
 				incomeItem.setSum(Integer.valueOf(num));
 				incomeItem.setPrice(Float.valueOf(price));
+				incomeItem.setItemPrice(Float.valueOf(itemPrice));
 				incomeItem.setComments(comments);
 				incomeItem.setDate(Utils.stringToDate(incomeDate));
 				incomeItem.setProduct(product);

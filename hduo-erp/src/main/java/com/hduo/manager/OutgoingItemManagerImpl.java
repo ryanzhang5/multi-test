@@ -27,6 +27,7 @@ public class OutgoingItemManagerImpl implements OutgoingItemManager {
 	private ProductDao productDao;
 	private InventoryItemDao inventoryItemDao;
 	private IncomeItemDao incomeItemDao;
+	private InventoryItemManager inventoryItemManager;
 
 	@Transactional
 	public List<OutgoingItemVO> getOutgoingTemplate(String clientId) {
@@ -116,7 +117,8 @@ public class OutgoingItemManagerImpl implements OutgoingItemManager {
 			Product product = productDao.getProduct(Long.parseLong(product_id));
 
 			if (product_id != null && !product_id.equals("")
-					&& Integer.parseInt(sum) > 0 && !state.equals(Utils.DELETED)) {
+					&& Integer.parseInt(sum) > 0
+					&& !state.equals(Utils.DELETED)) {
 				OutgoingItem item = new OutgoingItem();
 				item.setProduct(product);
 				item.setClient(client);
@@ -127,7 +129,26 @@ public class OutgoingItemManagerImpl implements OutgoingItemManager {
 				item.setDate(outdate);
 				outgoingItemDao.addOutgoingItem(item);
 			}
+
+			InventoryItem item = inventoryItemManager
+					.getInventoryItemByProduct(product);
+
+			item.setSum(item.getSum() - Integer.valueOf(sum));
+			inventoryItemManager.saveOrUpdateInventoryItem(item);
+
 		}
 
+	}
+
+	@Transactional
+	public List<OutgoingItem> outgoingItemsStatistic(String from, String to,
+			String clientId, String productId) {
+
+		return outgoingItemDao.getOutgoingItems(from, to, clientId, productId);
+	}
+
+	public void setInventoryItemManager(
+			InventoryItemManager inventoryItemManager) {
+		this.inventoryItemManager = inventoryItemManager;
 	}
 }

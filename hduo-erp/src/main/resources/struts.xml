@@ -52,10 +52,13 @@
 			<result name="success">outgoing.jsp</result>
 		</action>
 		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
-			<result name="success">outgoing.jsp</result>
+			<result name="success" type="redirectAction">outgoingItemsStatistic</result>
 		</action>
 		<action name="outgoingPrint" class="outgoingAction" method="outgoingPrint">
-			<result name="success">outPrint3.jsp</result>
+			<result name="success">outPrint.jsp</result>
+		</action>
+		<action name="outgoingItemsStatistic" class="outgoingAction" method="outgoingItemsStatistic">
+			<result name="success">outgoingStatistic.jsp</result>
 		</action>
 	</package>
 </struts>

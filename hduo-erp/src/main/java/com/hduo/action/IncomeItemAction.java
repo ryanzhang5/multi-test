@@ -38,11 +38,12 @@ public class IncomeItemAction extends ActionSupport {
 			String[] allProductName = request.getParameterValues("productName");
 			String[] allNum = request.getParameterValues("num");
 			String[] allPrice = request.getParameterValues("price");
+			String[] allItemPrice = request.getParameterValues("item_price");
 			String[] allComments = request.getParameterValues("comments");
 			String incomeDate = request.getParameter("incomeDate");
 			logger.info("---------------" + incomeDate);
 			incomeItemManager.saveUpdateDeleteIncomeItems(ids, status,
-					allProductName, allNum, allPrice, allComments, incomeDate);
+					allProductName, allNum, allPrice,allItemPrice, allComments, incomeDate);
 
 		} catch (Exception e) {
 			e.printStackTrace();

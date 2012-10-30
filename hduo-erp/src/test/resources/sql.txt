@@ -30,6 +30,7 @@ CREATE TABLE `hduo`.`income_item` (
   `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   `sum` integer ,
   `price` float ,
+  `sum_price` float ,
   `income_date` datetime ,
   `product_id` integer ,
   `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,

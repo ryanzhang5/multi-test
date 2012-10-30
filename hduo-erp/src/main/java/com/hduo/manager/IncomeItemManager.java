@@ -20,6 +20,6 @@ public interface IncomeItemManager {
 	void updateIncomeItem(IncomeItem incomeItem);
 
 	void saveUpdateDeleteIncomeItems(String[] ids, String[] status,
-			String[] allProductName, String[] allNum,String[] allPrice, String[] allComments,String incomeDate);
+			String[] allProductName, String[] allNum,String[] allPrice,String[] allItemPrice, String[] allComments,String incomeDate);
 
 }
