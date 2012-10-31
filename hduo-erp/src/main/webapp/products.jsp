@@ -8,6 +8,7 @@
 <link rel="stylesheet"  href="css/styles.css"  type="text/css"/>
 <script src="js/jquery-1.5.1.min.js"></script>
 <script>
+
   $(document).ready(function() {
 				  var id = '<s:property value="productNum"/>';
 				  $("table.dynatable button.add").click(function() {
