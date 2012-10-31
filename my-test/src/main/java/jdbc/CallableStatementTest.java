@@ -22,7 +22,6 @@ public class CallableStatementTest {
 		String sql = "call GetUserByName3(?,?,?)";
 		Connection connection = getConnection();
 		CallableStatement cstmt = connection.prepareCall(sql);
-
 		cstmt.setString(1, "paul");
 		cstmt.registerOutParameter(2, java.sql.Types.VARBINARY);
 		cstmt.registerOutParameter(3, java.sql.Types.INTEGER);

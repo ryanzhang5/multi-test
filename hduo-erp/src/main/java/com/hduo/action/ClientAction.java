@@ -24,6 +24,7 @@ public class ClientAction extends ActionSupport {
 	private int clientNum;
 	private InputStream inputStream;
 
+	
 	public String getAllClients() {
 
 		clients = clientManager.getAllClients();
