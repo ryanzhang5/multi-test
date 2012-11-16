@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<aop:aspectj-autoproxy />
+
+
+	<bean id="myAspect"
+		class="org.spring.aop.aspectJ.with.parameters.NotVeryUsefulAspect" />
+	<bean id="beforeExample" class="org.spring.aop.aspectJ.with.parameters.BeforeExample" />
+	<bean id="aroundExample" class="org.spring.aop.aspectJ.with.parameters.AroundExample" />
+	<!-- 
+		<bean id="afterExample" class="org.spring.aop.aspectJ.with.parameters.AfterExample" 
+		/> -->
+	<bean id="fooService"
+		class="org.spring.aop.aspectJ.with.parameters.DefaultFooService" />
+</beans>

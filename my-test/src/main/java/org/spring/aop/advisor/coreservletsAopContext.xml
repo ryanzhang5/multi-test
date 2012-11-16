@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<!-- An advisor is like a small self-contained aspect that has a single 
+		piece of advice. The advice itself is represented by a bean, and must implement 
+		one of the advice interfaces described in the section called “Advice types 
+		in Spring”. Advisors can take advantage of AspectJ pointcut expressions though. -->
+	<bean id="beforeExample" class="org.spring.aop.advisor.BeforeExample" />
+	<bean id="aroundExample" class="org.spring.aop.advisor.AroundExample" />
+	<bean id="afterExample" class="org.spring.aop.advisor.AfterExample" />
+	<aop:config>
+		<aop:pointcut id="businessService" expression="execution(public * *(..))" />
+		<aop:advisor pointcut-ref="businessService" advice-ref="beforeExample" />
+		<aop:advisor pointcut="execution(public * *(..))"	advice-ref="aroundExample" />
+		<aop:advisor pointcut="execution(public * *(..))"	advice-ref="afterExample" />
+	</aop:config>
+	<bean id="fooService" class="org.spring.aop.advisor.DefaultFooService" />
+</beans>

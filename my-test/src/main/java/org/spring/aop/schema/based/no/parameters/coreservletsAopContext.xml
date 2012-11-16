@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean id="aspectExample" class="org.spring.aop.schema.based.no.parameters.AspectExample" />
+
+	<aop:config>
+		<aop:aspect id="myAspect" ref="aspectExample">
+			<aop:pointcut id="businessService" expression="execution(public * *(..))" />
+			<aop:before pointcut-ref="businessService" method="before1" />
+			<!-- To define the pointcut inline instead, replace the pointcut-ref attribute 
+				with a pointcut attribute -->
+			<aop:before pointcut="execution(public * *(..))" method="before2" />
+			<aop:after-returning pointcut="execution(public * *(..))"
+				method="afterReturn1" />
+			<!-- get hold of the return value within the advice body. -->
+			<aop:after-returning pointcut="execution(public * *(..))"
+				method="afterReturn2" returning="retVal" />
+			<aop:around pointcut="execution(public * *(..))" method="around" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="fooService"
+		class="org.spring.aop.schema.based.no.parameters.DefaultFooService" />
+</beans>
