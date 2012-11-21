@@ -13,7 +13,7 @@
 		<priority value="DEBUG" />
 	</category>
 	<category name="org.springframework">
-		<priority value="error" />
+		<priority value="debug" />
 	</category>
 	<root>
 		<appender-ref ref="stdout" />
