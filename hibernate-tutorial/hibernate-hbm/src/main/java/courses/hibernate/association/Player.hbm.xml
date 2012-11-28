@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="courses.hibernate.association">
+
+	<class name="Player" table="PLAYER">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<many-to-one name="team" column="team_id" class="courses.hibernate.association.Team" cascade="all"/>
+	</class>
+
+</hibernate-mapping>

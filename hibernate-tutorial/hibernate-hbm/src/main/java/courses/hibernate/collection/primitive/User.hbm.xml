@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<class name="courses.hibernate.collection.primitive.User" table="MYUSER">
+		<id name="id" column="USER_ID">
+			<generator class="native" />
+		</id>
+
+		<set name="addressSet" table="addressSet">
+			<key column="userid" />
+			<element column="address" type="string" />
+		</set>
+
+		<list name="addressList" table="addressList">
+			<key column="userid" />
+			<index column="idx" />
+			<element column="address" type="string" />
+		</list>
+
+		<map name="addressMap" table="addressMap">
+			<key column="user_id" />
+			<map-key column="map_key" type="int" />
+			<element column="map_value" type="string" />
+		</map>
+		
+	
+	
+	</class>
+</hibernate-mapping>
