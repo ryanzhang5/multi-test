@@ -33,6 +33,8 @@
 						  });
 						  return false;
 				    });
+					 
+					 $('#ui-datepicker-div').remove();
 
   });
   

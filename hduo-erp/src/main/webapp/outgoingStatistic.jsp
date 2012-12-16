@@ -19,10 +19,6 @@
 					  $(this).css("background","#CCC");
 					  clicked_row = this;
 	              }); 
-				  
-				 
-				  
-
 					 $("#outgoingItemStasticForm").submit(function() {
 						  $.ajax({
 							  data:$(this).serialize(),
@@ -34,6 +30,7 @@
 						  });
 						  return false;
 				    });
+					 $('#ui-datepicker-div').remove();
 
   });
   

@@ -70,7 +70,8 @@
   }
   
   function deleteItem(item_id,newStatus){
-	  $("#"+item_id).parents("tr").css("display","none");		
+	  $("#"+item_id).parents("tr").css("display","none");	
+	  $("#save_button").css("background-color","#ff0000");
 	  $("#"+item_id).attr("value",newStatus);
 	  }  
   

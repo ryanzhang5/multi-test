@@ -14,8 +14,9 @@ $(document).ready(function() {
 });
 
   function loadPage(url){
-	  $('#ui-datepicker-div').remove();
+	 // alert("try to remove")
 	  $("#content").load(url);
+	 $('#ui-datepicker-div').remove();
   }
   
 </script>

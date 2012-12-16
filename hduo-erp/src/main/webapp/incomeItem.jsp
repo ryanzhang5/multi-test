@@ -12,7 +12,7 @@
 <script src="js/jquery.ui.datepicker-zh-CN.js"></script>
 <script>
   $(document).ready(function() {
-				  var id = 3;
+				 /*  var id = 3;
 				  $("table.dynatable button.add").click(function() {
 								  id++;
 									prot = '<tr>'
@@ -28,7 +28,7 @@
 									    +'</tr>';
 								  $("#save_button").css("background-color","#ff0000");	    
 								  $("#realBody").append(prot); 
-				  });
+				  }); */
 				  
 				  var clicked_row =null;
 				  $("table.dynatable tr").click(function() {
@@ -84,7 +84,8 @@
   }
   
   function deleteItem(item_id,newStatus){
-	  $("#"+item_id).parents("tr").css("display","none");		
+	  $("#"+item_id).parents("tr").css("display","none");
+	  $("#save_button").css("background-color","#ff0000");
 	  $("#"+item_id).attr("value",newStatus);
 	  calcula();
 	  }  
@@ -142,7 +143,7 @@
       <th>入库价格</th>
       <th>金额</th>
       <th>备注</th>
-      <th style="width:80px"><button class="add" type="button">添加</button></th>
+      <th style="width:80px"><!-- <button class="add" type="button">添加</button> --></th>
     </tr>
   </thead>
   <tbody id="realBody">
