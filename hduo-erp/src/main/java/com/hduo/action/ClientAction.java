@@ -14,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 import com.hduo.manager.ClientManager;
 import com.hduo.pojo.Client;
 import com.hduo.util.Utils;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ClientAction extends ActionSupport {
@@ -26,7 +27,6 @@ public class ClientAction extends ActionSupport {
 
 	
 	public String getAllClients() {
-
 		clients = clientManager.getAllClients();
 		this.clientNum = clients.size();
 		logger.info("---------------------" + clients.size());
@@ -44,8 +44,6 @@ public class ClientAction extends ActionSupport {
 				break;
 			}
 		}
-		logger.info("-----------++++++++++++++++++++++++++++++++----------"
-				+ clientName);
 		if (exist) {
 			inputStream = new BufferedInputStream(new ByteArrayInputStream("1".getBytes()));
 		}else {
