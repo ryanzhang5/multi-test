@@ -12,19 +12,19 @@
 	</appender>
 
 	<logger name="org.springframework">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	<logger name="org.hibernate">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<logger name="com.opensymphony.xwork2">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
 
