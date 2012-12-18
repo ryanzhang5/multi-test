@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldap://localhost:389" />
+		<property name="base" value="o=anotherbug,c=com" />
+		<property name="userDn" value="cn=manager,o=anotherbug,c=com" />
+		<property name="password" value="secret" />
+	</bean>
+	<bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<property name="contextSource" ref="ldapContextSource" />
+	</bean>
+	<bean id="userDao" class="org.hduo.jndi.UserDaoImpl">
+		<property name="ldapTemplate" ref="ldapTemplate" />
+	</bean>
+
+</beans>
+
