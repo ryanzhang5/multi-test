@@ -1,0 +1,100 @@
+CREATE TABLE `hduo`.`client` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `client_name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `store_name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `address` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `mobile_phone` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_bin,
+  `desk_phone` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_bin,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+CREATE TABLE `hduo`.`product` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_bin,
+  `unit` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_bin,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+CREATE TABLE `hduo`.`income_item` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sum` integer ,
+  `price` float ,
+  `sum_price` float ,
+  `income_date` datetime ,
+  `product_id` integer ,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+CREATE TABLE `hduo`.`outgoing_item` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sum` integer ,
+  `price` float ,
+  `sum_price` float ,
+  `outgoing_date` datetime ,
+  `product_id` integer ,
+  `client_id` integer ,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+
+CREATE TABLE `hduo`.`inventory` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sum` integer ,
+  `statistic_date` datetime ,
+  `product_id` integer ,
+  `comments` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_bin;
+
+
+
+
+
+
+
+
+
+
+
+insert into `hduo`.`outgoing_item` (sum,outgoing_date,product_id) 
+values 
+(1,'2012-02-01',1),
+(1,'2012-03-01',1),
+(1,'2012-10-01',1);
+
+SELECT myproduct.id as myid ,myoutgoing.price as price FROM product myproduct  left join  outgoing_item myoutgoing on myproduct.id = myoutgoing.product_id where product_id =1 and client_id =1 order by outgoing_date desc limit 2
+
+
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理1','华联超市1','食品城1','13815300121','3278711','抓紧要账1');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理2','华联超市2','食品城2','13815300122','3278712','抓紧要账2');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理3','华联超市3','食品城3','13815300123','3278713','抓紧要账3');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理4','华联超市4','食品城4','13815300124','3278714','抓紧要账4');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理5','华联超市5','食品城5','13815300125','3278715','抓紧要账5');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理6','华联超市6','食品城6','13815300126','3278716','抓紧要账6');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理7','华联超市7','食品城7','13815300127','3278717','抓紧要账7');
+insert into `hduo`.`client`  (client_name,store_name,address,mobile_phone,desk_phone,comments) values ('刘经理8','华联超市8','食品城8','13815300128','3278718','抓紧要账8');

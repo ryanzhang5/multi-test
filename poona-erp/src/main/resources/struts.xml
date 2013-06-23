@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+
+		<!-- <global-results> <result name="error">/error.jsp</result> </global-results> -->
+
+		<!-- <global-exception-mappings> <exception-mapping exception="java.lang.Exception" 
+			result="error" /> </global-exception-mappings> -->
+		<action name="getAllCards" class="cardAction" method="getAllCards">
+			<result name="success">cards.jsp</result>
+		</action>
+		<action name="toAddCard" class="cardAction" method="toAddCard">
+			<result name="success">addCard.jsp</result>
+		</action>
+		<action name="saveCards" class="cardAction" method="saveCards">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="checkCardType" class="cardAction" method="checkCardType">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<action name="checkCard" class="cardAction" method="checkCard">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="deleteCard" class="cardAction" method="deleteCard">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="toUpdateCard" class="cardAction" method="toUpdateCard">
+			<result name="success">toUpdateCard.jsp</result>
+		</action>
+		<action name="updateCard" class="cardAction" method="updateCard">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+
+
+		<action name="getNonPaiedCustomers" class="customerAction"
+			method="getNonPaidCustomer">
+			<result name="success">nonPaidCustomers.jsp</result>
+		</action>
+		<action name="toAddCustomer" class="customerAction" method="toAddCustomer">
+			<result name="success">addNonPaidCustomer.jsp</result>
+		</action>
+		<action name="saveCustomer" class="customerAction" method="saveCustomer">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="checkCustomer" class="customerAction" method="checkCustomer">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="toUpdateNonPaidCustomer" class="customerAction" method="toUpdateNonPaidCustomer">
+			<result name="success">toUpdateNonPaidCustomer.jsp</result>
+		</action>
+		<action name="updateCustomer" class="customerAction" method="updateCustomer">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="getTrackItems" class="customerAction" method="getTrackItems">
+			<result name="success">allTrackItems.jsp</result>
+		</action>
+
+		<action name="toAddTrack" class="customerAction" method="toAddTrack">
+			<result name="success">toAddTrack.jsp</result>
+		</action>
+		<action name="addTrack" class="customerAction" method="addTrack">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="toBuyCard" class="customerAction" method="toBuyCard">
+			<result name="success">toBuyCard.jsp</result>
+		</action>
+		<action name="buyCard" class="customerAction" method="buyCard">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+
+		<action name="getPaiedCustomers" class="customerAction"
+			method="getPaiedCustomer">
+			<result name="success">paidCustomers.jsp</result>
+		</action>
+
+
+
+
+		<action name="toUpdatePaidCustomer" class="customerAction" method="toUpdatePaidCustomer">
+			<result name="success">toUpdatePaidCustomer.jsp</result>
+		</action>
+
+		<action name="updatePaidCustomer" class="customerAction" method="updatePaidCustomer">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+
+
+		<action name="check_customer_practice" class="customerAction" method="checkCustomerPractice">
+			<result name="success">allPracticeItems.jsp</result>
+		</action>
+
+		<action name="toAddPracticeRecord" class="customerAction" method="toAddPracticeRecord">
+			<result name="success">toAddPracticeRecord.jsp</result>
+		</action>
+	<action name="addPracticeRecord" class="customerAction" method="addPracticeRecord">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+
+
+
+
+
+
+		<action name="checkClient" class="clientAction" method="checkClient">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="saveClients" class="clientAction" method="saveClients">
+			<result name="success" type="redirectAction">getAllClients</result>
+		</action>
+
+		<action name="getAllProducts" class="productAction" method="getAllProducts">
+			<result name="success">products.jsp</result>
+		</action>
+		<action name="checkProduct" class="productAction" method="checkProduct">
+			<result type="stream">
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="saveProducts" class="productAction" method="saveProducts">
+			<result name="success" type="redirectAction">getAllProducts</result>
+		</action>
+
+		<action name="toAddIncomeItem" class="productAction" method="toAddIncomeItem">
+			<result name="success">incomeItem.jsp</result>
+		</action>
+		<action name="saveIncomeItems" class="incomeItemAction" method="saveIncomeItems">
+			<result name="success" type="redirectAction">getAllInventoryItems</result>
+		</action>
+
+
+		<action name="incomeItemsStatistic" class="incomeItemAction"
+			method="incomeItemsStatistic">
+			<result name="success">incomeItemStatistic.jsp</result>
+		</action>
+		<action name="getAllInventoryItems" class="inventoryItemAction"
+			method="getAllInventoryItems">
+			<result name="success">inventoryItemStatistic.jsp</result>
+		</action>
+		<action name="saveInventoryItemsStatistic" class="inventoryItemAction"
+			method="saveInventoryItemsStatistic">
+			<result name="success" type="redirectAction">getAllInventoryItems</result>
+		</action>
+
+		<action name="outgoing" class="outgoingAction" method="outgoing">
+			<result name="success">outgoing.jsp</result>
+		</action>
+		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
+			<result name="success" type="redirectAction">outgoingItemsStatistic</result>
+		</action>
+		<action name="outgoingPrint" class="outgoingAction" method="outgoingPrint">
+			<result name="success">outPrint.jsp</result>
+		</action>
+		<action name="outgoingItemsStatistic" class="outgoingAction"
+			method="outgoingItemsStatistic">
+			<result name="success">outgoingStatistic.jsp</result>
+		</action>
+	</package>
+</struts>
