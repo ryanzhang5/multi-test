@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<script src="js/bootstrap.min.js"></script>
 <script>
 
 var current_id ;
 
 $(document).ready(function () {
+	$( document ).tooltip();
 	$( "#add_new_div" ).dialog({
 		autoOpen: false,
 		 height: 600,
@@ -167,23 +170,52 @@ function addNew(){
 	$("#add_new_div").load( "toAddCustomer.action" );  
 	$("#add_new_div").dialog( "open" );
 }
-function updateItem(id){
-	current_id=id;
-	$("#update_div").load( "toUpdateNonPaidCustomer.action?customerId="+id );
+function updateItem(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录进行修改!'); return;
+	 }else if(count<1){
+		 alert('请选择要修改的记录!');			return;
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}	
+	$("#update_div").load( "toUpdateNonPaidCustomer.action?customerId="+current_id );
 	$("#update_div").dialog( "open" );
 }
-function checkTrack(id){
-	$("#checkTrack_div").load( "getTrackItems.action?customerId="+id );
+function checkTrack(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');	return;		
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#checkTrack_div").load( "getTrackItems.action?customerId="+current_id );
 	$("#checkTrack_div").dialog( "open" );
 }
-function addTrack(id){
-	current_id=id;
+function addTrack(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
 	$("#addTrack_div").load( "toAddTrack.action");
 	$("#addTrack_div").dialog( "open" );
 }
 function buyCard(id){
-	current_id=id;
-	$("#buyCard_div").load( "toBuyCard.action?customerId="+id);
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#buyCard_div").load( "toBuyCard.action?customerId="+current_id);
 	$("#buyCard_div").dialog( "open" );
 }
 function checkName(){
@@ -244,22 +276,56 @@ function validateBuyCardForm(){
 	
 }
 
-
+function deleteNonPaidCustomer(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	 if(confirm("确定删除此记录?")){
+		  $.ajax({
+	          type: "post",
+	          url: "deleteCustomer.action",
+	          data:"customerId="+current_id,
+	          success: function (dt) {
+	             if(dt==0) alert("操作成功");
+	             if(dt==1) alert("操作失败");
+	             $("#content").load('getNonPaiedCustomers.action');
+	          },
+	          }); 
+	 }
+}
 
 </script>
-
+ <style>
+  label {
+    display: inline-block;
+    width: 5em;
+  }
+  </style>
 </head>
 <body>
-<table style="width:100%">
-  <tr align="right" >
-  <td align="left">当前位置 &gt;&gt;&gt; 意向用户管理</td>
-  </tr>
-</table>
+<ul class="breadcrumb">
+		<li><a href="#">首页</a> <span class="divider">/</span></li>
+		<li class="active">意向用户管理</li>
+</ul>
+<div class="pull-right">
+		<a class="btn btn-primary" onclick="addNew()">添加意向客户</a>
+		<a class="btn btn-primary"  onclick="deleteNonPaidCustomer()">删除</a>
+		<a class="btn  btn-primary"onclick="updateItem()">修改信息</a>
+		<a class="btn  btn-primary" onclick="checkTrack()">查看跟踪</a>
+		<a class="btn  btn-primary" onclick="addTrack()">添加跟踪</a>
+		<a class="btn  btn-primary" onclick="buyCard()">客户买卡</a>
+	</div>
 <form name="cardForm" id="cardForm"  action="saveCards" method="post">
-<table class="dynatable">
+<table class="table table-bordered  table-striped table-hover">
   <thead>
     <tr>
-      <th style="width:80px">行号</th>
+      <th></th>
+      <th>行号</th>
       <th>姓名</th>
 	  <th>性别</th>
       <th>手机</th>
@@ -270,13 +336,13 @@ function validateBuyCardForm(){
       <th>地址</th>
       <th>跟踪次数</th>
       <th>备注</th>
-      <th colspan="4"><input onclick="addNew()" type="button" value="添加意向客户"/></th>
     </tr>
   </thead>
   <tbody>
     <s:iterator value="nonPaidCustomers" status="listStatus">
-    <tr>
-    <td style="width:80px"><s:property value="#listStatus.index+1"/></td>
+    <tr title='最新跟踪     <s:property value="latestTrack"/>'>
+    <td><input type="checkbox" name="customerId" value='<s:property value="id"/>'/></td>
+    <td><s:property value="#listStatus.index+1"/></td>
     
     <td><s:property value="name"/></td>
      <td>
@@ -292,22 +358,6 @@ function validateBuyCardForm(){
      <td><s:property value="address"/></td>
      <td><s:property value="trackTimes"/></td>
      <td><s:property value="comments"/></td>
-
-
-    
-    
-    <td style="width:80px">
-    	<button type="button" onclick="updateItem('<s:property value="id"/>')">修改信息</button>
-    </td>
-    <td style="width:80px">
-        <button type="button" onclick="checkTrack('<s:property value="id"/>')">查看跟踪</button>
-    </td>
-     <td style="width:80px">
-        <button type="button" onclick="addTrack('<s:property value="id"/>')">添加跟踪</button>
-    </td>
-     <td style="width:80px">
-        <button type="button" onclick="buyCard('<s:property value="id"/>')">客户买卡</button>
-    </td>
    </tr>
     
     </s:iterator>

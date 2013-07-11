@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<script src="js/bootstrap.min.js"></script>
 <script>
 
 var current_id ;
@@ -41,6 +43,45 @@ $(document).ready(function () {
 			}
 		]
 	});
+	
+	
+	$( "#update_customer_comment_div" ).dialog({
+		 autoOpen: false,
+		 height: 400,
+	     width: 450,
+	     title: "修改已购卡客户备注",
+		buttons: [
+			{
+				text: "Ok",
+				click: function() {
+					  $.ajax({
+				          type: "post",
+				          url: "updatePaidCustomerComment.action",
+				          data:$("#updatePaidCommentForm").serialize(),
+				          success: function (dt) {
+				             if(dt==0) alert("操作成功");
+				             if(dt==1) alert("操作失败");
+				             $("#content").load('getPaiedCustomers.action');
+				          },
+				          }); 
+					$(this).dialog( "close" );
+				}
+			},
+			{
+				text: "Cancel",
+				click: function() {
+					$(this).dialog( "close" );
+				}
+			}
+		]
+	});
+	
+	
+	
+	
+	
+	
+	
 	
 	$( "#check_practice_div" ).dialog({
 		autoOpen: false,
@@ -83,95 +124,174 @@ $(document).ready(function () {
 	
 
 	
-	
+	$( "#customerDetail_div" ).dialog({
+		autoOpen: false,
+		 height: 600,
+	     width: 500,
+	     title: "客户详情",
+		buttons: [
+			{
+				text: "ok",
+				click: function() {
+					$(this).dialog( "close" );
+				}
+			}
+		]
+	});
 	
 });
 
 
-function updateCustomer(id){
-	current_id=id;
-	$("#update_customer_div").load( "toUpdatePaidCustomer.action?customerId="+id );
+function updateCustomer(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#update_customer_div").load( "toUpdatePaidCustomer.action?customerId="+current_id );
 	$("#update_customer_div").dialog( "open" );
 }
-function checkPractice(id){
-	$("#check_practice_div").load( "check_customer_practice.action?customerId="+id );
+
+
+function updateCustomerComment(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#update_customer_comment_div").load( "toUpdatePaidCustomerComment.action?customerId="+current_id );
+	$("#update_customer_comment_div").dialog( "open" );
+}
+
+
+
+
+
+
+
+
+function checkPractice(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#check_practice_div").load( "check_customer_practice.action?customerId="+current_id );
 	$("#check_practice_div").dialog( "open" );
 }
-function addPractice(id){
-	current_id=id;
-	$("#add_practice_div").load( "toAddPracticeRecord.action?customerId="+id);
+function addPractice(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#add_practice_div").load( "toAddPracticeRecord.action?customerId="+current_id);
 	$("#add_practice_div").dialog( "open" );
 }
 
+function customerDetail(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	$("#customerDetail_div").load( "getPaiedCustomerDetail.action?customerId="+current_id);
+	$("#customerDetail_div").dialog( "open" );
+}
+
+function deleteCustomer(){
+	var count = $("input[name='customerId']:checked").size();
+	 if(count > 1){
+		 alert('只能选择一条记录!');return;
+	 }else if(count<1){
+		 alert('请选择一条记录!');return;			
+	 }else{
+	 current_id = $($("input[name='customerId']:checked")[0]).val();
+}
+	 if(confirm("确定删除此记录?")){
+		  $.ajax({
+	          type: "post",
+	          url: "deleteCustomer.action",
+	          data:"customerId="+current_id,
+	          success: function (dt) {
+	             if(dt==0) alert("操作成功");
+	             if(dt==1) alert("操作失败");
+	             $("#content").load('getPaiedCustomers.action');
+	          },
+	          }); 
+	 }
+}
 
 </script>
 
 </head>
 <body>
-<table style="width:100%">
-  <tr align="right" >
-  <td align="left">当前位置 &gt;&gt;&gt; 已办卡用户管理</td>
-  </tr>
-</table>
+<ul class="breadcrumb">
+		<li><a href="#">首页</a> <span class="divider">/</span></li>
+		<li class="active">已办卡用户管理</li>
+</ul>
+<div class="pull-right">
+		<a class="btn  btn-primary" onclick="updateCustomer()">修改剩余次数</a>
+		<a class="btn  btn-primary" onclick="updateCustomerComment()">修改用户备注</a>
+		<a class="btn  btn-primary" onclick="addPractice()">添加上课记录</a>
+		<a class="btn  btn-primary" onclick="checkPractice()">查看上课记录</a>
+		<a class="btn btn-primary"  onclick="customerDetail()">客户详情</a>
+		<a class="btn btn-primary"  onclick="deleteCustomer()">删除</a>
+</div>
 <form name="cardForm" id="cardForm"  action="saveCards" method="post">
-<table class="dynatable">
+<table class="table table-bordered  table-striped table-hover">
   <thead>
     <tr>
+      <th></th>	
       <th>行号</th>
-      <th>会员卡类型</th>
       <th>姓名</th>
-      <th>性别</th>
+      <th>会员卡类型</th>
       <th>购买价格</th>
       <th>剩余次数</th>
       <th>开始日期</th>
       <th>结束日期</th>
       <th>手机</th>
       <th>固定电话</th>
-      <th>地址</th>
-      <th>职务</th>
-      <th>公司</th>
-      <th>国籍</th>
       <th>备注</th>
-      <th></th>
-      <th>上课记录</th>
     </tr>
   </thead>
   <tbody>
   
     <s:iterator value="paidCustomers" status="listStatus">
-    <tr>
+    <tr >
+    <td><input type="checkbox" name="customerId" value='<s:property value="id"/>'/></td>
     <td>
             <s:property value="#listStatus.index+1"/>
     </td>
-    <td><s:property value="card.cardName"/></td>
     <td><s:property value="name"/></td>
-     <td>
-	  <s:if test="sex==0">女</s:if>
-      <s:if test="sex==1">男</s:if>
-     </td>
+    <td><s:property value="card.cardName"/></td>
     <td><s:property value="realPay"/></td>
-    <td>
+    <td style="background-color:<s:property value='leftTimeColor'/> ">
     <s:if test="card.cardType==1">&nbsp;&nbsp;&nbsp;&nbsp;</s:if>
     <s:if test="card.cardType==2"><s:property value="leftTimes"/></s:if>
     <s:if test="card.cardType==3"><s:property value="leftTimes"/></s:if>
     </td>
     <td><s:date name="from" format="yyyy-MM-dd" /></td>
-    <td><s:date name="to" format="yyyy-MM-dd" /></td>
+    <td style="background-color:<s:property value='endDateColor'/> "><s:date name="to" format="yyyy-MM-dd" /></td>
     <td><s:property value="mobilePhone"/></td>
     
     <td><s:property value="deskPhone"/></td>
-    <td><s:property value="address"/></td>
-    <td><s:property value="career"/></td> 
-    <td><s:property value="company"/></td> 
-     <td><s:property value="nationality"/></td> 
     <td><s:property value="comments"/></td>
-    <td>
-    	<button type="button" onclick="updateCustomer('<s:property value="id"/>')">修改剩余次数</button>
-    </td>
-    <td>
-    	<button type="button" onclick="checkPractice('<s:property value="id"/>')">查看</button>
-    	<button type="button" onclick="addPractice('<s:property value="id"/>')">添加</button>
-    </td>
    </tr>
     
     </s:iterator>
@@ -180,7 +300,10 @@ function addPractice(id){
 </table>
 </form>
   <div id="update_customer_div"></div>
+  <div id="update_customer_comment_div"></div>
   <div id="check_practice_div"></div>
   <div id="add_practice_div"></div>
+  <div id="customerDetail_div"></div>
+  
 </body>
 </html>

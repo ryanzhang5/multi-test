@@ -29,7 +29,7 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		
+
 		<action name="checkCard" class="cardAction" method="checkCard">
 			<result type="stream">
 				<param name="contentType">text/html</param>
@@ -51,7 +51,7 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		
+
 
 
 		<action name="getNonPaiedCustomers" class="customerAction"
@@ -74,7 +74,8 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		<action name="toUpdateNonPaidCustomer" class="customerAction" method="toUpdateNonPaidCustomer">
+		<action name="toUpdateNonPaidCustomer" class="customerAction"
+			method="toUpdateNonPaidCustomer">
 			<result name="success">toUpdateNonPaidCustomer.jsp</result>
 		</action>
 		<action name="updateCustomer" class="customerAction" method="updateCustomer">
@@ -107,35 +108,58 @@
 		</action>
 
 
-		<action name="getPaiedCustomers" class="customerAction"
-			method="getPaiedCustomer">
+		<action name="getPaiedCustomers" class="customerAction" method="getPaiedCustomer">
 			<result name="success">paidCustomers.jsp</result>
+		</action>
+		<action name="getPaiedCustomerDetail" class="customerAction"
+			method="getPaiedCustomerDetail">
+			<result name="success">paidCustomersDetail.jsp</result>
+		</action>
+
+		<action name="deleteCustomer" class="customerAction" method="deleteCustomer">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
 		</action>
 
 
-
-
-		<action name="toUpdatePaidCustomer" class="customerAction" method="toUpdatePaidCustomer">
+		<action name="toUpdatePaidCustomer" class="customerAction"
+			method="toUpdatePaidCustomer">
 			<result name="success">toUpdatePaidCustomer.jsp</result>
 		</action>
 
-		<action name="updatePaidCustomer" class="customerAction" method="updatePaidCustomer">
+		<action name="toUpdatePaidCustomerComment" class="customerAction"
+			method="toUpdatePaidCustomerComment">
+			<result name="success">toUpdatePaidCustomerComment.jsp</result>
+		</action>
+
+		<action name="updatePaidCustomer" class="customerAction"
+			method="updatePaidCustomer">
 			<result type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
 
+		<action name="updatePaidCustomerComment" class="customerAction"
+			method="updatePaidCustomerComment">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 
-
-		<action name="check_customer_practice" class="customerAction" method="checkCustomerPractice">
+		<action name="check_customer_practice" class="customerAction"
+			method="checkCustomerPractice">
 			<result name="success">allPracticeItems.jsp</result>
 		</action>
 
-		<action name="toAddPracticeRecord" class="customerAction" method="toAddPracticeRecord">
+		<action name="toAddPracticeRecord" class="customerAction"
+			method="toAddPracticeRecord">
 			<result name="success">toAddPracticeRecord.jsp</result>
 		</action>
-	<action name="addPracticeRecord" class="customerAction" method="addPracticeRecord">
+		<action name="addPracticeRecord" class="customerAction" method="addPracticeRecord">
 			<result type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -143,68 +167,33 @@
 		</action>
 
 
+		<action name="getAllDocs" class="docAction" method="getAllDocs">
+			<result name="success">docs.jsp</result>
+		</action>
 
+		<action name="toAddDoc" class="docAction" method="toAddDoc">
+			<result name="success">toAddDoc.jsp</result>
+		</action>
 
+		<action name="addDoc" class="docAction" method="addDoc">
+			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
+		</action>
+		<action name="download" class="docAction" method="downloadDoc">
+			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
+			<result type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
 
-
-
-		<action name="checkClient" class="clientAction" method="checkClient">
+		<action name="deleteDoc" class="docAction" method="deleteDoc">
+			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
 			<result type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-		</action>
-
-		<action name="saveClients" class="clientAction" method="saveClients">
-			<result name="success" type="redirectAction">getAllClients</result>
-		</action>
-
-		<action name="getAllProducts" class="productAction" method="getAllProducts">
-			<result name="success">products.jsp</result>
-		</action>
-		<action name="checkProduct" class="productAction" method="checkProduct">
-			<result type="stream">
-				<param name="inputName">inputStream</param>
-			</result>
-		</action>
-
-		<action name="saveProducts" class="productAction" method="saveProducts">
-			<result name="success" type="redirectAction">getAllProducts</result>
-		</action>
-
-		<action name="toAddIncomeItem" class="productAction" method="toAddIncomeItem">
-			<result name="success">incomeItem.jsp</result>
-		</action>
-		<action name="saveIncomeItems" class="incomeItemAction" method="saveIncomeItems">
-			<result name="success" type="redirectAction">getAllInventoryItems</result>
-		</action>
-
-
-		<action name="incomeItemsStatistic" class="incomeItemAction"
-			method="incomeItemsStatistic">
-			<result name="success">incomeItemStatistic.jsp</result>
-		</action>
-		<action name="getAllInventoryItems" class="inventoryItemAction"
-			method="getAllInventoryItems">
-			<result name="success">inventoryItemStatistic.jsp</result>
-		</action>
-		<action name="saveInventoryItemsStatistic" class="inventoryItemAction"
-			method="saveInventoryItemsStatistic">
-			<result name="success" type="redirectAction">getAllInventoryItems</result>
-		</action>
-
-		<action name="outgoing" class="outgoingAction" method="outgoing">
-			<result name="success">outgoing.jsp</result>
-		</action>
-		<action name="saveoutgoingItem" class="outgoingAction" method="saveoutgoingItem">
-			<result name="success" type="redirectAction">outgoingItemsStatistic</result>
-		</action>
-		<action name="outgoingPrint" class="outgoingAction" method="outgoingPrint">
-			<result name="success">outPrint.jsp</result>
-		</action>
-		<action name="outgoingItemsStatistic" class="outgoingAction"
-			method="outgoingItemsStatistic">
-			<result name="success">outgoingStatistic.jsp</result>
 		</action>
 	</package>
 </struts>

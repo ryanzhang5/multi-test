@@ -13,10 +13,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<!-- <property name="url"
-			value="jdbc:mysql://192.168.37.133:3306/poona?useUnicode=true&amp;characterEncoding=utf8" /> -->
-			<property name="url"
-			value="jdbc:mysql://localhost:3306/poona?useUnicode=true&amp;characterEncoding=utf8" />
+		<!-- <property name="url" value="jdbc:mysql://192.168.37.133:3306/poona?useUnicode=true&amp;characterEncoding=utf8" 
+			/> -->
+		<property name="url"
+			value="jdbc:mysql://192.168.37.133:3306/poona?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 		<property name="initialSize" value="5" />
@@ -28,9 +28,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-			    <value>com.hduo.pojo.Customer</value>
-			    <value>com.hduo.pojo.TrackItem</value>
+				<value>com.hduo.pojo.Customer</value>
+				<value>com.hduo.pojo.TrackItem</value>
 				<value>com.hduo.pojo.Card</value>
+				<value>com.hduo.pojo.Doc</value>
 				<value>com.hduo.pojo.PracticeRecord</value>
 			</list>
 		</property>
@@ -63,6 +64,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="cardDao" class="org.hduo.dao.CardDao" parent="dao" />
 	<bean id="customerDao" class="org.hduo.dao.CustomerDao" parent="dao" />
+	<bean id="docDao" class="org.hduo.dao.DocDao" parent="dao" />
 	<!-- manager -->
 	<bean id="cardManager" class="com.hduo.manager.CardManagerImpl">
 		<property name="cardDao" ref="cardDao" />
@@ -70,17 +72,20 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="customerManager" class="com.hduo.manager.CustomerManagerImpl">
 		<property name="customerDao" ref="customerDao" />
 	</bean>
-
+	<bean id="docManager" class="com.hduo.manager.DocManagerImpl">
+		<property name="docDao" ref="docDao" />
+	</bean>
 	<!-- action -->
-	<bean id="cardAction" class="com.hduo.action.CardAction"
-		scope="prototype">
+	<bean id="cardAction" class="com.hduo.action.CardAction" scope="prototype">
 		<property name="cardManager" ref="cardManager" />
+	</bean>
+	<bean id="docAction" class="com.hduo.action.DocAction" scope="prototype">
+		<property name="docManager" ref="docManager" />
 	</bean>
 	<bean id="customerAction" class="com.hduo.action.CustomerAction"
 		scope="prototype">
 		<property name="customerManager" ref="customerManager" />
 		<property name="cardManager" ref="cardManager" />
 	</bean>
-
 </beans>
 

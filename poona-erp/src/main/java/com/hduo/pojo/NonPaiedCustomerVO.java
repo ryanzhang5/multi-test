@@ -1,21 +1,20 @@
 package com.hduo.pojo;
 
-
 public class NonPaiedCustomerVO {
 	private Long id;
 	private String name;
 	private String address;
 	private String mobilePhone;
 	private int trackTimes;
-	
-	private String sex;//female 0,male 1
+
+	private String sex;// female 0,male 1
 	private String nationality;
 	private String company;
 	private String career;
 	private String deskPhone;
-	
-	
-	
+
+	private String latestTrack;
+
 	private String comments;
 
 	public Long getId() {
@@ -104,6 +103,14 @@ public class NonPaiedCustomerVO {
 
 	public void setDeskPhone(String deskPhone) {
 		this.deskPhone = deskPhone;
+	}
+
+	public String getLatestTrack() {
+		return latestTrack;
+	}
+
+	public void setLatestTrack(String latestTrack) {
+		this.latestTrack = latestTrack;
 	}
 
 }

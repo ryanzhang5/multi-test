@@ -41,7 +41,6 @@ public class CustomerDao extends Dao {
 		List<TrackItem>  items = new ArrayList<TrackItem>();
 		for (Object[] myobjs : objs) {
 			TrackItem item = new TrackItem();
-			System.out.println("+++++++++++++++++++++++++++"+myobjs[0] + " +++++++++"+myobjs[1]);
 			if(myobjs[0] != null){
 				item.setTrackDate(Utils.stringToDate(myobjs[0].toString()));
 			}

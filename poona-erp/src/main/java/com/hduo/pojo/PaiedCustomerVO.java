@@ -14,14 +14,16 @@ public class PaiedCustomerVO {
 	private float realPay;
 	private String comments;
 	private Card card;
-	
-	
-	private String sex;//female 0,male 1
+
+	private String sex;// female 0,male 1
 	private String nationality;
 	private String company;
 	private String career;
 	private String deskPhone;
 
+	private String leftTimeColor= "";
+	private String endDateColor= "";
+	
 	public Long getId() {
 		return id;
 	}
@@ -148,6 +150,22 @@ public class PaiedCustomerVO {
 
 	public void setDeskPhone(String deskPhone) {
 		this.deskPhone = deskPhone;
+	}
+
+	public String getLeftTimeColor() {
+		return leftTimeColor;
+	}
+
+	public void setLeftTimeColor(String leftTimeColor) {
+		this.leftTimeColor = leftTimeColor;
+	}
+
+	public String getEndDateColor() {
+		return endDateColor;
+	}
+
+	public void setEndDateColor(String endDateColor) {
+		this.endDateColor = endDateColor;
 	}
 
 }

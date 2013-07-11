@@ -16,6 +16,7 @@ import com.hduo.util.SystemConstant;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CardAction extends ActionSupport {
+	
 	private final static Logger logger = Logger.getLogger(CardAction.class);
 	private CardManager cardManager;
 	private String cardId;
