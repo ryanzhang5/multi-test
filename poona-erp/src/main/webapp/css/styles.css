@@ -7,14 +7,14 @@
 .dynatable th {
 	border: solid 1px #000;
 	padding: 0px 0px;
-	height:35px;
+	height: 35px;
 	text-align: center;
 }
 
 .dynatable td {
 	border: solid 1px #000;
 	padding: 0px;
-	height:30px;
+	height: 30px;
 	text-align: center;
 }
 
@@ -93,4 +93,12 @@
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
+}
+
+.nowraptd {
+	white-space: nowrap;
+}
+
+.wraptd {
+	word-break: break-all;
 }

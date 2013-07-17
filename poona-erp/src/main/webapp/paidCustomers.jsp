@@ -5,8 +5,6 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/bootstrap.css" rel="stylesheet" />
-<script src="js/bootstrap.min.js"></script>
 <script>
 
 var current_id ;
@@ -258,16 +256,16 @@ function deleteCustomer(){
   <thead>
     <tr>
       <th></th>	
-      <th>行号</th>
-      <th>姓名</th>
-      <th>会员卡类型</th>
-      <th>购买价格</th>
-      <th>剩余次数</th>
-      <th>开始日期</th>
-      <th>结束日期</th>
-      <th>手机</th>
-      <th>固定电话</th>
-      <th>备注</th>
+      <th class="nowraptd">行号</th>
+      <th class="nowraptd">姓名</th>
+      <th class="nowraptd">会员卡类型</th>
+      <th class="nowraptd">购买价格</th>
+      <th class="nowraptd">剩余次数</th>
+      <th class="nowraptd">开始日期</th>
+      <th class="nowraptd">结束日期</th>
+      <th class="nowraptd">手机</th>
+      <th class="nowraptd">固定电话</th>
+      <th class="wraptd">备注</th>
     </tr>
   </thead>
   <tbody>

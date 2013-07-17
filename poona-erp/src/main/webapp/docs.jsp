@@ -73,7 +73,7 @@ function deleteDoc(id) {
 						<td><s:property
 								value="#listStatus.index+1" /></td>
 						<td><s:property value="fileName" /></td>
-						<td><a href='download.action?fileName=<s:property value="fileName" />'>下载</a></td>
+						<td><a href='download.action?fileName=<s:property value="fileName" />'>下载</a> </td>
 						<td><a class="btn btn-primary" onclick="deleteDoc(<s:property value="id"/>)">删除</a></td>
 								
 						

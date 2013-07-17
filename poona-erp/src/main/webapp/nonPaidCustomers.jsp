@@ -5,14 +5,11 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/bootstrap.css" rel="stylesheet" />
-<script src="js/bootstrap.min.js"></script>
 <script>
 
 var current_id ;
 
 $(document).ready(function () {
-	$( document ).tooltip();
 	$( "#add_new_div" ).dialog({
 		autoOpen: false,
 		 height: 600,
@@ -325,17 +322,17 @@ function deleteNonPaidCustomer(){
   <thead>
     <tr>
       <th></th>
-      <th>行号</th>
-      <th>姓名</th>
-	  <th>性别</th>
-      <th>手机</th>
-      <th>固定电话</th>
-      <th>职务</th>
-      <th>公司</th>
-      <th>国籍</th>
-      <th>地址</th>
-      <th>跟踪次数</th>
-      <th>备注</th>
+      <th class="nowraptd">行号</th>
+      <th class="nowraptd">姓名</th>
+	  <th class="nowraptd">性别</th>
+      <th class="nowraptd">手机</th>
+      <th class="nowraptd">固定电话</th>
+      <th class="nowraptd">职务</th>
+      <th class="nowraptd">公司</th>
+      <th class="nowraptd">国籍</th>
+      <th class="nowraptd">地址</th>
+      <th class="nowraptd">跟踪次数</th>
+      <th class="wraptd">备注</th>
     </tr>
   </thead>
   <tbody>

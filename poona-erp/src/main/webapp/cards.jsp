@@ -168,12 +168,12 @@
 			<thead>
 				<tr>
 				    <th></th>
-					<th>行号</th>
-					<th>卡片类型</th>
-					<th>卡片名称</th>
-					<th>次数</th>
-					<th>费用</th>
-					<th>备注</th>
+					<th class="nowraptd">行号</th>
+					<th class="nowraptd">卡片类型</th>
+					<th class="nowraptd">卡片名称</th>
+					<th class="nowraptd">次数</th>
+					<th class="nowraptd">费用</th>
+					<th class="wraptd">备注</th>
 				</tr>
 			</thead>
 			<tbody>

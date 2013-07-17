@@ -176,10 +176,10 @@
 		</action>
 
 		<action name="addDoc" class="docAction" method="addDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
+			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
 		</action>
 		<action name="download" class="docAction" method="downloadDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
+			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
 			<result type="stream">
 				<param name="contentType">application/octet-stream</param>
 				<param name="inputName">inputStream</param>
@@ -189,11 +189,38 @@
 		</action>
 
 		<action name="deleteDoc" class="docAction" method="deleteDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37</param>
+			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
 			<result type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
+		
+		
+		
+		
+		<action name="getAllCosts" class="costAction" method="getAllCosts">
+			<result name="success">costs.jsp</result>
+		</action>
+		
+		<action name="toAddCost" class="costAction" method="toAddCost">
+			<result name="success">addCost.jsp</result>
+		</action>
+		
+		<action name="saveCost" class="costAction" method="saveCost">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<action name="deleteCost" class="costAction" method="deleteCost">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		
 	</package>
 </struts>

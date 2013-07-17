@@ -72,7 +72,7 @@ public class CustomerAction extends ActionSupport {
 				if(milliSecondSub >0){
 					day =(int)( milliSecondSub/(1000*60*60*24));
 				}
-				if(day<=30 && day>0){
+				if(day<=60 && day>0){
 					paiedCustomerVO.setEndDateColor("#ff9a00");
 				}
 				if(leftTimes <=5 && leftTimes >0){
