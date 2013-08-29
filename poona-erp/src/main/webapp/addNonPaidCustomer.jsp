@@ -9,7 +9,7 @@
 <form id="addNonPaidForm" method="post">
 <table style="width:100%">
   <tr>
-  <td>姓名</td> <td><input type="text" id="name" name="name" onchange="checkName()"/>*</td>
+  <td>姓名</td> <td><input type="text" id="name" name="name" onblur="checkName()"/>*</td>
   </tr>
    <tr>
   <td>性别</td> 
@@ -22,19 +22,19 @@
   </td>
   </tr>
   <tr>
-  <td>国籍</td> <td><input type="text" id="nationality"  name="nationality" value="中国"/>*</td>
+  <td>国籍</td> <td><input type="text" id="nationality"  name="nationality" value="中国"/></td>
   </tr>
   <tr>
   <td>手机</td> <td><input type="text" id="mobilePhone"  name="mobilePhone" />*</td>
   </tr>
   <tr>
-  <td>固定电话</td> <td><input type="text" id="deskPhone"  name="deskPhone" />*</td>
+  <td>固定电话</td> <td><input type="text" id="deskPhone"  name="deskPhone" /></td>
   </tr>
     <tr>
-  <td>职业</td> <td><input type="text" id="career"  name="career" />*</td>
+  <td>职业</td> <td><input type="text" id="career"  name="career" /></td>
   </tr>
     <tr>
-  <td>公司</td> <td><input type="text" id="company"  name="company" />*</td>
+  <td>公司</td> <td><input type="text" id="company"  name="company" /></td>
   </tr>
   <tr>
   <td>地址</td> <td><input type="text" id="address"  name="address"/>*</td>

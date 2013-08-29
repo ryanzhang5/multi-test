@@ -13,7 +13,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.168.37.133:3306/poona?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="url" value="jdbc:mysql://192.168.37.137:3306/poona?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 		<property name="initialSize" value="5" />
@@ -31,6 +31,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 				<value>com.hduo.pojo.Doc</value>
 				<value>com.hduo.pojo.PracticeRecord</value>
 				<value>com.hduo.pojo.Cost</value>
+				<value>com.hduo.pojo.BackEndUser</value>
+				<value>com.hduo.pojo.BackEndRole</value>
+				<value>com.hduo.pojo.BackEndResource</value>
 			</list>
 		</property>
 
@@ -64,6 +67,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="customerDao" class="org.hduo.dao.CustomerDao" parent="dao" />
 	<bean id="docDao" class="org.hduo.dao.DocDao" parent="dao" />
 	<bean id="costDao" class="org.hduo.dao.CostDao" parent="dao" />
+	
+	<bean id="backEndResourceDao" class="org.hduo.dao.BackEndResourceDao" parent="dao" />
+	<bean id="backEndRoleDao" class="org.hduo.dao.BackEndRoleDao" parent="dao" />
+	<bean id="backEndUserDao" class="org.hduo.dao.BackEndUserDao" parent="dao" />
 	<!-- manager -->
 	<bean id="cardManager" class="com.hduo.manager.CardManagerImpl">
 		<property name="cardDao" ref="cardDao" />
@@ -77,6 +84,17 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="docManager" class="com.hduo.manager.DocManagerImpl">
 		<property name="docDao" ref="docDao" />
 	</bean>
+	
+	<bean id="backEndResourceManager" class="com.hduo.manager.BackEndResourceManagerImpl">
+		<property name="backEndResourceDao" ref="backEndResourceDao" />
+	</bean>
+	<bean id="backEndRoleManager" class="com.hduo.manager.BackEndRoleManagerImpl">
+		<property name="backEndRoleDao" ref="backEndRoleDao" />
+	</bean>
+	<bean id="backEndUserManager" class="com.hduo.manager.BackEndUserManagerImpl">
+		<property name="backEndUserDao" ref="backEndUserDao" />
+	</bean>
+	
 	<!-- action -->
 	<bean id="cardAction" class="com.hduo.action.CardAction" scope="prototype">
 		<property name="cardManager" ref="cardManager" />
@@ -92,5 +110,18 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="customerManager" ref="customerManager" />
 		<property name="cardManager" ref="cardManager" />
 	</bean>
+	
+	<bean id="backEndRoleAction" class="com.hduo.action.BackEndRoleAction"
+		scope="prototype">
+		<property name="backEndRoleManager" ref="backEndRoleManager" />
+		<property name="backEndResourceManager" ref="backEndResourceManager" />
+	</bean>
+	
+	<bean id="backEndUserAction" class="com.hduo.action.BackEndUserAction"
+		scope="prototype">
+		<property name="backEndRoleManager" ref="backEndRoleManager" />
+		<property name="backEndUserManager" ref="backEndUserManager" />
+	</bean>
+	
 </beans>
 

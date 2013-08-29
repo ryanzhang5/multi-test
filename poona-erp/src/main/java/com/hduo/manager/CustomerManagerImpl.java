@@ -7,6 +7,8 @@ import org.hduo.dao.CustomerDao;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hduo.pojo.Customer;
+import com.hduo.pojo.NonPaiedCustomerVO;
+import com.hduo.pojo.PaiedCustomerVO;
 import com.hduo.pojo.PracticeRecord;
 import com.hduo.pojo.TrackItem;
 
@@ -35,6 +37,16 @@ public class CustomerManagerImpl implements CustomerManager {
 			}
 		}
 		return nonPaidCustomers;
+	}
+	
+	@Transactional
+	public List<NonPaiedCustomerVO> getNonPaidCustomers(String from,String to) {
+	return this.customerDao.getNonPaiedCustomer(from,to);
+	}
+	
+	@Transactional
+	public	List<PaiedCustomerVO> getPaidCustomers(String from, String to){
+		return this.customerDao.getPaidCustomers(from,to);
 	}
 
 	@Transactional

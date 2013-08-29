@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,29 @@
 var current_id ;
 
 $(document).ready(function () {
+	
+	$( "#non_paid_from" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 1,
+		 dateFormat:"yy-mm-dd",
+		onSelect: function( selectedDate ) {
+			$( "#non_paid_to" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	$( "#non_paid_to" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 1,
+		dateFormat:"yy-mm-dd",
+		onSelect: function( selectedDate ) {
+			$( "#non_paid_from" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
+	
+	
+	
+	
 	$( "#add_new_div" ).dialog({
 		autoOpen: false,
 		 height: 600,
@@ -217,7 +241,6 @@ function buyCard(id){
 }
 function checkName(){
 	var name=$("#name").val();
-	if(name==''){alert("请输入卡片名称!!");$("#name").focus();}
 	  $.ajax({
           type: "post",
           url: "checkCustomer.action",
@@ -228,13 +251,15 @@ function checkName(){
           }); 
 }
 function validateForm(){
+	var name=$("#name").val();
+	if(name==''){alert("请输入姓名!!"); return false;}
 	var mobilePhone=$("#mobilePhone").val();
 	if(mobilePhone==""){
-		  alert("请输入电话!!");
+		  alert("请输入手机号码!!");
 		  return false;
 	  }
 	 if(isNaN(mobilePhone)){
-		  alert("请输入格式正确的电话信息!!");
+		  alert("请输入格式正确的手机号码!!");
 		  return false;
 	  }
 		var address=$("#address").val();
@@ -296,6 +321,16 @@ function deleteNonPaidCustomer(){
 	 }
 }
 
+function searchNonPaid() {
+	var costFrom = $("#non_paid_from").val();
+	var costTo = $("#non_paid_to").val();
+	if(costFrom == "" || costTo == ""){
+		alert("请输入开始和结束日期");
+		return;
+	}
+	$("#content").load('getNonPaiedCustomers.action?nonPaidFrom='+costFrom+"&nonPaidTo="+costTo);
+}
+
 </script>
  <style>
   label {
@@ -305,18 +340,40 @@ function deleteNonPaidCustomer(){
   </style>
 </head>
 <body>
-<ul class="breadcrumb">
-		<li><a href="#">首页</a> <span class="divider">/</span></li>
-		<li class="active">意向用户管理</li>
-</ul>
-<div class="pull-right">
+<div style="background-color:#f5f5f5">
+<table style="width:100%">
+	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+	<tr>
+		<td>首页/意向用户管理</td>
+		<td align="right">
+		
+		 创建日期从<input type="text"  id="non_paid_from" value='<s:property value="nonPaidFrom" />' name="non_paid_from"/>到<input  value='<s:property value="nonPaidTo" />' type="text" id="non_paid_to" name="non_paid_to"/>
+	    <a class="btn btn-primary" onclick="searchNonPaid()">查询</a>
+		
+		<sec:authorize url="/toAddCustomer.action">
 		<a class="btn btn-primary" onclick="addNew()">添加意向客户</a>
+		</sec:authorize>
+		<sec:authorize url="/deleteCustomer.action">
 		<a class="btn btn-primary"  onclick="deleteNonPaidCustomer()">删除</a>
+		</sec:authorize>
+		<sec:authorize url="/toUpdateNonPaidCustomer.action">
 		<a class="btn  btn-primary"onclick="updateItem()">修改信息</a>
+		</sec:authorize>
+		<sec:authorize url="/getTrackItems.action">
 		<a class="btn  btn-primary" onclick="checkTrack()">查看跟踪</a>
+		</sec:authorize>
+		<sec:authorize url="/toAddTrack.action">
 		<a class="btn  btn-primary" onclick="addTrack()">添加跟踪</a>
+		</sec:authorize>
+		<sec:authorize url="/toBuyCard.action">
 		<a class="btn  btn-primary" onclick="buyCard()">客户买卡</a>
-	</div>
+		</sec:authorize>
+		</td>
+	</tr>
+	
+</table>
+
+</div>	
 <form name="cardForm" id="cardForm"  action="saveCards" method="post">
 <table class="table table-bordered  table-striped table-hover">
   <thead>
@@ -327,10 +384,8 @@ function deleteNonPaidCustomer(){
 	  <th class="nowraptd">性别</th>
       <th class="nowraptd">手机</th>
       <th class="nowraptd">固定电话</th>
-      <th class="nowraptd">职务</th>
-      <th class="nowraptd">公司</th>
-      <th class="nowraptd">国籍</th>
       <th class="nowraptd">地址</th>
+       <th class="nowraptd">创建日期</th>
       <th class="nowraptd">跟踪次数</th>
       <th class="wraptd">备注</th>
     </tr>
@@ -348,11 +403,9 @@ function deleteNonPaidCustomer(){
      </td>
      <td><s:property value="mobilePhone"/></td>
      <td><s:property value="deskPhone"/></td>
-     
-     <td><s:property value="career"/></td>
-     <td><s:property value="company"/></td>
-     <td><s:property value="nationality"/></td>
+
      <td><s:property value="address"/></td>
+     <td nowrap="nowrap"><s:property value="createDate"/></td>
      <td><s:property value="trackTimes"/></td>
      <td><s:property value="comments"/></td>
    </tr>

@@ -5,7 +5,7 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default,json-default">
 
 		<!-- <global-results> <result name="error">/error.jsp</result> </global-results> -->
 
@@ -176,10 +176,10 @@
 		</action>
 
 		<action name="addDoc" class="docAction" method="addDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
+			<param name="realDocPath">C:\Tomcat 6.0\poona-files</param>
 		</action>
 		<action name="download" class="docAction" method="downloadDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
+			<param name="realDocPath">C:\Tomcat 6.0\poona-files</param>
 			<result type="stream">
 				<param name="contentType">application/octet-stream</param>
 				<param name="inputName">inputStream</param>
@@ -189,7 +189,7 @@
 		</action>
 
 		<action name="deleteDoc" class="docAction" method="deleteDoc">
-			<param name="realDocPath">E:\apache-tomcat-6.0.37\poona-files</param>
+			<param name="realDocPath">C:\Tomcat 6.0\poona-files</param>
 			<result type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -222,5 +222,91 @@
 		</action>
 		
 		
+		<action name="checkUser" class="backEndUserAction" method="checkUser">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="checkUserExist" class="backEndUserAction" method="checkUserExist">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="getAllUser" class="backEndUserAction" method="getAllUser">
+			<result name="success">allUser.jsp</result>
+		</action>
+		<action name="toAddUser" class="backEndUserAction" method="toAddUser">
+			<result name="success">toAddUser.jsp</result>
+		</action>
+		<action name="toResetPassword" class="backEndUserAction" method="toResetPassword">
+			<result name="success">toResetPassword.jsp</result>
+		</action>
+		<action name="resetPassword" class="backEndUserAction" method="resetPassword">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="saveUser" class="backEndUserAction" method="saveUser">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="deleteUser" class="backEndUserAction" method="deleteUser">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="toAssignDepartment" class="backEndUserAction" method="toAssignDepartment">
+			<result name="success">toAssignDepartment.jsp</result>
+		</action>
+		
+		<action name="assignDepartment" class="backEndUserAction" method="assignDepartment">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		
+		
+		
+		<action name="getAllRole" class="backEndRoleAction" method="getAllRole">
+			<result name="success">allRole.jsp</result>
+		</action>
+		<action name="toAddRole" class="backEndRoleAction" method="toAddRole">
+			<result name="success">toAddRole.jsp</result>
+		</action>
+		
+		<action name="saveRole" class="backEndRoleAction" method="saveRole">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="deleteRole" class="backEndRoleAction" method="deleteRole">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<action name="getAllResource" class="backEndRoleAction" method="getAllResource">
+			<result name="success">allResource.jsp</result>
+		</action>
+		<action name="roleAuthorize" class="backEndRoleAction" method="roleAuthorize">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		
+		
 	</package>
+	
 </struts>

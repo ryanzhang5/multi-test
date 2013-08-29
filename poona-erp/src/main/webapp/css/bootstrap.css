@@ -4367,7 +4367,7 @@ input[type="submit"].btn.btn-mini {
 .navbar {
   *position: relative;
   *z-index: 2;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   overflow: visible;
 }
 
@@ -4597,11 +4597,11 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav {
   position: relative;
-  left: 0;
   display: block;
-  float: left;
-  margin: 0 10px 0 0;
-}
+   /* left: 0; */
+  /* float: left; */
+  margin: 0 auto;
+ }
 
 .navbar .nav.pull-right {
   float: right;

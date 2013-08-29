@@ -40,4 +40,10 @@ public class Utils {
 		return dateToString(from);
 	}
 	
+	public static String firstDayOfMonth(){
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		String dateString =df.format(new Date());
+		return dateString.substring(0,dateString.lastIndexOf("-")) + "-1";
+	}
+	
 }

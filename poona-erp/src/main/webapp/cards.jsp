@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,15 +154,23 @@
 
 </head>
 <body>
-<div>
-	<ul class="breadcrumb">
-		<li><a href="#">首页</a> <span class="divider">/</span></li>
-		<li class="active">卡片管理</li>
-	</ul>
-	<div class="pull-right">
+<div style="background-color:#f5f5f5">
+<table style="width:100%">
+	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+	<tr>
+		<td>首页/卡片管理</td>
+		<td align="right">
+		<sec:authorize url="/toAddCard.action">
 		<a class="btn btn-primary" onclick="addNewCard()">添加</a>
+		</sec:authorize>
+		<sec:authorize url="/deleteCard.action">
 		<a class="btn btn-primary" onclick="deleteCard()">删除</a>
-	</div>
+		</sec:authorize>
+		</td>
+	</tr>
+	
+</table>
+
 </div>				
 	<form name="cardForm" id="cardForm" action="saveCards" method="post">
 		<table class="table table-bordered  table-striped table-hover">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,25 @@
 var current_id ;
 
 $(document).ready(function () {
+	
+	$( "#paid_from" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 1,
+		 dateFormat:"yy-mm-dd",
+		onSelect: function( selectedDate ) {
+			$( "#paid_to" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	$( "#paid_to" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 1,
+		dateFormat:"yy-mm-dd",
+		onSelect: function( selectedDate ) {
+			$( "#paid_from" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
 	
 	$( "#update_customer_div" ).dialog({
 		 autoOpen: false,
@@ -235,21 +255,51 @@ function deleteCustomer(){
 	 }
 }
 
+
+function searchPaid() {
+	var costFrom = $("#paid_from").val();
+	var costTo = $("#paid_to").val();
+	if(costFrom == "" || costTo == ""){
+		alert("请输入开始和结束日期");
+		return;
+	}
+	$("#content").load('getPaiedCustomers.action?paidFrom='+costFrom+"&paidTo="+costTo);
+}
 </script>
 
 </head>
 <body>
-<ul class="breadcrumb">
-		<li><a href="#">首页</a> <span class="divider">/</span></li>
-		<li class="active">已办卡用户管理</li>
-</ul>
-<div class="pull-right">
+<div style="background-color:#f5f5f5">
+<table style="width:100%">
+	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+	<tr>
+		<td>首页/已办卡用户管理</td>
+		<td align="right">
+		 办卡日期从<input type="text"  id="paid_from" value='<s:property value="paidFrom" />' />到<input  value='<s:property value="paidTo" />' type="text" id="paid_to" />
+	    <a class="btn btn-primary" onclick="searchPaid()">查询</a>
+		<sec:authorize url="/toUpdatePaidCustomer.action">
 		<a class="btn  btn-primary" onclick="updateCustomer()">修改剩余次数</a>
+		</sec:authorize>
+		<sec:authorize url="/toUpdatePaidCustomerComment.action">
 		<a class="btn  btn-primary" onclick="updateCustomerComment()">修改用户备注</a>
+		</sec:authorize>
+		<sec:authorize url="/toAddPracticeRecord.action">
 		<a class="btn  btn-primary" onclick="addPractice()">添加上课记录</a>
+		</sec:authorize>
+		<sec:authorize url="/check_customer_practice.action">
 		<a class="btn  btn-primary" onclick="checkPractice()">查看上课记录</a>
+		</sec:authorize>
+		<sec:authorize url="/getPaiedCustomerDetail.action">
 		<a class="btn btn-primary"  onclick="customerDetail()">客户详情</a>
+		</sec:authorize>
+		<sec:authorize url="/deleteCustomer.action">
 		<a class="btn btn-primary"  onclick="deleteCustomer()">删除</a>
+		</sec:authorize>
+		</td>
+	</tr>
+	
+</table>
+
 </div>
 <form name="cardForm" id="cardForm"  action="saveCards" method="post">
 <table class="table table-bordered  table-striped table-hover">
@@ -277,12 +327,12 @@ function deleteCustomer(){
             <s:property value="#listStatus.index+1"/>
     </td>
     <td><s:property value="name"/></td>
-    <td><s:property value="card.cardName"/></td>
+    <td><s:property value="cardName"/></td>
     <td><s:property value="realPay"/></td>
     <td style="background-color:<s:property value='leftTimeColor'/> ">
-    <s:if test="card.cardType==1">&nbsp;&nbsp;&nbsp;&nbsp;</s:if>
-    <s:if test="card.cardType==2"><s:property value="leftTimes"/></s:if>
-    <s:if test="card.cardType==3"><s:property value="leftTimes"/></s:if>
+    <s:if test="cardType==1">&nbsp;&nbsp;&nbsp;&nbsp;</s:if>
+    <s:if test="cardType==2"><s:property value="leftTimes"/></s:if>
+    <s:if test="cardType==3"><s:property value="leftTimes"/></s:if>
     </td>
     <td><s:date name="from" format="yyyy-MM-dd" /></td>
     <td style="background-color:<s:property value='endDateColor'/> "><s:date name="to" format="yyyy-MM-dd" /></td>

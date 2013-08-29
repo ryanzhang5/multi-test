@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +64,9 @@ function deleteDoc(id) {
 					<th>行号</th>
 					<th>文件名</th>
 					<th></th>
+					<sec:authorize url="/deleteDoc.action">
 					<th></th>
+					</sec:authorize>
 				</tr>
 			</thead>
 			<tbody>
@@ -74,7 +77,11 @@ function deleteDoc(id) {
 								value="#listStatus.index+1" /></td>
 						<td><s:property value="fileName" /></td>
 						<td><a href='download.action?fileName=<s:property value="fileName" />'>下载</a> </td>
-						<td><a class="btn btn-primary" onclick="deleteDoc(<s:property value="id"/>)">删除</a></td>
+						<sec:authorize url="/deleteDoc.action">
+						<td>
+						<a class="btn btn-primary" onclick="deleteDoc(<s:property value="id"/>)">删除</a>
+						</td>
+						</sec:authorize>
 								
 						
 					</tr>

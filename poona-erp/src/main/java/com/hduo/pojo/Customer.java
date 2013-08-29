@@ -88,7 +88,12 @@ public class Customer {
 	@Column(name = "desk_phone")
 	private String deskPhone;
 	
+	@Column(name = "creator")
+	private String creator;
 	
+	
+	@Column(name = "create_date")
+	private Date createDate;
 
 	public Customer() {
 	}
@@ -255,4 +260,22 @@ public class Customer {
 		this.deskPhone = deskPhone;
 	}
 
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	
+	
 }

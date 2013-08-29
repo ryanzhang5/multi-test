@@ -14,6 +14,8 @@ public class NonPaiedCustomerVO {
 	private String deskPhone;
 
 	private String latestTrack;
+	
+	private String createDate;
 
 	private String comments;
 
@@ -111,6 +113,14 @@ public class NonPaiedCustomerVO {
 
 	public void setLatestTrack(String latestTrack) {
 		this.latestTrack = latestTrack;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 
 }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+						http://www.springframework.org/schema/security
+          				http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+		<security:filter-chain-map path-type="ant">
+		<security:filter-chain pattern="/*.css"	filters="none" />
+		<security:filter-chain pattern="/*.js"	filters="none" />
+		
+		<security:filter-chain pattern="/login.jsp"	filters="securityContextPersistenceFilter" />
+		<security:filter-chain pattern="/index.jsp"	filters="securityContextPersistenceFilter,authenticationFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+		<security:filter-chain pattern="/checkUser.action"	filters="none" />
+		<security:filter-chain pattern="/j_spring_security_logout"	filters="securityContextPersistenceFilter,logoutFilter" />
+				
+		<security:filter-chain pattern="/j_spring_security_check" 	filters="securityContextPersistenceFilter,authenticationFilter" />
+		
+		<!-- functions don't need to consider -->
+        <security:filter-chain pattern="/updatePaidCustomer.action"	filters="none" />
+        <security:filter-chain pattern="/updatePaidCustomerComment.action"	filters="none" />
+        <security:filter-chain pattern="/addPracticeRecord.action"	filters="none" />
+        <security:filter-chain pattern="/deleteCustomer.action"	filters="none" />
+        
+        <security:filter-chain pattern="/saveCustomer.action"	filters="none" />
+        <security:filter-chain pattern="/checkCustomer.action"	filters="none" />
+        <security:filter-chain pattern="/deleteCustomer.action"	filters="none" />
+        <security:filter-chain pattern="/updateCustomer.action"	filters="none" />
+        <security:filter-chain pattern="/addTrack.action"	filters="none" />
+        <security:filter-chain pattern="/buyCard.action"	filters="none" />
+        <security:filter-chain pattern="/saveCards.action"	filters="none" />
+        <security:filter-chain pattern="/deleteCard.action"	filters="none" />
+        
+        <security:filter-chain pattern="/deleteDoc.action"	filters="none" />
+        <security:filter-chain pattern="/deleteCost.action"	filters="none" />
+        <security:filter-chain pattern="/saveCost.action"	filters="none" />
+        <security:filter-chain pattern="/saveUser.action"	filters="none" />
+        <security:filter-chain pattern="/checkUserExist.action"	filters="none" />
+        
+        <security:filter-chain pattern="/deleteUser.action"	filters="none" />
+        <security:filter-chain pattern="/resetPassword.action"	filters="none" />
+        <security:filter-chain pattern="/assignDepartment.action"	filters="none" />
+        <security:filter-chain pattern="/saveRole.action"	filters="none" />
+        <security:filter-chain pattern="/deleteRole.action"	filters="none" />
+       <security:filter-chain pattern="/roleAuthorize.action"	filters="none" />
+		
+			<security:filter-chain pattern="/*.action"
+				filters="securityContextPersistenceFilter,authenticationFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+
+		</security:filter-chain-map>
+	</bean>
+	<bean id="filterSecurityInterceptor"
+		class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="accessDecisionManager" ref="accessDecisionManager" />
+		<property name="securityMetadataSource">
+			<security:filter-security-metadata-source>
+				<security:intercept-url pattern="/**" access="ROLE_USER" />
+			</security:filter-security-metadata-source>
+		</property>
+	</bean> 
+	<!-- exceptionTranslationFilter -->
+	<bean id="exceptionTranslationFilter"
+		class="org.springframework.security.web.access.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+		<property name="accessDeniedHandler" ref="accessDeniedHandler" />
+	</bean>
+	<bean id="authenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/login.jsp" />
+	</bean>
+	<bean id="accessDeniedHandler"
+		class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/login.jsp" />
+	</bean>
+
+	<!-- securityContextPersistenceFilter -->
+	<bean id="securityContextPersistenceFilter"
+		class="org.springframework.security.web.context.SecurityContextPersistenceFilter" >
+		</bean>
+
+	<!-- authenticationFilter -->
+	<bean id="authenticationFilter"
+		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="filterProcessesUrl" value="/j_spring_security_check" />
+	</bean>
+
+
+	<!-- Core Service -->
+	<bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+	<bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService" />
+	</bean>
+	<bean id="userDetailsService" class="com.hduo.manager.UserDetailServiceImpl">
+		<property name="userDao" ref="backEndUserDao"></property>
+	</bean>
+	<bean id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+		<property name="decisionVoters">
+			<list>
+				<bean class="com.poona.security.AccessDecisionVoter">
+					<!-- enabled为false将禁用当前投票 -->
+					<property name="enabled" value="true" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<!-- the post-logout destination -->
+		<constructor-arg value="/login.jsp" />
+		<constructor-arg>
+			<array>
+				<ref local="logoutHandler" />
+			</array>
+		</constructor-arg>
+	</bean>
+	<bean id="logoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+	
+	
+	<!-- spring安全标签 -->
+	<bean id="customWebInvocationPrivilegeEvaluator"
+		class="org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator">
+		<constructor-arg name="securityInterceptor" ref="filterSecurityInterceptor" />
+	</bean>
+</beans>

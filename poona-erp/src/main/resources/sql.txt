@@ -1,0 +1,42 @@
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10000,'已办卡客户管理','/getPaiedCustomers.action', 10000,0,'');
+
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10001,'修改剩余次数','/toUpdatePaidCustomer.action', 10001,10000,'');
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10002,'修改用户备注','/toUpdatePaidCustomerComment.action', 10002,10000,'');
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10003,'添加上课记录','/toAddPracticeRecord.action', 10003,10000,'');
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10004,'查看上课记录','/check_customer_practice.action', 10004,10000,'');
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10005,'客户详情','/getPaiedCustomerDetail.action',    10005,10000,'');
+  insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (10006,'删除','/deleteCustomer.action',       10006,10000,'');
+  
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20000,'意向客户管理','/getNonPaiedCustomers.action',  20000,0,'');
+
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20001,'添加意向客户','/toAddCustomer.action',  20001,20000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20002,'删除','/deleteCustomer.action',       20002,20000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20003,'修改信息','/toUpdateNonPaidCustomer.action',    20003,20000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20004,'查看跟踪','/getTrackItems.action',    20004,20000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20005,'添加跟踪','/toAddTrack.action',    20005,20000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (20006,'客户买卡','/toBuyCard.action',    20006,20000,'');
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (30000,'卡片管理','/getAllCards.action',     30000,0,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (30001,'添加','/toAddCard.action',    30001,30000,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (30002,'删除','/deleteCard.action',    30002,30000,'');
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (40000,'文档管理','/getAllDocs.action',     40000,0,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (50000,'开支管理','/getAllCosts.action',     50000,0,'');
+
+
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60000,'后台管理','/getAllUser.action',     60000,0,'');
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60100,'用户管理','/getAllUser.action',     60100,60000,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60101,'添加','/toAddUser.action',     60101,60100,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60102,'删除','/deleteUser.action',     60102,60100,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60103,'分配部门','/toAssignDepartment.action',     60103,60100,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60104,'重置密码','/toResetPassword.action',     60104,60100,'');
+
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60200,'部门管理','/getAllRole.action',     60200,60000,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60201,'添加','/toAddRole.action',     60201,60200,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60202,'删除','/deleteRole.action',     60202,60200,'');
+	insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (60203,'分配权限','/getAllResource.action',     60203,60200,'');
+	
+insert into back_end_resource (id,resource_name,resource_url,resource_number,parent_id,comment) values (70000,'首页','/index.jsp',     70000,0,'');	

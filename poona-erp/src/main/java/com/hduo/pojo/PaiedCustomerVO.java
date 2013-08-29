@@ -2,6 +2,8 @@ package com.hduo.pojo;
 
 import java.util.Date;
 
+import org.springframework.web.bind.annotation.InitBinder;
+
 public class PaiedCustomerVO {
 	private Long id;
 	private String name;
@@ -13,7 +15,10 @@ public class PaiedCustomerVO {
 	private int leftTimes;
 	private float realPay;
 	private String comments;
-	private Card card;
+
+	private int cardType;
+	private String cardNumber;
+	private String cardName;
 
 	private String sex;// female 0,male 1
 	private String nationality;
@@ -104,14 +109,6 @@ public class PaiedCustomerVO {
 		this.comments = comments;
 	}
 
-	public Card getCard() {
-		return card;
-	}
-
-	public void setCard(Card card) {
-		this.card = card;
-	}
-
 	public String getSex() {
 		return sex;
 	}
@@ -126,6 +123,14 @@ public class PaiedCustomerVO {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+
+	public String getCardName() {
+		return cardName;
+	}
+
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
 	}
 
 	public String getCompany() {
@@ -166,6 +171,22 @@ public class PaiedCustomerVO {
 
 	public void setEndDateColor(String endDateColor) {
 		this.endDateColor = endDateColor;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public int getCardType() {
+		return cardType;
+	}
+
+	public void setCardType(int cardType) {
+		this.cardType = cardType;
 	}
 
 }

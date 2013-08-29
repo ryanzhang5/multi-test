@@ -37,52 +37,49 @@ public class CustomerAction extends ActionSupport {
 	private CardManager cardManager;
 	private List<Card> cards;
 	private List<PracticeRecord> practiceRecords;
+	private String nonPaidFrom;
+	private String nonPaidTo;
+	
+	private String paidFrom;
+	private String paidTo;
 
 	public String getPaiedCustomer() {
 		try {
-			customers = customerManager.getPaidCustomers();
-			paidCustomers = new ArrayList<PaiedCustomerVO>();
-			PaiedCustomerVO paiedCustomerVO = null;
-			for (Customer customer : customers) {
-
-				paiedCustomerVO = new PaiedCustomerVO();
-
-				paiedCustomerVO.setId(customer.getId());
-				paiedCustomerVO.setName(customer.getName());
-				paiedCustomerVO.setAddress(customer.getAddress());
-				paiedCustomerVO.setMobilePhone(customer.getMobilePhone());
-				paiedCustomerVO.setComments(customer.getComments());
-				paiedCustomerVO.setFrom(customer.getFrom());
-				paiedCustomerVO.setTo(customer.getTo());
-				paiedCustomerVO.setLeftTimes(customer.getLeftTimes());
-				paiedCustomerVO.setBuyTimes(customer.getBuyTimes());
-				paiedCustomerVO.setRealPay(customer.getRealPay());
-				paiedCustomerVO.setCard(customer.getCard());
-
-				paiedCustomerVO.setSex(customer.getSex());
-				paiedCustomerVO.setNationality(customer.getNationality());
-				paiedCustomerVO.setCompany(customer.getCompany());
-				paiedCustomerVO.setCareer(customer.getCareer());
-				paiedCustomerVO.setDeskPhone(customer.getDeskPhone());
+			HttpServletRequest request = ServletActionContext.getRequest();
+			  SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+			paidFrom = request.getParameter("paidFrom");
+			paidTo = request.getParameter("paidTo");
+				if(paidFrom == null || paidTo == null){
+					paidFrom = Utils.firstDayOfMonth();
+					 paidTo = df.format(new Date());
+				}
+			
+			paidCustomers = customerManager.getPaidCustomers(paidFrom, paidTo);
+			for (PaiedCustomerVO item : paidCustomers) {
 				
-				int leftTimes = paiedCustomerVO.getLeftTimes();
-				Date to = paiedCustomerVO.getTo();
+				int leftTimes = item.getLeftTimes();
+				Date to = item.getTo();
 				long milliSecondSub = to.getTime()-System.currentTimeMillis();
 				int day =0;
 				if(milliSecondSub >0){
 					day =(int)( milliSecondSub/(1000*60*60*24));
 				}
 				if(day<=60 && day>0){
-					paiedCustomerVO.setEndDateColor("#ff9a00");
+					item.setEndDateColor("#ff9a00");
 				}
 				if(leftTimes <=5 && leftTimes >0){
-					paiedCustomerVO.setLeftTimeColor("#ff9a00");
+					item.setLeftTimeColor("#ff9a00");
 				}
-				paidCustomers.add(paiedCustomerVO);
+				
+				if(milliSecondSub <=0 ){
+					item.setEndDateColor("#ff0000");
+				}
+				if(leftTimes <=0){
+					item.setLeftTimeColor("ff0000");
+				}
 			}
 			cards = cardManager.getAllCards();
-			logger.info("----------getPaiedCustomer-----------"
-					+ paidCustomers.size());
+			logger.info("----------getPaiedCustomer-----------"+ paidCustomers.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -97,44 +94,31 @@ public class CustomerAction extends ActionSupport {
 	}
 
 	public String getNonPaidCustomer() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		nonPaidFrom = request.getParameter("nonPaidFrom");
+		nonPaidTo = request.getParameter("nonPaidTo");
 		  SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
-		 
-		customers = customerManager.getNonPaidCustomers();
-		nonPaidCustomers = new ArrayList<NonPaiedCustomerVO>();
-		NonPaiedCustomerVO nonPaiedCustomerVO = null;
-		for (Customer customer : customers) {
-
-			nonPaiedCustomerVO = new NonPaiedCustomerVO();
-
-			nonPaiedCustomerVO.setId(customer.getId());
-			nonPaiedCustomerVO.setName(customer.getName());
-			nonPaiedCustomerVO.setAddress(customer.getAddress());
-			nonPaiedCustomerVO.setMobilePhone(customer.getMobilePhone());
-			nonPaiedCustomerVO.setComments(customer.getComments());
-			nonPaiedCustomerVO.setTrackTimes(customer.getTrackItems().size());
-
-			nonPaiedCustomerVO.setSex(customer.getSex());
-			nonPaiedCustomerVO.setNationality(customer.getNationality());
-			nonPaiedCustomerVO.setCompany(customer.getCompany());
-			nonPaiedCustomerVO.setCareer(customer.getCareer());
-			nonPaiedCustomerVO.setDeskPhone(customer.getDeskPhone());
-			
-			trackItemList = customerManager.getTrackItemByCustomerId(customer.getId());
-			if(trackItemList.size() >0){
-				TrackItem trackItem = trackItemList.get(0);
-				System.out.println("------------___________+++++++++++++++================="+ trackItem.getTrackDate() + "   "  + trackItem.getComment());
-				if(trackItem.getComment() != null){
-					nonPaiedCustomerVO.setLatestTrack(df.format(trackItem.getTrackDate()) + " " + trackItem.getComment());
-				}else {
-					nonPaiedCustomerVO.setLatestTrack(df.format(trackItem.getTrackDate())+ "  no track item");
-				}
-			}else {
-				
+			if(nonPaidFrom == null || nonPaidTo == null){
+				 nonPaidFrom = Utils.firstDayOfMonth();
+				 nonPaidTo = df.format(new Date());
 			}
-			nonPaidCustomers.add(nonPaiedCustomerVO);
-		}
-		logger.info("---------------------" + nonPaidCustomers.size());
-		return SUCCESS;
+			nonPaidCustomers = customerManager.getNonPaidCustomers(nonPaidFrom,nonPaidTo);
+			for (NonPaiedCustomerVO nonPaiedCustomerVO2 : nonPaidCustomers) {
+				
+				trackItemList = customerManager.getTrackItemByCustomerId(nonPaiedCustomerVO2.getId());
+				if(trackItemList.size() >0){
+					TrackItem trackItem = trackItemList.get(0);
+					if(trackItem.getComment() != null){
+						nonPaiedCustomerVO2.setLatestTrack(df.format(trackItem.getTrackDate()) + " " + trackItem.getComment());
+					}else {
+						nonPaiedCustomerVO2.setLatestTrack(df.format(trackItem.getTrackDate())+ "  no track item");
+					}
+				}else {
+					
+				}
+			}
+			logger.info("---------------------" + nonPaidCustomers.size());
+			return SUCCESS;
 	}
 
 	public String checkCustomerPractice() {
@@ -216,7 +200,7 @@ public class CustomerAction extends ActionSupport {
 			customer.setCompany(company);
 			customer.setNationality(nationality);
 			customer.setSex(sex);
-
+			customer.setCreateDate(new Date());
 			TrackItem item = new TrackItem();
 			item.setTrackDate(new Date());
 			customer.getTrackItems().add(item);
@@ -534,4 +518,40 @@ public class CustomerAction extends ActionSupport {
 	public List<PracticeRecord> getPracticeRecords() {
 		return practiceRecords;
 	}
+
+	public String getNonPaidFrom() {
+		return nonPaidFrom;
+	}
+
+	public void setNonPaidFrom(String nonPaidFrom) {
+		this.nonPaidFrom = nonPaidFrom;
+	}
+
+	public String getNonPaidTo() {
+		return nonPaidTo;
+	}
+
+	public void setNonPaidTo(String nonPaidTo) {
+		this.nonPaidTo = nonPaidTo;
+	}
+
+	public String getPaidFrom() {
+		return paidFrom;
+	}
+
+	public void setPaidFrom(String paidFrom) {
+		this.paidFrom = paidFrom;
+	}
+
+	public String getPaidTo() {
+		return paidTo;
+	}
+
+	public void setPaidTo(String paidTo) {
+		this.paidTo = paidTo;
+	}
+
+	
+	
+	
 }
