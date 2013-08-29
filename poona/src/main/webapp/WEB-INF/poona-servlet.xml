@@ -22,7 +22,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
 		
-	<mvc:view-controller path="/" view-name="redirect:/index.html"/>
+	<!-- <mvc:view-controller path="/" view-name="redirect:/index.html"/> -->
 	
 	<!-- 文件上传 -->
 	<bean id="multipartResolver"
