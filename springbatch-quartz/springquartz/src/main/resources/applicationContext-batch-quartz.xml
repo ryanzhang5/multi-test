@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+http://www.springframework.org/schema/tx  
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+http://www.springframework.org/schema/aop  
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+http://www.springframework.org/schema/context  
+http://www.springframework.org/schema/context/spring-context-2.5.xsd
+http://www.springframework.org/schema/batch 
+http://www.springframework.org/schema/batch/spring-batch-3.0.xsd"
+	default-autowire="byName">
+
+	<import resource="application-batch.xml" />
+
+	<bean id="myjob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="durability" value="true" />
+		<property name="jobClass" value="org.ms.springquartz.quartz.SpringQtz"></property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="service">
+					<value>simple is the beat2222222222</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="simpleTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="myjob" />
+		<property name="startDelay" value="0" />
+		<property name="repeatInterval" value="1000" />
+	</bean>
+	<bean id="startQuartz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger" />
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
