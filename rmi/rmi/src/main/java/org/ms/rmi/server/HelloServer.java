@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 
 public class HelloServer {
 	public static void main(String args[]) {
-
+http://www.javacodegeeks.com/2013/07/spring-jta-multiple-resource-transactions-in-tomcat-with-atomikos-example.html
 		try {
 			// 创建一个远程对象
 			IHello rhello = new HelloImpl();
