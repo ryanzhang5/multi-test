@@ -9,6 +9,7 @@ public class Server {
 		RoomService service = new RoomService();
 		List<Object> services = new ArrayList<Object>();
 		services.add(service);
+		services.add(new JsonService());
 		// Service instance
 		JAXRSServerFactoryBean restServer = new JAXRSServerFactoryBean();
 		restServer.setResourceClasses(Room.class, Person.class);

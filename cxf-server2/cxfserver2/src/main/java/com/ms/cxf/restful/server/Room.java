@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Room")
 public class Room {
 	public Room() {
+		
 		persons = new HashMap<String, Person>();
 	}
 
